@@ -68,7 +68,6 @@ You can use ```download_models.sh``` to download the models.
 The code can be run using the following command:
     
 ```
-CONFIG_NAMES=your_config_name python main_batch.py
+python main_batch.py
 ```
-```CONFIG_NAMES``` is an environment variable that specifies the configuration files to use.
 
