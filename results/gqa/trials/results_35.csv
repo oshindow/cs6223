@@ -1,0 +1,299 @@
+result,answer,code,test_code,id,query,img_path,possible_answers
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return bool_to_yesno(image_patch.exists(""cloud""))","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",201307251,Is it overcast?,data/images/n161313.jpg,"No, it is clear."
+Unknown,women,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    dress_patches = image_patch.find(""dress"")
+    if len(dress_patches) == 0:
+        return image_patch.simple_query(""Who is wearing the dress?"")
+    for dress_patch in dress_patches:
+        person_patches = image_patch.find(""person"")
+        for person_patch in person_patches:
+            if person_patch.simple_query(""Is the person wearing the dress?"") == ""yes"":
+                return person_patch.simple_query(""Who is wearing the dress?"")
+    return ""Unknown""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a person?"", long_answer=False) == 'yes', ""Expected output to be a person""
+    return result",201640614,Who is wearing the dress?,data/images/n235859.jpg,The women are wearing a dress.
+yes,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    utensil_patches = image_patch.find(""utensil"")
+    # Question assumes only one utensil patch
+    if len(utensil_patches) == 0:
+        # If no utensil is found, query the image directly
+        return image_patch.simple_query(""Does the utensil on top of the table look clean and black?"")
+    for utensil_patch in utensil_patches:
+        table_patches = image_patch.find(""table"")
+        for table_patch in table_patches:
+            if table_patch.upper > utensil_patch.upper:
+                return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",202225914,Does the utensil on top of the table look clean and black?,data/images/n336443.jpg,"No, the fork is clean but silver."
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    surfer_patches = image_patch.find(""surfer"")
+    # Question assumes only one surfer patch
+    if len(surfer_patches) == 0:
+        # If no surfer is found, query the image directly
+        return image_patch.simple_query(""Is the surfer that looks wet wearing a wetsuit?"")
+    for surfer_patch in surfer_patches:
+        is_wet = surfer_patch.simple_query(""Is the surfer that looks wet?"")
+        is_wearing_wetsuit = surfer_patch.simple_query(""Is the surfer wearing a wetsuit?"")
+        if is_wet == ""yes"" and is_wearing_wetsuit == ""yes"":
+            return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",2062325,Is the surfer that looks wet wearing a wetsuit?,data/images/n179136.jpg,"Yes, the surfer is wearing a wetsuit."
+short,short,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    chair_patches = image_patch.find(""chair"")
+    if len(chair_patches) == 0:
+        return image_patch.simple_query(""How tall is the chair in the bottom of the photo?"")
+    for chair_patch in chair_patches:
+        if chair_patch.vertical_center < image_patch.lower:
+            return ""tall""
+    return ""short""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['tall','short'], ""Expected output to be tall or short""
+    # Test case 2:
+    assert not any(char.isdigit() for char in result), ""Expected output to not have numbers""
+    return result",201303229,How tall is the chair in the bottom of the photo?,data/images/n518912.jpg,The chair is short.
+monitor,keyboard,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    device_patches = image_patch.find(""device"")
+    if len(device_patches) == 0:
+        return image_patch.simple_query(""What kind of device is on top of the desk?"")
+    for device_patch in device_patches:
+        if device_patch.upper < image_patch.upper / 2:
+            return ""laptop""
+        elif device_patch.lower > image_patch.lower / 2:
+            return ""monitor""
+        else:
+            return ""keyboard""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a kind of device?"", long_answer=False) == 'yes', ""Expected output to be a kind of device""
+    return result",201902997,What kind of device is on top of the desk?,data/images/n435808.jpg,The device is a keyboard.
+ocean,ocean,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    airplane_patches = image_patch.find(""airplane"")
+    if len(airplane_patches) == 0:
+        return image_patch.simple_query(""What is the airplane flying above?"")
+    for airplane_patch in airplane_patches:
+        above_patches = image_patch.find(""above"")
+        for above_patch in above_patches:
+            if above_patch.simple_query(""Is the airplane flying above?"") == ""yes"":
+                return above_patch.simple_query(""What is the airplane flying above?"")
+    return image_patch.simple_query(""What is the airplane flying above?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is '{result}' something that an airplane can fly above?"", long_answer=False) == 'yes', \
+        f""Expected output to describe a location or object that can be below an airplane, got '{result}'""
+    return result",20567512,What is the airplane flying above?,data/images/n414992.jpg,The plane is flying above the ocean.
+red,red,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""What color are the pants?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives options using """"or"""", the return values will be one of the options
+    valid_colors = ['red', 'blue', 'green', 'black', 'white']
+    if result not in valid_colors:
+        # Use llm_query to check if it's describing a color
+        is_color = llm_query(f""Is '{result}' a color name?"", long_answer=False)
+        assert is_color == 'yes', f""Expected a color name, got {result}""
+    return result",20136592,What color are the pants?,data/images/n446242.jpg,The pants are red.
+brown,brown,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""Is the ground blue or brown?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['blue', 'brown'], ""Expected output to be blue or brown""
+    return result",20602803,Is the ground blue or brown?,data/images/n168412.jpg,The ground is brown.
+curtains,drapes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""What is around the open window?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is '{result}' something that can be around a window?"", long_answer=False) == 'yes', ""Expected output to describe a location or object that can be around a window""
+    return result",201079951,What is around the open window?,data/images/n23181.jpg,The draperies are around the window.
+curtains,drapes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""What's around the window?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is '{result}' something that can be around a window?"", long_answer=False) == 'yes', ""Expected output to describe a location or object that can be around a window""
+    return result",201079952,What's around the window?,data/images/n23181.jpg,The draperies are around the window.
+people,woman,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find(""person"")
+    if len(person_patches) == 0:
+        return image_patch.simple_query(""Who is standing at the table?"")
+    for person_patch in person_patches:
+        if person_patch.simple_query(""Is the person standing at the table?"") == ""yes"":
+            return person_patch.simple_query(""Who is standing at the table?"")
+    return image_patch.simple_query(""Who is standing at the table?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a person?"", long_answer=False) == 'yes', ""Expected output to be a person""
+    return result",20982537,Who is standing at the table?,data/images/n52544.jpg,The woman is standing at the table.
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    bed_patches = image_patch.find(""bed"")
+    # Question assumes only one bed patch
+    if len(bed_patches) == 0:
+        # If no bed is found, query the image directly
+        return image_patch.simple_query(""Are there drapes to the right of the bed?"")
+    for bed_patch in bed_patches:
+        drapes_patches = image_patch.find(""drapes"")
+        for drapes_patch in drapes_patches:
+            if drapes_patch.horizontal_center > bed_patch.horizontal_center:
+                return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",201079958,Are there drapes to the right of the bed?,data/images/n23181.jpg,"Yes, there are drapes to the right of the bed."
+picture,picture,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""What is hanging above the chalkboard?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is '{result}' something that can hang above a chalkboard?"", long_answer=False) == 'yes', \
+        f""Expected output to describe an object that can hang above a chalkboard, got '{result}'""
+    return result",202218649,What is hanging above the chalkboard?,data/images/n578564.jpg,The picture is hanging above the chalkboard.
+yes,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    cake_patches = image_patch.find(""cake"")
+    # Question assumes only one cake patch
+    if len(cake_patches) == 0:
+        # If no cake is found, query the image directly
+        return image_patch.simple_query(""Is the cake on a platter?"")
+    for cake_patch in cake_patches:
+        platter_patches = image_patch.find(""platter"")
+        for platter_patch in platter_patches:
+            if platter_patch.horizontal_center > cake_patch.horizontal_center:
+                return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",20609782,Is the cake on a platter?,data/images/n437064.jpg,"No, the cake is on a plate."
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find(""person"")
+    cup_patches = image_patch.find(""cup"")
+    if len(person_patches) == 0 or len(cup_patches) == 0:
+        return image_patch.simple_query(""Is the person to the right of the cup wearing jeans?"")
+    for person_patch in person_patches:
+        for cup_patch in cup_patches:
+            if person_patch.horizontal_center > cup_patch.horizontal_center:
+                return bool_to_yesno(person_patch.verify_property(""person"", ""wearing jeans""))
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['yes', 'no'], ""Expected output to be yes or no.""
+    return result",201757757,Is the person to the right of the cup wearing jeans?,data/images/n4777.jpg,"Yes, the person is wearing jeans."
+remote control,keyboard,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    device_patches = image_patch.find(""device"")
+    if len(device_patches) == 0:
+        return image_patch.simple_query(""What device is sitting next to the mouse pad?"")
+    for device_patch in device_patches:
+        mouse_pad_patches = image_patch.find(""mouse pad"")
+        for mouse_pad_patch in mouse_pad_patches:
+            if mouse_pad_patch.horizontal_center > device_patch.horizontal_center:
+                return device_patch.simple_query(""What device is sitting next to the mouse pad?"")
+    return device_patch.simple_query(""What device is sitting next to the mouse pad?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is '{result}' a device?"", long_answer=False) == 'yes', ""Expected output to be a device""
+    return result",201902993,What device is sitting next to the mouse pad?,data/images/n435808.jpg,The device is a keyboard.
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    sweater_patches = image_patch.find(""sweater"")
+    # Question assumes only one sweater patch
+    if len(sweater_patches) == 0:
+        # If no sweater is found, query the image directly
+        return image_patch.simple_query(""Does the sweater look open and blue?"")
+    for sweater_patch in sweater_patches:
+        is_open = sweater_patch.simple_query(""Is the sweater open?"")
+        is_blue = sweater_patch.simple_query(""Is the sweater blue?"")
+        if is_open == ""yes"" and is_blue == ""yes"":
+            return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20306193,Does the sweater look open and blue?,data/images/n554880.jpg,"Yes, the sweater is open and blue."
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    jacket_patches = image_patch.find(""jacket"")
+    # Question assumes only one jacket patch
+    if len(jacket_patches) == 0:
+        # If no jacket is found, query the image directly
+        return image_patch.simple_query(""Is the jacket long sleeved and black?"")
+    for jacket_patch in jacket_patches:
+        is_long_sleeved = jacket_patch.simple_query(""Is the jacket long sleeved?"")
+        is_black = jacket_patch.simple_query(""Is the jacket black?"")
+        if is_long_sleeved == ""yes"" and is_black == ""yes"":
+            return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20183468,Is the jacket long sleeved and black?,data/images/n151768.jpg,"Yes, the jacket is long sleeved and black."
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return bool_to_yesno(image_patch.exists(""bed"") and image_patch.exists(""small outlet""))","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20753401,Are there beds next to the small outlet?,data/images/n49438.jpg,"Yes, there is a bed next to the outlet."

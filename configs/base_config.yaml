@@ -24,7 +24,7 @@ load_models:                                        # Which pretrained models to
     blip: True
     saliency: False
     xvlm: False
-    codex: False
+    codex: True
     llama2_qa: False
     llama2_general: True
     llama2_guess: True

@@ -38,6 +38,9 @@ def make_fn(model_class, process_name, counter):
     """
     # We initialize each one on a separate GPU, to make sure there are no out of memory errors
     num_gpus = torch.cuda.device_count()
+    num_gpus = 8
+    print(f"Number of available GPUs: {num_gpus}")
+    print("counter:", counter)
     gpu_number = counter % num_gpus
 
     print(f"Initializing model {process_name} on GPU {gpu_number}")

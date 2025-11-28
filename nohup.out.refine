@@ -1,0 +1,2271 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Initializing model blip on GPU 0
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:06,  1.66s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:03<00:05,  1.67s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:05<00:03,  1.69s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:06<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:08<00:00,  1.61s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:08<00:00,  1.64s/it]
+Initializing model codex on GPU 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.33it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Loaded the model: meta-llama/Meta-Llama-3-8B-Instruct
+Initializing model glip on GPU 2
+VISION BACKBONE USE GRADIENT CHECKPOINTING:  False
+LANGUAGE BACKBONE USE GRADIENT CHECKPOINTING:  False
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+Initializing model llama2_qa on GPU 3
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.10s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.09s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.08s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+Loaded model:meta-llama/Meta-Llama-3-8B-Instruct
+Initializing model maskrcnn on GPU 4
+Initializing model xvlm on GPU 5
+  0%|          | 0/2 [00:00<?, ?it/s]/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a person?", long_answer=False) == 'yes', "Expected output to be a person"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert result in ['tall','short'], "Expected output to be tall or short"
+    # Test case 2:
+    assert not any(char.isdigit() for char in result), "Expected output to not have numbers"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} an airplane?", long_answer=False) == 'yes', "Expected output to be an airplane"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a color?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['blue', 'brown'], "Expected output to be blue or brown"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a person?", long_answer=False) == 'yes', "Expected output to be a person"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    if image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the man staring at?")
+    # What toy is wearing a shirt?
+    return image_patch.simple_query("What toy is wearing a shirt?")
+    # What is behind the pole?
+    return image_patch.simple_query("What is behind the pole?")
+    # Are there bagels or lemons?
+    if exists_prob(image_patch, "bagel", n=3) > 0.5 or exists_prob(image_patch, "lemon",
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    elif image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    elif image_patch.simple_query("What type of weather do you see in the photograph?") == "sunny":
+        return "sunny"
+    # Who is the man staring at?
+    elif image_patch.simple_query("Who is the man staring at?") == "woman":
+        return "woman"
+    # What toy is wearing a shirt?
+    elif image_patch.simple_query("What toy is wearing a shirt?") == "teddy bear":
+        return "teddy bear"
+    # What is behind the pole?
+    elif image_patch.simple_query("What is behind the pole?") == "building
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    elif image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    elif image_patch.simple_query("What type of weather do you see in the photograph?") == "sunny":
+        return "sunny"
+    # Who is the man staring at?
+    elif image_patch.simple_query("Who is the man staring at?") == "woman":
+        return "woman"
+    # What toy is wearing a shirt?
+    elif image_patch.simple_query("What toy is wearing a shirt?") == "teddy bear":
+        return "teddy bear"
+    # What is behind the pole?
+    elif image_patch.simple_query("What is behind the pole?") == "building
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    elif image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    elif image_patch.simple_query("What type of weather do you see in the photograph?") == "sunny":
+        return "sunny"
+    # Who is the man staring at?
+    elif image_patch.simple_query("Who is the man staring at?") == "woman":
+        return "woman"
+    # What toy is wearing a shirt?
+    elif image_patch.simple_query("What toy is wearing a shirt?") == "teddy bear":
+        return "teddy bear"
+    # What is behind the pole?
+    elif image_patch.simple_query("What is behind the pole?") == "building
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 23, in execute_command_201307251
+    runs_dict = {}
+AssertionError: Expected output to be yes or no
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 24, in execute_command_20602803
+    seed_everything()
+AssertionError: Expected output to be blue or brown
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Sample 201307251 failed with error: Expected output to be yes or no. Next you will see an "expected an indented block" error. 
+Sample 201307251 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201307251
+Sample 201640614 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201640614
+Sample 202225914 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 202225914
+Sample 2062325 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 2062325
+Sample 201303229 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201303229
+Sample 201902997 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201902997
+Sample 20567512 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20567512
+Sample 20136592 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20136592
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 24, in execute_command_20609782
+    seed_everything()
+AssertionError: Expected output to be yes or no
+Sample 20602803 failed with error: Expected output to be blue or brown. Next you will see an "expected an indented block" error. 
+Sample 20602803 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20602803
+Sample 201079951 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201079951
+Sample 201079952 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201079952
+Sample 20982537 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20982537
+Sample 201079958 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201079958
+Sample 20609782 failed with error: Expected output to be yes or no. Next you will see an "expected an indented block" error. 
+Sample 20609782 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20609782
+Sample 201757757 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201757757
+Sample 201902993 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201902993
+Sample 20306193 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20306193
+Sample 20183468 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20183468
+Sample 20753401 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20753401
+Accuracy at Batch 0/2: 0.4
+ 50%|█████     | 1/2 [03:31<03:31, 211.57s/it]/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Saving results to results_15.csv at epoch 0
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives options using "or", the return values will be one of the options
+    assert result in ['red', 'blue', 'green'], "Expected output to be one of the colors"
+    return result
+The required lines were not found in the input string.
+def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives options using "or", the return values will be one of the options
+    assert result in ['red', 'blue', 'green'], "Expected output to be one of the colors"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a cooking utensil?", long_answer=False) == 'yes', "Expected output to be a cooking utensil"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['small', 'large'], "Expected output to be small or large"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a type of food?", long_answer=False) == 'yes', "Expected output to be a type of food"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['cement', 'aluminum'], "Expected output to be cement or aluminum"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['orange', 'white'], "Expected output to be orange or white"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"What color is {result}?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"What color is {result}?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    if image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the man staring at?")
+    # What toy is wearing a shirt?
+    return image_patch.simple_query("What toy is wearing a shirt?")
+    # What is behind the pole?
+    return image_patch.simple_query("What is behind the pole?")
+    # Are there bagels or lemons?
+    if exists_prob(image_patch, "bagel", n=3) > 0.5 or exists_prob(image_patch, "lemon",
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    elif image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    elif image_patch.simple_query("What type of weather do you see in the photograph?") == "sunny":
+        return "sunny"
+    # Who is the man staring at?
+    elif image_patch.simple_query("Who is the man staring at?") == "woman":
+        return "woman"
+    # What toy is wearing a shirt?
+    elif image_patch.simple_query("What toy is wearing a shirt?") == "teddy bear":
+        return "teddy bear"
+    # What is behind the pole?
+    elif image_patch.simple_query("What is behind the pole?") == "building
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    if image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the man staring at?")
+    # What toy is wearing a shirt?
+    return image_patch.simple_query("What toy is wearing a shirt?")
+    # What is behind the pole?
+    return image_patch.simple_query("What is behind the pole?")
+    # Are there bagels or lemons?
+    if exists_prob(image_patch, "bagel", n=3) > 0.5 or exists_prob(image_patch, "lemon",
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    if image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the man staring at?")
+    # What toy is wearing a shirt?
+    return image_patch.simple_query("What toy is wearing a shirt?")
+    # What is behind the pole?
+    return image_patch.simple_query("What is behind the pole?")
+    # Are there bagels or lemons?
+    if exists_prob(image_patch, "bagel", n=3) > 0.5 or exists_prob(image_patch, "lemon",
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.simple_query("Is there a backpack to the right of the man?") == "yes":
+        return "yes"
+    # In which part is the bread, the bottom or the top?
+    if image_patch.simple_query("In which part is the bread, the bottom or the top?") == "top":
+        return "top"
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the man staring at?")
+    # What toy is wearing a shirt?
+    return image_patch.simple_query("What toy is wearing a shirt?")
+    # What is behind the pole?
+    return image_patch.simple_query("What is behind the pole?")
+    # Are there bagels or lemons?
+    if image_patch.exists("bagel") or image_patch.exists("lemon"):
+        return "yes"
+    # Is that blanket to the right
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 23, in execute_command_201030735
+    runs_dict = {}
+AssertionError: Expected output to be yes or no
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 24, in execute_command_201637161
+    seed_everything()
+AssertionError: Expected output to be one of the colors
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 23, in execute_command_20120533
+    runs_dict = {}
+AssertionError: Expected output to be cement or aluminum
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 23, in execute_command_20856960
+    runs_dict = {}
+AssertionError: Expected output to be yes or no
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Originally gen_code: 
+ Here is the function `execute_command` that you can use to execute the commands:
+
+```
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+The required lines were not found in the input string.
+def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Is there a backpack to the right of the man?
+    if image_patch.exists("backpack") and image_patch.exists("man"):
+        man_patches = image_patch.find("man")
+        backpack_patches = image_patch.find("backpack")
+        scores = []
+        for backpack_patch in backpack_patches:
+            score = 1 - soft_left_of(man_patches[0], backpack_patch)
+            scores.append(score)
+        avg_score = np.mean(scores)
+        return "yes" if avg_score > 0.5 else "no"
+
+    # In which part is the bread, the bottom or the top?
+    if image_patch.exists("bread"):
+        bread_patches = image_patch.find("bread")
+        score_top = soft_above(image_patch, bread_patches[0])
+        return "top" if score_top > 0.5 else "bottom"
+
+    # What type of weather do you see in the photograph?
+    return image_patch.simple_query("What type of weather do you see in the photograph?")
+
+    # Who is the man staring at?
+    return image_patch.simple_query("Who is the
+Sample 20151723 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20151723
+Sample 201030735 failed with error: Expected output to be yes or no. Next you will see an "expected an indented block" error. 
+Sample 201030735 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201030735
+Sample 201637161 failed with error: Expected output to be one of the colors. Next you will see an "expected an indented block" error. 
+Sample 201637161 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201637161
+Sample 202218836 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 202218836
+Sample 20982539 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20982539
+Sample 201110833 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201110833
+Sample 20866248 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20866248
+Sample 201110523 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201110523
+Sample 20120533 failed with error: Expected output to be cement or aluminum. Next you will see an "expected an indented block" error. 
+Sample 20120533 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20120533
+Sample 201952977 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201952977
+Sample 201497576 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201497576
+Sample 20866244 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20866244
+Sample 201455911 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201455911
+Sample 20856965 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 20856965
+Sample 2059565 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 2059565
+Sample 20856960 failed with error: Expected output to be yes or no. Next you will see an "expected an indented block" error. 
+Sample 20856960 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20856960
+Sample 201548894 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201548894
+Sample 201573912 failed at compilation time with error: unterminated string literal (detected at line 25) (Codex, line 25)
+Using BLIP2 for sample 201573912
+Accuracy at Batch 1/2: 0.48717948717948717
+100%|██████████| 2/2 [06:51<00:00, 204.96s/it]100%|██████████| 2/2 [06:51<00:00, 205.95s/it]
+Saving results to results_15.csv at epoch 1
+Final accuracy: 0.48717948717948717
+Saving results to results_15.csv

@@ -1,0 +1,37 @@
+# CONTEXT #
+The task is to generate multiple mutants that preserve the same property as given input which is the answer of a query.
+
+# OBJECTIVE #
+1. Generate property-preserving mutants for each input.
+2. Provide up to 10 mutants to the query.
+3. Do not generate duplicate mutants.
+4. Stop generating if there is no more possible mutants even if there is less then 10 mutants.
+5. Each mutant follow the same number of words in the original answer.
+6. If the given Answer is binary (expects yes/no), strictly output only two mutants: "yes" and "no".
+
+###
+Here are some <<EXAMPLES>>:
+Answer: white
+Query: Which color is the cake?
+Mutants: white, pink, brown, blue, yellow, green, red and white, chocolate-colored, rainbow, light cream
+
+###
+Answer: ocean
+Query: What is the airplane flying above?
+Mutants: bird, cloud, mountain, ocean, desert, forest, city skyline, island, volcano, river
+
+### 
+Answer: no
+Query: Is the cake on a platter?
+Mutants: yes, no
+
+
+# RESPONSE # 
+Provide a mutants string seprate by comma ",".
+
+
+# Instruction #
+Generate the mutants for the following Answer an Query:
+<<Answer>>: INSERT_ANSWER_HERE  
+<<Query>>: INSERT_QUERY_HERE  
+<<Query>>:

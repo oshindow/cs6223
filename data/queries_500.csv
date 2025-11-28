@@ -1,0 +1,500 @@
+index,sample_id,possible_answers,query_type,query,answer,image_name
+201307251,201307251,"No, it is clear.",01-weather_overcast,Is it overcast?,no,n161313.jpg
+201640614,201640614,The women are wearing a dress.,"14-dress_wearing,s",Who is wearing the dress?,women,n235859.jpg
+202225914,202225914,"No, the fork is clean but silver.",05-black_clean,Does the utensil on top of the table look clean and black?,no,n336443.jpg
+2062325,2062325,"Yes, the surfer is wearing a wetsuit.",13-surfer_wetsuit,Is the surfer that looks wet wearing a wetsuit?,yes,n179136.jpg
+201303229,201303229,The chair is short.,10q-chair_height,How tall is the chair in the bottom of the photo?,short,n518912.jpg
+201902997,201902997,The device is a keyboard.,"15-desk_on top of,s",What kind of device is on top of the desk?,keyboard,n435808.jpg
+20567512,20567512,The plane is flying above the ocean.,"14-airplane_flying above,o",What is the airplane flying above?,ocean,n414992.jpg
+20136592,20136592,The pants are red.,10q-pants_color,What color are the pants?,red,n446242.jpg
+20602803,20602803,The ground is brown.,10c-ground_color,Is the ground blue or brown?,brown,n168412.jpg
+201079951,201079951,The draperies are around the window.,"14-window_around,s",What is around the open window?,drapes,n23181.jpg
+201079952,201079952,The draperies are around the window.,"14-window_around,s",What's around the window?,drapes,n23181.jpg
+20982537,20982537,The woman is standing at the table.,"14-table_standing at,s",Who is standing at the table?,woman,n52544.jpg
+201079958,201079958,"Yes, there are drapes to the right of the bed.",13-bed_drapes,Are there drapes to the right of the bed?,yes,n23181.jpg
+202218649,202218649,The picture is hanging above the chalkboard.,"14-chalkboard_hanging above,s",What is hanging above the chalkboard?,picture,n578564.jpg
+20609782,20609782,"No, the cake is on a plate.",13-cake_platter,Is the cake on a platter?,no,n437064.jpg
+201757757,201757757,"Yes, the person is wearing jeans.",13-person_jeans,Is the person to the right of the cup wearing jeans?,yes,n4777.jpg
+201902993,201902993,The device is a keyboard.,"15-mouse pad_sitting next to,s",What device is sitting next to the mouse pad?,keyboard,n435808.jpg
+20306193,20306193,"Yes, the sweater is open and blue.",05-blue_open,Does the sweater look open and blue?,yes,n554880.jpg
+20183468,20183468,"Yes, the jacket is long sleeved and black.",05-black_long sleeved,Is the jacket long sleeved and black?,yes,n151768.jpg
+20753401,20753401,"Yes, there is a bed next to the outlet.",13-outlet_bed,Are there beds next to the small outlet?,yes,n49438.jpg
+20151723,20151723,The purse is on the right of the image.,10q-purse_hposition,On which side of the picture is the leather bag?,right,n313060.jpg
+201030735,201030735,"No, the pillow is square but small.",05-large_square,Is the blue pillow square and large?,no,n54424.jpg
+201637161,201637161,The cake is white.,10q-cake_color,Which color is the cake?,white,n200692.jpg
+202218836,202218836,The cooking utensil is a pan.,"15-hook_hang from,s",What is the name of the cooking utensil that is hang from the hook?,pan,n578564.jpg
+20982539,20982539,The woman is standing at the table.,"14-woman_standing at,o",Where is the skinny person standing?,table,n52544.jpg
+201110833,201110833,"No, the plates are on top of the table.",13-plates_ottoman,Are the plates on top of an ottoman?,no,n546616.jpg
+20866248,20866248,The fridge is large.,10c-refrigerator_size,Is the freezer near the wall small or large?,large,n579256.jpg
+201110523,201110523,The food is a marshmallow.,"15-baby_to the left of,s",What type of food is to the left of the baby that is sitting atop the woman?,marshmallow,n546616.jpg
+20120533,20120533,The fence is made of aluminum.,10c-fence_material,Is the fence made of cement or aluminum?,aluminum,n117888.jpg
+201952977,201952977,The houses are on the left of the image.,10q-houses_hposition,Which side are the white houses on?,left,n525029.jpg
+201497576,201497576,"Yes, both the phone and the coffee cup are black.",09same-coffee cup_phone,Are both the phone and the coffee cup the same color?,yes,n315887.jpg
+20866244,20866244,"No, there is a refrigerator but it is large.",04-refrigerator_small,Are there either any small refrigerators or microwaves in the picture?,no,n579256.jpg
+201455911,201455911,The car is white.,10c-car_color,"How does that car look like, orange or maybe white?",white,n413761.jpg
+20856965,20856965,The book is white.,10q-book_color,What color is the book?,white,n293477.jpg
+2059565,2059565,The dirt is red.,10q-dirt_color,What color is the dirt?,red,n130638.jpg
+20856960,20856960,"No, the purse is lying on top of a bed.",13-purse_sofa,Is the bag made of leather lying on top of a sofa?,no,n293477.jpg
+201079954,201079954,The draperies are around the window.,"14-drapes_around,o",What are the drapes around of?,window,n23181.jpg
+201548894,201548894,The picture is on the left of the image.,10q-picture_hposition,On which side is the picture?,left,n314171.jpg
+201573912,201573912,The crosswalk is made of cement.,10q-crosswalk_material,What material is the crosswalk in front of the stores?,concrete,n115614.jpg
+202243820,202243820,The sprinkles are small.,10q-sprinkles_size,How large are the sprinkles that are sprinkled on the cupcakes?,small,n296467.jpg
+201573918,201573918,The crosswalk is made of cement.,10q-crosswalk_material,What type of material is the crosswalk near the street lamp made of?,concrete,n115614.jpg
+201974972,201974972,The clothing is a tank top.,12q-clothing_pink,Which kind of clothing is pink?,tank top,n274905.jpg
+201974970,201974970,The clothing item is a tank top.,12q-clothing_pink,How is the clothing item that is pink called?,tank top,n274905.jpg
+201974976,201974976,The clothing is a hat.,12q-clothing_n#pink,Which kind of clothing is not pink?,hat,n274905.jpg
+201996743,201996743,The helicopter is off.,10c-helicopter_39,Is this helicopter on or off?,off,n250715.jpg
+20797666,20797666,"Yes, there is a cat.",03-cat,Do you see any cats?,yes,n16656.jpg
+20797665,20797665,"No, the shoe is behind a cat.",13-shoe_dog,Is that shoe behind a dog?,no,n16656.jpg
+201974979,201974979,The clothing is a tank top.,12q-clothing_sleeveless,What kind of clothing is sleeveless?,tank top,n274905.jpg
+201156137,201156137,"No, the field is soft but grassy.",05-snowy_soft,Is the field soft and snowy?,no,n146522.jpg
+20442334,20442334,The fruits are bananas.,"15-microwave_beneath,s",What fruits are beneath the microwave?,bananas,n207708.jpg
+201765651,201765651,The shirt is white.,10q-shirt_color,Which color is the shirt?,white,n488874.jpg
+20442331,20442331,The bananas are beneath the microwave.,"14-microwave_beneath,s",What is beneath the microwave?,bananas,n207708.jpg
+20508243,20508243,The chair is on the right of the image.,10q-chair_hposition,On which side of the picture is the chair?,right,n511913.jpg
+2046472,2046472,The man is to the right of the woman.,13-woman_man,Is the happy man to the left or to the right of the woman in the center?,right,n71728.jpg
+20618932,20618932,The woman is wearing a wristband.,"14-wristband_wearing,s",Who is wearing a wristband?,woman,n126087.jpg
+20442338,20442338,"No, there are bananas beneath the microwave.",13-microwave_pears,Is there a pear beneath the appliance that looks silver and black?,no,n207708.jpg
+202005788,202005788,This is a cabinet.,08oc-bed_cabinet,Is this a bed or a cabinet?,cabinet,n97485.jpg
+201902515,201902515,The router is on the left of the image.,10q-router_hposition,On which side is the router?,left,n435808.jpg
+201303404,201303404,The pants are gray.,10q-pants_color,What is the color of the pants?,gray,n518912.jpg
+20942157,20942157,The girl is wearing a shirt.,"14-shirt_wearing,s",Who is wearing the shirt?,girl,n137182.jpg
+20942156,20942156,The girl is wearing a shirt.,"14-shirt_wearing,s",Who is wearing a shirt?,girl,n137182.jpg
+20898685,20898685,The man is standing.,10q-man_pose,What's the man doing?,standing,n243701.jpg
+202116974,202116974,"No, there is a river but it is calm.",04-river_n#calm,Are there rivers or oceans that are not calm?,no,n48494.jpg
+201621328,201621328,The picture frame is hanging from the wall.,"14-picture frame_hanging from,o",What is the picture frame hanging from?,wall,n275148.jpg
+2076819,2076819,The cars are dense.,10c-cars_3,"How do the cars look like, dense or sparse?",dense,n214497.jpg
+202244099,202244099,The food is cookies.,12q-food_n#baked,What food isn't baked?,cookies,n296467.jpg
+201951771,201951771,The vehicle is a van.,"15-flag_in front of,s",Which kind of vehicle is in front of the flag?,van,n256120.jpg
+201951770,201951770,The vehicle is a van.,"15-flag_in front of,s",What is the vehicle that is in front of the flag?,van,n256120.jpg
+201621326,201621326,The picture frame is hanging from the wall.,"14-wall_hanging from,s",What is hanging from the wall?,picture frame,n275148.jpg
+201233862,201233862,The skateboarder is jumping off the pavement.,"14-skateboarder_jumping off,o",What's the skateboarder jumping off of?,pavement,n130464.jpg
+201951776,201951776,"No, the van is in front of a flag.",13-van_balloon,Is the van in front of a balloon?,no,n256120.jpg
+20489634,20489634,The bench is beige.,10q-bench_color,What is the color of this bench?,beige,n145498.jpg
+201623784,201623784,"No, the cabinets are wooden but closed.",05-open_wood,Are the cabinets below the stove wooden and open?,no,n501609.jpg
+202023423,202023423,The piece of furniture is a bed.,12q-furniture_plaid,How is the item of furniture that is plaid called?,bed,n95313.jpg
+20182936,20182936,"Yes, the boxes are full and square.",05-full_square,Are the boxes to the right of the man full and square?,yes,n151768.jpg
+201654344,201654344,"No, the horse is brown but adult.",05-baby_brown,Is the horse next to the other horse both baby and brown?,no,n6309.jpg
+20746468,20746468,The river is narrow.,10c-river_width,Is the river wide or is it narrow?,narrow,n477215.jpg
+201428996,201428996,The fridge is bigger than the stove.,"15-refrigerator_bigger than,o",What appliance is the refrigerator larger than?,stove,n64959.jpg
+20899362,20899362,"No, the umbrella is in the top of the image.",06-umbrella_bottom,Is the umbrella in the bottom part of the picture?,no,n403734.jpg
+202244009,202244009,The cookies are inside the bowl.,"14-bowl_inside,s",What is inside the bowl to the right of the beans?,cookies,n296467.jpg
+20287556,20287556,The face mask is clean.,10q-face mask_cleanliness,How clean do you think is the face mask the catcher is wearing?,clean,n317260.jpg
+20631973,20631973,The catcher is standing on the field.,"14-catcher_standing on,o",Where is the catcher standing on?,field,n570181.jpg
+20287551,20287551,The glove is black.,10q-glove_color,What is the color of the glove?,black,n317260.jpg
+201481824,201481824,"Yes, the blanket is soft and white.",05-soft_white,Does the blanket look soft and white?,yes,n470920.jpg
+201663656,201663656,The drawers are light brown.,10q-drawers_color,What color are the drawers?,light brown,n35676.jpg
+20308576,20308576,"Yes, there is a refrigerator to the left of the stove.",13-stove_refrigerator,Are there refrigerators to the left of the stove?,yes,n278312.jpg
+201065067,201065067,The clothing is a gown.,12q-clothing_bright,Which kind of clothing is bright?,gown,n88933.jpg
+20462071,20462071,"No, there is a woman near the man.",13-man_elephant,Is there an elephant near the person that is wearing a coat?,no,n571179.jpg
+20462076,20462076,The woman is wearing gloves.,"14-woman_wearing,o",What is the woman wearing?,gloves,n571179.jpg
+20462075,20462075,The woman is wearing gloves.,"14-woman_wearing,o",What do you think is the standing person near the man wearing?,gloves,n571179.jpg
+201065062,201065062,The clothing is a gown.,12q-clothing_pink,Which type of clothing is pink?,gown,n88933.jpg
+20754631,20754631,The person is sitting atop the stairs.,"14-person_sitting atop,o",What is the person that is sitting down sitting atop?,stairs,n566028.jpg
+201935960,201935960,The shelf is standing on the floor.,"14-floor_standing on,s",What's standing on the floor?,shelf,n500209.jpg
+20412222,20412222,The pieces of furniture are tables.,"15-boy_to the left of,s",What items of furniture are to the left of the boy?,tables,n531359.jpg
+201935966,201935966,The shelf is in front of the wall.,"14-wall_in front of,s",What is in front of the wall that is not short?,shelf,n500209.jpg
+20878946,20878946,The parking lot is wide.,10q-parking lot_width,How wide is the parking lot made of cement?,wide,n259949.jpg
+201947446,201947446,The mirror is on the left of the image.,10q-mirror_hposition,On which side of the picture is the clean mirror?,left,n473688.jpg
+201498768,201498768,The device is a phone.,"15-computer_in front of,s",What is the device in front of the flat computer?,phone,n315887.jpg
+20306764,20306764,The gift is sitting on the floor.,"14-floor_sitting on,s",What is sitting on the floor?,gift,n554880.jpg
+202144708,202144708,"Yes, there is a blender to the right of the liquor.",13-liquor_blender,Is there a blender to the right of the yellow drink?,yes,n37274.jpg
+20306767,20306767,"Yes, the gift is sitting on the floor.",13-gift_floor,Is the gift sitting on the floor?,yes,n554880.jpg
+201996815,201996815,The glasses are made of glass.,10c-glasses_material,"Which material makes up the round glasses, glass or wire?",glass,n250715.jpg
+201996813,201996813,The glasses are made of glass.,10q-glasses_material,What are the glasses made of?,glass,n250715.jpg
+202060122,202060122,The couch is behind the dog.,"15-couch_behind,o",What animal is the couch behind of?,dog,n14087.jpg
+201067797,201067797,The calculator is black.,10q-calculator_color,What is the color of the device that is on the left of the photo?,black,n367944.jpg
+20394919,20394919,"No, the knife is to the left of a man.",13-man_knife,Is the knife to the right of a man?,no,n369313.jpg
+201497916,201497916,The device is a monitor.,"15-keyboard_above,s",What device is above the keyboard?,monitor,n315887.jpg
+20303081,20303081,The man is resting.,10q-man_activity,What is the man to the left of the glasses doing?,resting,n318684.jpg
+201498727,201498727,The telephone is made of plastic.,10q-phone_material,What is the phone made of?,plastic,n315887.jpg
+201873473,201873473,"No, there is a fire truck but it is white.",04-fire truck_red,Are there any red fire trucks?,no,n309148.jpg
+20300425,20300425,The vehicles are cars.,"15-traffic light_waiting for,s",Which kind of vehicle is waiting for the traffic light?,cars,n208302.jpg
+20300424,20300424,The vehicles are cars.,"15-traffic light_waiting for,s",What kind of vehicle is waiting for the traffic light?,cars,n208302.jpg
+20899558,20899558,The ipod is blue.,10q-ipod_color,The electronic device to the left of the notebook has what color?,blue,n403734.jpg
+20300420,20300420,The vehicles are cars.,"15-road_above,s",What are the vehicles above the road near the side walk?,cars,n208302.jpg
+20300423,20300423,The cars are waiting for the traffic light.,"14-traffic light_waiting for,s",What is waiting for the traffic light?,cars,n208302.jpg
+20836565,20836565,The luggage is sitting in front of the table.,"14-table_sitting in front of,s",What is sitting in front of the table that looks yellow and black?,luggage,n507959.jpg
+201947624,201947624,"No, there is a toothbrush but no mats.",09existAnd-mat_toothbrush,Are there both toothbrushes and mats in this picture?,no,n473688.jpg
+201947620,201947620,"Yes, the soap dish is to the right of the soap dispenser.",13-soap dish_soap dispenser,Is the soap dish to the right of the soap dispenser?,yes,n473688.jpg
+20300427,20300427,The cars are waiting for the signal light.,"14-cars_waiting for,o",The parked vehicles are waiting for what?,traffic light,n208302.jpg
+201504960,201504960,"No, the shorts are blue but small.",05-blue_large,Are the shorts large and blue?,no,n298104.jpg
+201947590,201947590,The soap dispenser is sitting on the countertop.,"14-soap dispenser_sitting on,o",The soap dispenser made of chrome is sitting on what?,countertop,n473688.jpg
+20177575,20177575,The serving tray is white.,10q-serving tray_color,What color is the serving tray that looks rectangular?,white,n55058.jpg
+20381557,20381557,"No, the computer monitor is white.",06-computer monitor_black,Does the device under the picture frame look black?,no,n398257.jpg
+201982069,201982069,The trousers are made of cloth.,10c-pants_material,"Which material are the trousers made of, cloth or leather?",cloth,n526228.jpg
+201370428,201370428,The pens are black and white.,10c-pens_24,"How do the pens look, colorful or black and white?",black and white,n351318.jpg
+201878325,201878325,The jacket is worn around the man.,"14-jacket_worn around,o",Who is the jacket worn around?,man,n342511.jpg
+201370422,201370422,The pens are on the right of the image.,10q-pens_hposition,On which side of the picture are the pens?,right,n351318.jpg
+2075708,2075708,"Yes, there are skis.",03-skis,Do you see any skis?,yes,n315859.jpg
+201896034,201896034,The piece of furniture is a table.,"15-lady_to the right of,s",What is the item of furniture to the right of the lady that is looking down at the cake called?,table,n111390.jpg
+201065497,201065497,The man is blond.,10c-man_color,Is the man to the left of the performer brunette or blond?,blond,n429883.jpg
+20857175,20857175,"No, the cell phone is lying on top of a bed.",13-cell phone_desk,Is the cell phone lying on top of a desk?,no,n293477.jpg
+20648122,20648122,"Yes, the helmet is to the left of a woman.",13-helmet_woman,Is the plastic helmet to the left of a woman?,yes,n471866.jpg
+20636999,20636999,"No, the spoon is small but silver.",05-black_small,Does the utensil beside the pan have black color and small size?,no,n184385.jpg
+20258752,20258752,The kid is wearing jeans.,"14-jeans_wearing,s",Who is wearing jeans?,child,n204894.jpg
+201156466,201156466,"Yes, the balls are light.",06-balls_light,Do the balls to the left of the other ball look light?,yes,n146522.jpg
+201885557,201885557,The swimsuit is male.,10q-swimsuit_gender,What gender is the swimsuit?,male,n222297.jpg
+202081210,202081210,"No, the toaster is to the right of the house.",13-toaster_refrigerator,Is the toaster to the right of a refrigerator?,no,n314630.jpg
+20117834,20117834,The trees are lush.,10c-trees_25,Are the trees on the field bare or lush?,lush,n494677.jpg
+201438286,201438286,"Yes, the net is in front of the man.",13-net_man,Is the net in front of the man?,yes,n66756.jpg
+20117781,20117781,"Yes, it is cloudy.",01-weather_cloudy,Is the weather cloudy?,yes,n494677.jpg
+201756501,201756501,"The color, both the door and the kitten are white.",09common-door_kitten,What is common to the door and the kitten?,color,n567860.jpg
+20716925,20716925,The jacket is small.,10c-jacket_size,Is the jacket made of cotton large or small?,small,n67005.jpg
+20541270,20541270,The chair is to the right of the couch.,13-couch_chair,Is the gray chair to the left or to the right of the couch in the picture?,right,n527290.jpg
+201056079,201056079,The soccer player is male.,10c-soccer player_gender,Is the soccer player that is to the left of the ball female or male?,male,n259002.jpg
+20468617,20468617,"No, the fence is made of wire.",06-fence_iron,Was iron used to make the fence?,no,n171169.jpg
+2017235,2017235,The hair is black.,10q-hair_color,What color is the hair?,black,n324908.jpg
+20427913,20427913,The picture is hanging above the chair.,"14-picture_hanging above,o",What is the picture hanging above?,chair,n281241.jpg
+20427912,20427912,The picture is hanging above the chair.,"14-picture_hanging above,o",The framed picture is hanging above what?,chair,n281241.jpg
+201480278,201480278,"No, the hat is dry.",06-hat_wet,Is the hat wet?,no,n39114.jpg
+201056072,201056072,The soccer player is running.,running,Who is running?,soccer player,n259002.jpg
+20887449,20887449,The device is a keyboard.,12q-device_large,What is the large device called?,keyboard,n282436.jpg
+20648218,20648218,The police officer is wearing a helmet.,"14-helmet_wearing,s",Who is wearing a helmet?,policeman,n471866.jpg
+202102931,202102931,The dishwasher is beneath the microwave.,"14-microwave_beneath,s",What is beneath the microwave?,dishwasher,n386682.jpg
+201047479,201047479,The dress shirt is teal.,10c-dress shirt_color,Is the dress shirt gray or teal?,teal,n234683.jpg
+201370395,201370395,The scissors are gray.,10q-scissors_color,Of what color are the scissors?,gray,n351318.jpg
+20672944,20672944,The toilet brush is on the left of the image.,10q-toilet brush_hposition,On which side of the photo is the toilet brush?,left,n59147.jpg
+201752690,201752690,The boy is on the bike.,"14-boy_on,o",What is the boy on?,bike,n262929.jpg
+20672940,20672940,"No, there are no containers or dream catchers.",09existOr-container_dream catcher,Do you see either any containers or dream catchers?,no,n59147.jpg
+201752694,201752694,"Yes, the boy is on the bike.",13-boy_bike,Is the young person on the bike?,yes,n262929.jpg
+20699275,20699275,The clothing item is a jacket.,12q-clothing_navy,What is the name of the clothing item that is navy?,jacket,n512257.jpg
+2097681,2097681,The monitor is in front of the poster.,"14-poster_in front of,s",What is in front of the poster?,monitor,n513429.jpg
+201760591,201760591,"No, there is a soccer ball but no girls.",09existAnd-girl_soccer ball,Are there both girls and soccer balls in this image?,no,n350732.jpg
+201110526,201110526,The food is a marshmallow.,"15-baby_to the left of,s",What kind of food is to the left of the baby?,marshmallow,n546616.jpg
+20673100,20673100,The toilet paper is resting on the chair.,"15-toilet paper_resting on,o",What item of furniture is the toilet paper to the right of the toilet resting on?,chair,n59147.jpg
+20673098,20673098,The toilet paper is resting on the chair.,"14-toilet paper_resting on,o",The toilet paper to the right of the toilet is resting on what?,chair,n59147.jpg
+20361249,20361249,"No, there is a snowboarder but she is standing.",04-snowboarder_jumping,Are there either any skateboarders or snowboarders that are jumping?,no,n352479.jpg
+201480696,201480696,The bench is rectangular.,10q-bench_shape,What shape is the bench?,rectangular,n39114.jpg
+201879167,201879167,The person is bigger than the sneakers.,"14-person_bigger than,o",What is the person below the crowd bigger than?,sneakers,n496803.jpg
+201438759,201438759,"Yes, the field is large and dirty.",05-dirty_large,Does the brown field appear to be large and dirty?,yes,n66756.jpg
+20295598,20295598,"Yes, the picture frame is black and small.",05-black_small,Does the picture frame made of plastic look black and small?,yes,n162586.jpg
+20204868,20204868,"No, there is a laptop but it is black.",04-laptop_silver,Is there a silver laptop or DVD player?,no,n532191.jpg
+20361243,20361243,The snowboarder is standing.,standing,Who is standing?,snowboarder,n352479.jpg
+20667494,20667494,The piece of furniture is a coffee table.,12q-furniture_wood,What piece of furniture is made of wood?,coffee table,n181355.jpg
+20667492,20667492,The piece of furniture is a coffee table.,12q-furniture_wood,What piece of furniture is wooden?,coffee table,n181355.jpg
+20667493,20667493,The piece of furniture is a coffee table.,12q-furniture_wood,How the piece of furniture that is made of wood is called?,coffee table,n181355.jpg
+201056254,201056254,The spectator is looking up.,looking up,Who is looking up?,spectator,n259002.jpg
+201064816,201064816,The furniture is a sofa.,12q-furniture_blue,Which kind of furniture is blue?,sofa,n88933.jpg
+2097684,2097684,The monitor is in front of the poster.,"14-monitor_in front of,o",What is that monitor in front of?,poster,n513429.jpg
+201064812,201064812,This is a sofa.,11c-furniture,"What type of furniture is this, a cabinet or a sofa?",sofa,n88933.jpg
+201056252,201056252,The spectator is looking up.,10q-spectator_activity,What do you think is that spectator doing?,looking up,n259002.jpg
+201064810,201064810,The piece of furniture is a sofa.,11q-furniture,What piece of furniture is it?,sofa,n88933.jpg
+201935799,201935799,The jar is sitting on top of the shelf.,"14-jar_sitting on top of,o",What is the container made of glass sitting on top of?,shelf,n500209.jpg
+20756897,20756897,The clothing item is a robe.,12q-clothing_smooth,What is the name of the smooth piece of clothing?,robe,n433532.jpg
+201065430,201065430,The chairs are on the right of the image.,10q-chairs_hposition,On which side of the photo are the chairs?,right,n429883.jpg
+202243368,202243368,The shirt is white.,10q-shirt_color,What color is the shirt the woman wears?,white,n557666.jpg
+202121334,202121334,"Yes, both the soap bottle and the clock are white.",09same-clock_soap bottle,Do the soap bottle and the clock have the same color?,yes,n140421.jpg
+201935797,201935797,The jar is sitting on top of the shelf.,"14-shelf_sitting on top of,s",What is sitting on top of the shelf?,jar,n500209.jpg
+201639189,201639189,"No, the vehicle is white.",06-vehicle_black,Does the vehicle behind the zebras look black?,no,n497789.jpg
+20741279,20741279,The person is tall.,10q-person_height,How tall do you think is the person?,tall,n23762.jpg
+201143145,201143145,The floor is dark brown.,10q-floor_color,The wood floor is what color?,dark brown,n276011.jpg
+201669504,201669504,"Yes, the cookies are on the right of the image.",06-cookies_right,Are the brown cookies on the right of the picture?,yes,n238266.jpg
+201763810,201763810,"No, there are no curtains or televisions.",09existOr-curtain_television,Are there any televisions or curtains in the picture?,no,n246334.jpg
+202119900,202119900,The appliance is a refrigerator.,"15-wall_in front of,s",What appliance is in front of the wall?,refrigerator,n500308.jpg
+202119903,202119903,"Yes, there is a refrigerator in front of the wall.",13-wall_refrigerator,Is there a refrigerator in front of the wall made of wood?,yes,n500308.jpg
+20340771,20340771,The piece of furniture is a chair.,"15-fence_in front of,s",What is the name of the piece of furniture in front of the fence?,chair,n513100.jpg
+20340770,20340770,The chair is in front of the fence.,"14-fence_in front of,s",What's in front of the fence?,chair,n513100.jpg
+20285405,20285405,The walls are clean.,10q-walls_cleanliness,How clean are the walls the window is on?,clean,n192021.jpg
+20340772,20340772,The piece of furniture is a chair.,"15-fence_in front of,s",Which kind of furniture is in front of the fence?,chair,n513100.jpg
+201593445,201593445,The cow is standing against the grass.,"14-grass_standing against,s",What animal is standing against the grass?,cow,n524855.jpg
+201347404,201347404,The skateboarder is wearing shorts.,"14-shorts_wearing,s",Who is wearing shorts?,skateboarder,n65202.jpg
+202100755,202100755,"Yes, the mugs are to the right of the utensils.",13-mugs_utensils,Are the mugs to the right of the plastic utensils?,yes,n280089.jpg
+201462473,201462473,The catcher is on the left of the image.,10q-catcher_hposition,On which side of the photo is the catcher?,left,n508641.jpg
+201887286,201887286,The broccoli is in the basket.,"14-basket_in,s",What is in the basket?,broccoli,n429961.jpg
+20518589,20518589,The sink is on the counter top.,"14-sink_on,o",What is the sink on?,countertop,n141939.jpg
+201590142,201590142,"Yes, the player is to the right of the frisbee.",13-player_frisbee,Is the player to the right of the frisbee that looks white?,yes,n260762.jpg
+20341130,20341130,"No, there is a sculpture in front of the tree.",13-tree_fence,Do you see a fence in front of the tree that is in front of the school?,no,n346247.jpg
+201795286,201795286,"Yes, the baskets are colorful.",06-baskets_colorful,Do the baskets that are not empty look colorful?,yes,n119944.jpg
+201832545,201832545,"No, there is a bed but it is dark brown.",04-bed_n#dark brown,Is there any bed or table that is not dark brown?,no,n432591.jpg
+202082102,202082102,The device is a laptop.,"15-lamp_to the left of,s",Which kind of device is to the left of the lamp?,laptop,n433692.jpg
+20645704,20645704,"No, the heater is white but small.",05-large_white,Does the heater next to the toilet look white and large?,no,n98544.jpg
+201795848,201795848,"No, the man is standing.",06-man_sitting,Does the man appear to be sitting?,no,n119944.jpg
+201879789,201879789,The bike is large.,10q-bike_size,How large is the bike below the sky?,large,n466319.jpg
+201143364,201143364,The flowers are on top of the table.,"14-table_on top of,s",What is located on top of the table?,flowers,n276011.jpg
+20827171,20827171,"No, the side table is wooden but short.",05-long_wood,Does the side table that is not big look wooden and long?,no,n283587.jpg
+20940166,20940166,"No, the sink is square.",06-sink_round,Does the porcelain sink have round shape?,no,n240666.jpg
+201859351,201859351,The lid is made of plastic.,10q-lid_material,What is the lid made of?,plastic,n546884.jpg
+201595841,201595841,"Yes, the man is sitting on a bench.",13-man_bench,Is the person near the grass sitting on a bench?,yes,n302358.jpg
+20923252,20923252,The ambulance is parked alongside the barn.,"14-barn_parked alongside,s",What is parked alongside the barn?,ambulance,n480253.jpg
+202243438,202243438,The vehicle is a truck.,12q-vehicle_metal,Which kind of vehicle is metallic?,truck,n557666.jpg
+20923257,20923257,"Yes, the ambulance is parked alongside the barn.",13-ambulance_barn,Is the ambulance that is to the left of the workers parked alongside the barn?,yes,n480253.jpg
+20923256,20923256,The vehicle is an ambulance.,"15-barn_parked alongside,s",What vehicle is parked alongside the barn?,ambulance,n480253.jpg
+201976414,201976414,"No, the flags are triangular but white.",05-red_triangular,Are the flags triangular and red?,no,n279173.jpg
+20865499,20865499,"No, the calf is brown but small.",05-brown_large,Does the calf have brown color and large size?,no,n143935.jpg
+20600137,20600137,The grass is beneath the zebras.,"14-zebras_beneath,s",What is beneath the zebras the rock sits beside?,grass,n196058.jpg
+20600132,20600132,The grass is beneath the zebra.,"14-zebra_beneath,s",What is beneath the zebra that is not large?,grass,n196058.jpg
+20836758,20836758,"Yes, the purse is small.",06-purse_small,Does the blue bag look small?,yes,n507959.jpg
+20632010,20632010,"Yes, the baseball mitt is bright.",06-baseball mitt_bright,Is the baseball mitt bright?,yes,n570181.jpg
+201640606,201640606,The women are wearing a watch.,"14-watch_wearing,s",Who is wearing the watch?,women,n235859.jpg
+201640605,201640605,The women are wearing a watch.,"14-watch_wearing,s",Who is wearing a watch?,women,n235859.jpg
+201640602,201640602,The women are sitting at the restaurant.,"14-women_sitting at,o",Where are the people to the left of the bulb sitting?,restaurant,n235859.jpg
+20306515,20306515,The device is a cell phone.,"15-man_holding,o",What is the name of the device that the young man near the gift is holding?,cell phone,n554880.jpg
+202228132,202228132,The device is a speaker.,12q-device_n#illuminated,Which kind of device isn't illuminated?,speaker,n77818.jpg
+20692296,20692296,The books are resting on the counter.,"14-counter_resting on,s",What is resting on the marble counter?,books,n499081.jpg
+20692294,20692294,The books are to the left of the cabinet.,13-cabinet_books,Are the books to the left or to the right of the wood cabinet?,left,n499081.jpg
+20710151,20710151,"No, the sky is above a parent.",13-sky_train,Is the sky above a train?,no,n489699.jpg
+202262373,202262373,"No, the mug is small but white.",05-green_small,Is the mug in front of the cup green and small?,no,n28572.jpg
+20679393,20679393,"No, there are no seals or bunnies.",09existOr-bunny_seals,Are there any seals or bunnies in the picture?,no,n493357.jpg
+20710154,20710154,"No, the sky is above a child.",13-sky_airplane,Is the sky above an airplane?,no,n489699.jpg
+202243431,202243431,The vehicle is a truck.,12q-vehicle_large,What is the large vehicle?,truck,n557666.jpg
+201556498,201556498,The piece of furniture is a shelf.,12q-furniture_n#small,What is the piece of furniture that is not small called?,shelf,n525901.jpg
+201556499,201556499,The furniture is a shelf.,12q-furniture_n#small,What kind of furniture isn't small?,shelf,n525901.jpg
+20177490,20177490,"No, there are no forks.",03-fork,Do you see any forks?,no,n55058.jpg
+20711540,20711540,The toy is a stuffed bear.,12q-toy_soft,Which kind of toy is soft?,stuffed bear,n549922.jpg
+20899315,20899315,The bottle is made of plastic.,10q-bottle_material,What's the bottle made of?,plastic,n403734.jpg
+20711545,20711545,The toy is a stuffed bear.,12q-toy_colorful,What is the colorful toy in the picture?,stuffed bear,n549922.jpg
+201624174,201624174,The pizza is on the pan.,"14-pan_on,s",What is on the pan?,pizza,n59676.jpg
+201997192,201997192,"Yes, the chair is large.",06-chair_large,Does the chair look large?,yes,n250715.jpg
+20866524,20866524,"No, the container is light but white.",05-blue_light,Is the container made of plastic light and blue?,no,n579256.jpg
+20866526,20866526,The container has light tone.,10q-container_tone,What tone does the container made of plastic have?,light,n579256.jpg
+20866521,20866521,The container is on the right of the image.,10c-container_hposition,"Which side of the picture is the plastic container on, the right or the left?",right,n579256.jpg
+201510327,201510327,The fruit is a pear.,11q-fruit,Which kind of fruit is it?,pear,n541854.jpg
+201492240,201492240,The clothing item is a baseball mitt.,12q-clothing_n#long sleeved,What clothing item is not long sleeved?,baseball mitt,n9856.jpg
+20691652,20691652,The towels are black.,10c-towels_color,"What color are the towels made of cloth, black or white?",black,n153293.jpg
+202144424,202144424,The shorts are brown.,10q-shorts_color,What color are the shorts that the man is wearing?,brown,n37274.jpg
+20836579,20836579,The piece of furniture is a table.,"15-luggage_sitting in front of,o",What is the piece of furniture that the luggage that is brown and black is sitting in front of?,table,n507959.jpg
+20349798,20349798,The woman is wearing a shirt.,"14-shirt_wearing,s",Who is wearing the shirt?,woman,n468864.jpg
+201663481,201663481,"Yes, there is a new dishwasher.",04-dishwasher_new,Are there any new dishwashers?,yes,n35676.jpg
+20692079,20692079,The sink is small.,10q-sink_size,How big is the sink?,small,n499081.jpg
+201030507,201030507,The shirt is long sleeved.,10c-shirt_32,Does the shirt seem to be sleeveless or long sleeved?,long sleeved,n54424.jpg
+201997609,201997609,"No, the ceiling is clean but white.",05-blue_clean,Does the ceiling above the table look blue and clean?,no,n319845.jpg
+201153290,201153290,The woman is staring at the giraffe.,"14-giraffe_staring at,s",Who is staring at the giraffe?,woman,n160664.jpg
+201983816,201983816,"No, there is a bag but it is red.",04-bag_black,Is there any bag that is black?,no,n16378.jpg
+201153292,201153292,The woman is staring at the giraffe.,"14-woman_staring at,o",What animal is the person in front of the post staring at?,giraffe,n160664.jpg
+201153293,201153293,The woman is staring at the giraffe.,"14-woman_staring at,o",What animal is the woman staring at?,giraffe,n160664.jpg
+201153297,201153297,The woman is staring at the giraffe.,"15-woman_staring at,o",Which kind of animal is the woman staring at?,giraffe,n160664.jpg
+20645858,20645858,The bathroom is white.,10q-bathroom_color,What color is the small bathroom?,white,n98544.jpg
+20441903,20441903,"Yes, the table is brown and rectangular.",05-brown_rectangular,Does the table look brown and rectangular?,yes,n207708.jpg
+201570582,201570582,"Yes, the purse is black and the plate is white.",09diff-plate_purse,Is the plate different in color than the purse?,yes,n382416.jpg
+201535714,201535714,The clothing is a coat.,12q-clothing_yellow,Which kind of clothing is yellow?,coat,n272098.jpg
+20652278,20652278,"The shape, both the soccer ball and the backpack are round.",09common-backpack_soccer ball,What is common to the soccer ball and the backpack?,shape,n400036.jpg
+201535713,201535713,The clothing is a coat.,12q-clothing_yellow,What kind of clothing is yellow?,coat,n272098.jpg
+201111169,201111169,The table is brown.,10q-table_color,The table has which color?,brown,n546616.jpg
+20891561,20891561,"Yes, the kid is wearing shorts.",13-child_shorts,Is the kid wearing shorts?,yes,n347706.jpg
+20891560,20891560,The child is wearing shorts.,"14-child_wearing,o",What's the child wearing?,shorts,n347706.jpg
+20503738,20503738,"No, the sticker is rectangular but purple.",05-rectangular_white,Is the sticker both white and rectangular?,no,n324644.jpg
+20883191,20883191,"Yes, the boy is real.",06-boy_real,Do you think this boy is real?,yes,n159284.jpg
+20503730,20503730,The sticker is purple.,10q-sticker_color,What color is the sticker that looks rectangular?,purple,n324644.jpg
+201974600,201974600,The shirt is dark blue.,10q-shirt_color,What is the color of the shirt?,dark blue,n274905.jpg
+201972712,201972712,The sky is blue.,10q-sky_color,What color is the sky?,blue,n541482.jpg
+20783517,20783517,"No, there is a chair but it is red.",04-chair_n#red,Do you see any chairs that are not red?,no,n355339.jpg
+20797833,20797833,The man is in front of the tree.,"14-man_in front of,o",The man is in front of what?,tree,n16656.jpg
+20797830,20797830,The man is in front of the tree.,"14-tree_in front of,s",Who is in front of the tree that is in front of the sky?,man,n16656.jpg
+20342305,20342305,"No, the person is walking.",06-person_sitting,Does the person in front of the other person appear to be sitting?,no,n16425.jpg
+20783519,20783519,The piece of furniture is a chair.,"15-people_in front of,s",What item of furniture is in front of the people that are sitting around the table?,chair,n355339.jpg
+20797834,20797834,The man is in front of the tree.,"14-man_in front of,o",What is the man in front of?,tree,n16656.jpg
+2053782,2053782,The sidewalk is made of concrete.,10q-sidewalk_material,What is the sidewalk made of?,concrete,n146555.jpg
+202106445,202106445,"Yes, there is a green racket.",04-racket_green,Are there green snowboards or rackets?,yes,n574498.jpg
+201401744,201401744,"No, the sky is bright but cloudy.",05-bright_clear,Does the blue sky look bright and clear?,no,n155555.jpg
+20536241,20536241,The bison is heavy.,10q-bison_weight,How heavy is the bison?,heavy,n410476.jpg
+2053786,2053786,"Yes, the sidewalk is rough and paved.",05-paved_rough,Does the concrete sidewalk look rough and paved?,yes,n146555.jpg
+20899760,20899760,The device is a laptop.,"15-tomatoes_to the left of,s",What kind of device is to the left of the tomatoes?,laptop,n186491.jpg
+20899763,20899763,"No, there is a laptop to the left of the tomatoes.",13-tomatoes_phone,Are there any phones to the left of the tomatoes that are being in the bowl?,no,n186491.jpg
+201621812,201621812,The device is a speaker.,"15-couch_to the right of,s",What is the device to the right of the couch?,speaker,n275148.jpg
+20536249,20536249,The bison is looking down.,10q-bison_activity,What is the bison doing?,looking down,n410476.jpg
+20899769,20899769,The device is a laptop.,"15-table_sitting on,s",What type of device is sitting on the square table?,laptop,n186491.jpg
+20306372,20306372,The woman is holding the camera.,"15-woman_holding,o",What device is the woman holding?,camera,n554880.jpg
+20306370,20306370,The device is a camera.,"15-woman_holding,o",What is the device that the young woman is holding?,camera,n554880.jpg
+20866380,20866380,The floor is gray.,10q-floor_color,Which color is the floor?,gray,n579256.jpg
+20473110,20473110,"Yes, there is a woman.",09existOr-glasses_woman,Are there glasses or women?,yes,n126891.jpg
+201467402,201467402,"The color, both the door and the room are white.",09common-door_room,What is common to the door and the room?,color,n295771.jpg
+20518336,20518336,The appliance is a radiator.,"15-sink_under,s",What type of appliance is under the sink that is shown in the picture?,radiator,n141939.jpg
+20518337,20518337,The appliance is a radiator.,"15-sink_under,s",Which kind of appliance is under the sink?,radiator,n141939.jpg
+20518334,20518334,The radiator is under the sink.,"14-sink_under,s",What is under the sink on the counter top?,radiator,n141939.jpg
+20518335,20518335,The radiator is under the sink.,"14-sink_under,s",What's under the sink?,radiator,n141939.jpg
+201759317,201759317,The window is made of glass.,10c-window_material,"What is the window made of, glass or plastic?",glass,n150962.jpg
+20518339,20518339,"No, there is a radiator under the sink.",13-sink_drawer,Do you see any drawers under the sink?,no,n141939.jpg
+201952898,201952898,The vehicle is a car.,"15-houses_parked near,s",What is the vehicle that is parked near the houses called?,car,n525029.jpg
+20480525,20480525,"No, the books are colorful but thin.",05-colorful_thick,Do the tall books look colorful and thick?,no,n520071.jpg
+202053173,202053173,The umpire is staring.,staring,Who in this photograph is staring?,umpire,n334278.jpg
+20183255,20183255,The woman is sitting on top of the steps.,"14-woman_sitting on top of,o",What is the woman that is not young sitting on top of?,steps,n151768.jpg
+20797661,20797661,The shoe is behind the cat.,"15-shoe_behind,o",What animal is the shoe behind of?,cat,n16656.jpg
+201548930,201548930,The room is holding the picture.,"14-room_holding,o",What is the room holding?,picture,n314171.jpg
+20157379,20157379,The furniture is a table.,12q-furniture_wood,What kind of furniture is wooden?,table,n170941.jpg
+20257105,20257105,"No, the life vest is black and the shirt is white.",09same-life jacket_shirt,Are the life vest and the shirt the same color?,no,n441859.jpg
+20489405,20489405,"No, the pillow is blue and the table lamp is white.",09same-pillow_table lamp,Does the table lamp have the same color as the pillow?,no,n145498.jpg
+20709846,20709846,The umbrella is on the left of the image.,10q-umbrella_hposition,In which part is the open umbrella?,left,n24526.jpg
+20754796,20754796,"No, the skateboard is brown but small.",05-brown_large,Does the skateboard have brown color and large size?,no,n566028.jpg
+202169340,202169340,"Yes, the bench is in front of the woman.",13-bench_woman,Is the bench in front of the woman the man is to the left of?,yes,n451187.jpg
+20963807,20963807,The faucet is beneath the mirror.,"14-mirror_beneath,s",What is beneath the mirror?,faucet,n119886.jpg
+2053568,2053568,"Yes, the bottle is made of plastic.",06-bottle_plastic,Is plastic used to make the bottle to the right of the cow?,yes,n146555.jpg
+20941978,20941978,"Yes, the building is in front of the trees.",13-building_trees,Is the building in front of the trees that are not short?,yes,n137182.jpg
+20667406,20667406,The device is a Wii controller.,"15-man_to the right of,s",What device is to the right of the man that is sitting in front of the pillow?,wii controller,n181355.jpg
+202156967,202156967,The dirt is brown.,10q-dirt_color,What color is the dirt the elephants are on?,brown,n543966.jpg
+20757114,20757114,"Yes, the lady is looking down.",06-lady_looking down,Do you think that lady is looking down?,yes,n433532.jpg
+201571188,201571188,"Yes, the suitcase is tall and brown.",05-brown_tall,Is the suitcase to the right of the other suitcase tall and brown?,yes,n382416.jpg
+20757119,20757119,The lady is looking down.,10q-lady_activity,What is the lady doing?,looking down,n433532.jpg
+20394761,20394761,The woman is wearing a dress.,"14-woman_wearing,o",What is the woman wearing?,dress,n369313.jpg
+20394760,20394760,The woman is wearing a dress.,"14-woman_wearing,o",What is the happy woman wearing?,dress,n369313.jpg
+20508714,20508714,The woman is wearing a shirt.,"14-shirt_wearing,s",Who is wearing a shirt?,woman,n511913.jpg
+202053319,202053319,"No, the batter is young but male.",05-female_young,Is the athletic person in front of the umpire young and female?,no,n334278.jpg
+202174529,202174529,"Yes, the window is rectangular and white.",05-rectangular_white,Is the window rectangular and white?,yes,n398429.jpg
+201908788,201908788,"Yes, the forks are hard.",06-forks_hard,Do the silver forks look hard?,yes,n479092.jpg
+20403340,20403340,The mirror is square.,10q-mirror_shape,What shape is the large mirror?,square,n249639.jpg
+20306592,20306592,"No, the camera is on the left of the image.",06-camera_right,Is the camera on the right side of the picture?,no,n554880.jpg
+20403344,20403344,"Yes, there is a mirror near the lamp.",13-lamp_mirror,Is there a mirror near the white lamp?,yes,n249639.jpg
+20435304,20435304,The napkin is made of paper.,10c-napkin_material,"What makes up the napkin, paper or cloth?",paper,n431447.jpg
+20939909,20939909,"Yes, the garbage can is behind a mat.",13-trash can_mat,Is the garbage can behind a mat?,yes,n240666.jpg
+20435309,20435309,The napkin is dirty.,10q-napkin_cleanliness,How clean is that napkin?,dirty,n431447.jpg
+20939906,20939906,"Yes, the trash bin is underneath the sink.",13-trash can_sink,Is the small trash can underneath the sink?,yes,n240666.jpg
+201887219,201887219,The eggplant is on the right of the image.,10q-eggplant_hposition,On which side of the picture is the eggplant?,right,n429961.jpg
+20939902,20939902,"Yes, the garbage bin is below a sink.",13-trash can_sink,Is the garbage bin below a sink?,yes,n240666.jpg
+20901821,20901821,"No, the man is wearing sandals.",13-man_shorts,Is the chubby man to the left of the umbrella wearing shorts?,no,n28792.jpg
+20901822,20901822,The man holds the umbrella.,"14-man_holding,o",What does the chubby man hold?,umbrella,n28792.jpg
+201984046,201984046,The woman is looking down.,10q-woman_activity,What is the woman doing?,looking down,n16378.jpg
+201902722,201902722,The monitor is black.,10q-monitor_color,The monitor to the right of the other monitor has which color?,black,n435808.jpg
+20492039,20492039,The birds are walking on the ground.,"14-ground_walking on,s",What animal is walking on the ground?,birds,n335542.jpg
+201902726,201902726,The monitor sits on top of the desk.,"14-desk_sitting on top of,s",What sits on top of the desk?,monitor,n435808.jpg
+202100478,202100478,"No, the sky is blue but dull.",05-blue_bright,Does the sky look bright and blue?,no,n386688.jpg
+20287967,20287967,"Yes, both the spectators and the spectators are sitting.",09verifyAttrAnd-spectators_spectators,Are both the spectators to the left of the batter and the spectators that are to the right of the batter sitting?,yes,n317260.jpg
+20896252,20896252,"Yes, the container is on the left of the image.",06-container_left,Is the plastic container on the left side of the picture?,yes,n548534.jpg
+201510942,201510942,"No, the suitcase is large.",06-suitcase_small,Does the suitcase to the right of the rug have small size?,no,n575770.jpg
+201621467,201621467,The piece of furniture is a TV stand.,12q-furniture_wood,What is the name of the wooden piece of furniture?,tv stand,n275148.jpg
+201621466,201621466,The furniture is a TV stand.,12q-furniture_brown,Which kind of furniture is brown?,tv stand,n275148.jpg
+20427613,20427613,"Yes, both the gentleman and the man are young.",09verifyAttrAnd-gentleman_man,Do both the smiling gentleman in front of the picture and the Caucasian person look young?,yes,n281241.jpg
+201342263,201342263,The plane is large.,10q-airplane_size,How big is the plane?,large,n157375.jpg
+20618703,20618703,The wrist watch has pink color.,10q-wristwatch_color,What color does the wrist watch the woman is wearing have?,pink,n126087.jpg
+20427618,20427618,The gentleman is young.,10q-gentleman_age,How old is the gentleman?,young,n281241.jpg
+202231872,202231872,The floor is dark brown.,10q-floor_color,Which color do you think the wood floor is?,dark brown,n232810.jpg
+201536434,201536434,The baseball players are on the right of the image.,10q-baseball players_hposition,On which side of the image are the baseball players?,right,n538684.jpg
+201975054,201975054,"No, there is a hat but it is black and white.",04-hat_colorful,Is there a colorful hat or scarf?,no,n274905.jpg
+201640551,201640551,The women are fat.,10q-women_fatness,How fat are the old people who are wearing a dress?,fat,n235859.jpg
+201885430,201885430,The man is jumping.,10q-man_pose,What's the man doing?,jumping,n222297.jpg
+201654400,201654400,"Yes, there are both a horse and a fence.",09existAnd-fence_horses,Are there both a horse and a fence in the image?,yes,n6309.jpg
+201434287,201434287,"No, there is an airplane but no trucks.",09existAnd-airplane_truck,Are there both trucks and airplanes?,no,n545516.jpg
+201770899,201770899,This is a bottle.,08oc-bottle_cup,"What is this, a cup or a bottle?",bottle,n310625.jpg
+202100782,202100782,The jars are sitting on top of the stove.,"14-jars_sitting on top of,o",What are the jars sitting on top of?,stove,n280089.jpg
+201713599,201713599,"No, there are no curtains or trash cans.",09existOr-curtain_trash can,Are there any curtains or trash cans in the photo?,no,n455563.jpg
+201068686,201068686,The man is wearing a dress shirt.,"14-man_wearing,o",What is the Asian person near the water bottle wearing?,dress shirt,n159802.jpg
+201068687,201068687,The man is wearing a dress shirt.,"14-man_wearing,o",What is the man wearing?,dress shirt,n159802.jpg
+20717125,20717125,The furniture is a bed.,12q-furniture_fluffy,Which kind of furniture is fluffy?,bed,n67005.jpg
+201556938,201556938,The pen is made of plastic.,10q-pen_material,What is the pen made of?,plastic,n525901.jpg
+201556939,201556939,The pen is on top of the paper.,"14-paper_on top of,s",What is located on top of the white paper?,pen,n525901.jpg
+20756792,20756792,The hair is gray.,10c-hair_color,"What color is the hair, gray or red?",gray,n433532.jpg
+201556937,201556937,The pen is made of plastic.,10q-pen_material,What material is the pen?,plastic,n525901.jpg
+202285527,202285527,"Yes, there are waffles to the left of the fork.",13-fork_waffles,Do you see any waffles to the left of the fork?,yes,n100991.jpg
+201879573,201879573,"Yes, the truck is in front of the basket.",13-truck_basket,Is the truck in front of the basket?,yes,n290409.jpg
+201795103,201795103,The elephant is dark brown.,10q-elephant_color,What color is the large animal?,dark brown,n119944.jpg
+20248178,20248178,"Yes, both the sweater and the dress shirt are long sleeved.",09verifyAttrAnd-dress shirt_sweater,Are the sweater and the black dress shirt both long sleeved?,yes,n49310.jpg
+201156172,201156172,The jacket is made of cloth.,10c-jacket_material,"What makes up the jacket, cloth or leather?",cloth,n146522.jpg
+20923001,20923001,The car is to the right of the fire truck.,13-fire truck_car,Is the car to the left or to the right of the vehicle that is parked along the street?,right,n480253.jpg
+20245902,20245902,The skateboarder wears a knee pad.,"14-knee pad_wearing,s",Who wears a knee pad?,skateboarder,n489190.jpg
+20245900,20245900,The skateboarder is wearing a helmet.,"14-helmet_wearing,s",Who is wearing a helmet?,skateboarder,n489190.jpg
+20245901,20245901,The skateboarder is wearing a helmet.,"14-helmet_wearing,s",Who is wearing the helmet?,skateboarder,n489190.jpg
+20245906,20245906,The skateboarder is skating on the skateboard.,"14-skateboard_skating on,s",Who is skating on the skateboard?,skateboarder,n489190.jpg
+20245907,20245907,The skateboarder is wearing a knee pad.,"14-knee pad_wearing,s",Who is wearing a knee pad?,skateboarder,n489190.jpg
+20248177,20248177,"No, the sweater is long sleeved but white.",05-black_long sleeved,Does the striped sweater look long sleeved and black?,no,n49310.jpg
+201987480,201987480,"Yes, the driver is wearing a helmet.",13-driver_helmet,Is the driver in the photo wearing a helmet?,yes,n501951.jpg
+201795359,201795359,"Yes, the woman is to the right of an elephant.",13-woman_elephant,Is the fat woman to the right of an elephant?,yes,n119944.jpg
+201735541,201735541,The shelves are sitting on top of the desk.,"15-shelves_sitting on top of,o",Which kind of furniture are the shelves sitting on top of?,desk,n240973.jpg
+201735547,201735547,The pieces of furniture are shelves.,"15-newspaper_above,s",What type of furniture is above the newspaper that looks red and white?,shelves,n240973.jpg
+20492150,20492150,"No, the bear is long but brown.",05-long_white,Is the bear that is to the left of the other bear long and white?,no,n335542.jpg
+20416826,20416826,The food is a sausage.,12q-food_n#tasty,What kind of food is not tasty?,sausage,n234722.jpg
+20416825,20416825,The food is a sausage.,12q-food_n#tasty,Which type of food is not tasty?,sausage,n234722.jpg
+20119166,20119166,The umbrella is in the top of the image.,10c-umbrella_vposition,"Where in the photograph is the umbrella, in the top or in the bottom?",top,n540852.jpg
+20300360,20300360,"Yes, it is cloudy.",01-weather_cloudy,Is the weather cloudy?,yes,n208302.jpg
+20244509,20244509,It is a sidewalk.,02q-place,Which place is this?,sidewalk,n19152.jpg
+201935164,201935164,"No, the table is white.",06-table_brown,Does the smooth table have brown color?,no,n556604.jpg
+202036880,202036880,The food is a sausage.,"15-pizza_on,s",What is the name of the food that is on the food with the spinach?,sausage,n200225.jpg
+202036881,202036881,The food is a sausage.,"15-pizza_on,s",What food is on the pizza?,sausage,n200225.jpg
+202106209,202106209,"Yes, the man is to the left of a ball.",13-man_ball,Is the man to the left of a ball?,yes,n574498.jpg
+20541727,20541727,"No, the woman is to the left of the couch.",13-woman_woman,Is she to the right of the couch that is to the left of the television?,no,n527290.jpg
+201037056,201037056,"Yes, the traffic sign is octagonal and red.",05-octagonal_red,Is the traffic sign behind the girl octagonal and red?,yes,n393305.jpg
+20894256,20894256,The pants are brown.,10q-pants_color,What is the color of the long pants?,brown,n272313.jpg
+201795818,201795818,The sandals are hard.,10q-sandals_hardness,How hard are the brown sandals?,hard,n119944.jpg
+201621321,201621321,The picture frame is black.,10q-picture frame_color,What is the color of the picture frame which is hanging from the wall?,black,n275148.jpg
+201319547,201319547,The women are in front of the window frame.,"14-window frame_in front of,s",Who is in front of the window frame that looks light brown?,women,n508733.jpg
+201439730,201439730,The shorts are dark.,10q-shorts_color,What is the color of the shorts made of cloth?,dark,n199286.jpg
+201319540,201319540,The women are wearing a shirt.,"14-shirt_wearing,s",Who is wearing a shirt?,women,n508733.jpg
+201392138,201392138,"No, the shirt is short sleeved but dark.",05-gray_short sleeved,Is the shirt made of cotton short sleeved and gray?,no,n477702.jpg
+201439735,201439735,"Yes, both the shorts and the leggings are made of cloth.",09verifyAttrAnd-leggings_shorts,Are both the shorts and the black leggings made of cloth?,yes,n199286.jpg
+202073305,202073305,The animal is a deer.,12q-animal_beautiful,What kind of animal is beautiful?,deer,n219840.jpg
+202218780,202218780,"Yes, the pan is blue and metallic.",05-blue_metal,Is the cooking utensil in front of the window blue and metallic?,yes,n578564.jpg
+2094004,2094004,The grass is short.,10q-grass_height,What is the height of the green grass near the mud?,short,n450919.jpg
+201407351,201407351,The man holds the racket.,"14-man_holding,o",What does the man hold?,racket,n282607.jpg
+20169624,20169624,"No, the water is calm.",06-water_wavy,Is the water wavy?,no,n58220.jpg
+201527694,201527694,"Yes, the cake is to the right of the girl.",13-cake_girl,Is the round cake to the right of the young girl?,yes,n118102.jpg
+20902593,20902593,"Yes, the backpack is clean and blue.",05-blue_clean,Does the backpack appear to be clean and blue?,yes,n411121.jpg
+201407359,201407359,The man is playing with a tennis ball.,"14-man_playing with,o",What is the person behind the net playing with?,tennis ball,n282607.jpg
+201982217,201982217,"Yes, there is a lamp that is large.",04-lamp_large,Is there a lamp in this picture that is large?,yes,n526228.jpg
+2065884,2065884,"No, the girl is happy but young.",05-happy_old,Is the girl to the right of the man happy and old?,no,n356822.jpg
+201935304,201935304,"Yes, the woman is standing on the bricks.",13-woman_bricks,Is the woman near the man standing on the bricks?,yes,n556604.jpg
+201935303,201935303,The woman is standing on the bricks.,"14-woman_standing on,o",The woman near the man is standing on what?,bricks,n556604.jpg
+20902848,20902848,The animal is a dog.,"15-backpack_in,s",How is the animal that is in the backpack called?,dog,n411121.jpg
+202231417,202231417,The stop sign is made of metal.,10q-stop sign_material,What material is the stop sign on top of the pole made of?,metal,n79078.jpg
+20247773,20247773,"Yes, the man is wearing jeans.",13-man_jeans,Is the person to the left of the glasses wearing jeans?,yes,n49310.jpg
+201462312,201462312,The man is holding the bat.,"14-man_holding,o",What is the person on top of the field holding?,bat,n508641.jpg
+20340435,20340435,The yard is in front of the tree.,"14-yard_in front of,o",What is the yard in front of?,tree,n513100.jpg
+201462314,201462314,The man is holding the bat.,"14-man_holding,o",What is the man holding?,bat,n508641.jpg
+20247778,20247778,The man is sitting on the bench.,"14-man_sitting on,o",What's the man sitting on?,bench,n49310.jpg
+201987813,201987813,The bottle is on the right of the image.,10q-bottle_hposition,On which side of the picture is the small bottle?,right,n470131.jpg
+201887171,201887171,The food is broccoli.,12q-food_n#round,What kind of food is not round?,broccoli,n429961.jpg
+201438693,201438693,The batter is standing beside the home plate.,"14-batter_standing beside,o",What is the batter standing beside of?,home plate,n66756.jpg
+20491789,20491789,The sky is filled with bird.,"14-bird_filled with,s",What is filled with bird?,sky,n335542.jpg
+20655012,20655012,"Yes, the coat is comfortable.",06-coat_comfortable,Is the coat comfortable?,yes,n199097.jpg
+20756930,20756930,"Yes, the robe is red and smooth.",05-red_smooth,Is the robe red and smooth?,yes,n433532.jpg
+20330524,20330524,"No, the car is dark.",06-car_silver,Is that car silver?,no,n260521.jpg
+20609412,20609412,"Yes, the plate is white.",06-plate_white,Does the plate look white?,yes,n437064.jpg
+201527960,201527960,The girl is sitting.,sitting,Who is sitting?,girl,n118102.jpg
+201482397,201482397,"Yes, the trousers are black and white.",06-pants_black and white,Do the striped pants appear to be black and white?,yes,n470920.jpg
+201446970,201446970,The cup is on the right of the image.,10q-cup_hposition,Which side of the image is the cup on?,right,n54180.jpg
+20963696,20963696,"Yes, the toilet is brown.",06-toilet_brown,Does the toilet look brown?,yes,n119886.jpg
+201207480,201207480,The mug sits on the mat.,"14-mug_sitting on,o",What does the mug sit on?,mat,n222915.jpg
+20752230,20752230,"No, the door is white.",06-door_black,Does the door look black?,no,n209843.jpg
+201482055,201482055,"No, the jacket is bright but red.",05-bright_gray,Is the jacket gray and bright?,no,n470920.jpg
+20567532,20567532,"Yes, the beach is bright.",06-beach_bright,Does the sunny beach look bright?,yes,n414992.jpg
+201599785,201599785,The furniture is a chair.,12q-furniture_wood,What kind of furniture is wooden?,chair,n285391.jpg
+201599787,201599787,The furniture is a chair.,12q-furniture_wood,What kind of furniture is made of wood?,chair,n285391.jpg
+20567537,20567537,"Yes, the man is standing.",06-man_standing,Does the man that is to the left of the other man seem to be standing?,yes,n414992.jpg
+202162618,202162618,The furniture is a bookcase.,12q-furniture_black,Which kind of furniture is black?,bookcase,n69237.jpg
+202162615,202162615,The piece of furniture is a bookcase.,12q-furniture_black,What is the black item of furniture?,bookcase,n69237.jpg
+201599788,201599788,The piece of furniture is a chair.,12q-furniture_old,What is the old piece of furniture in the photo?,chair,n285391.jpg
+20550578,20550578,The people are standing on the grass.,"14-people_standing on,o",Where are the grouped people standing on?,grass,n579928.jpg
+20340484,20340484,"Yes, that is a small fence.",06-fence_small,Is that a small fence?,yes,n513100.jpg
+20151749,20151749,The purse is tan.,10c-purse_color,"Which color is the bag that is made of leather, tan or purple?",tan,n313060.jpg
+202246139,202246139,"No, the mousepad is clean but small.",05-clean_large,Is the mouse pad to the right of her both clean and large?,no,n310828.jpg
+20654941,20654941,"No, both the hat and the jacket are black.",09diff-hat_jacket,Does the hat have a different color than the jacket?,no,n199097.jpg
+20309040,20309040,"No, the knife is black but long.",05-black_short,Does the knife in the knife block have black color and short length?,no,n278312.jpg
+20654949,20654949,"Yes, the street sign is red and the sidewalk is black.",09diff-sidewalk_street sign,Is the color of the sidewalk different than the street sign?,yes,n199097.jpg
+202004006,202004006,The doors are made of wood.,10q-doors_material,What are the doors made of?,wood,n262920.jpg
+20120514,20120514,"Yes, the fence is tall and gray.",05-gray_tall,Does the fence in front of the bench look tall and gray?,yes,n117888.jpg
+2059544,2059544,The girl is blond.,10q-girl_color,What color is the girl that is sitting down?,blond,n130638.jpg
+20866265,20866265,"Yes, the fridge is wide and new.",05-new_wide,Does this fridge look wide and new?,yes,n579256.jpg
+202218911,202218911,The flower pot is light blue.,10q-flower pot_color,What is the color of the flower pot?,light blue,n578564.jpg
+201574236,201574236,The man is in front of the door.,"14-door_in front of,s",Who do you think is in front of the door made of wood?,man,n116329.jpg
+201637286,201637286,"No, there are no tomatoes.",03-tomato,Is there a tomato in this photo?,no,n200692.jpg
+201885232,201885232,"No, the frisbee is round but blue.",05-round_white,Is the frisbee above the pool both round and white?,no,n222297.jpg
+202121678,202121678,"No, the sink is gray but clean.",05-dirty_gray,Is the sink dirty and gray?,no,n140421.jpg
+20856903,20856903,The bag is a purse.,11q-bag,Which kind of bag is it?,purse,n293477.jpg
+201346563,201346563,"No, there is a motorcycle but no helmets.",09existAnd-helmet_motorcycle,Are there both a helmet and a motorcycle in the image?,no,n131634.jpg
+201346560,201346560,The van is to the left of the car.,13-car_van,Is the large vehicle to the right or to the left of the vehicle that is parked along the street?,left,n131634.jpg
+20856909,20856909,The bag is a purse.,12q-bag_green,Which kind of bag is green?,purse,n293477.jpg
+201479185,201479185,The orange is unpeeled.,10c-orange_37,"How does the fruit in front of the cup look, unpeeled or peeled?",unpeeled,n181210.jpg
+201974958,201974958,The shorts are black.,10q-shorts_color,What is the color of the shorts?,black,n274905.jpg
+20295332,20295332,The television is gray.,10q-television_color,What is the color of the television?,gray,n162586.jpg
+20258542,20258542,"Yes, both the shirt and the chair are white.",09same-chair_shirt,Does the shirt have the same color as the chair?,yes,n204894.jpg
+201996765,201996765,"No, the words are large but gold.",05-black_large,Are the words large and black?,no,n250715.jpg
+201156113,201156113,"Yes, the bag is black.",06-bag_black,Does the bag to the left of the boy look black?,yes,n146522.jpg
+201153193,201153193,"Yes, there is a old woman.",04-woman_n#young,Is there a woman that is not young?,yes,n160664.jpg
+20797647,20797647,The shoe is in front of the cat.,"14-cat_in front of,s",What is in front of the animal that is in front of the man?,shoe,n16656.jpg
+201207118,201207118,The vegetable is broccoli.,"15-plate_sitting on,s",What vegetable is sitting on the plate?,broccoli,n222915.jpg
+201878450,201878450,The man is old.,10q-man_age,How old is the person that the jacket is worn around?,old,n342511.jpg
+20385288,20385288,The calculator is made of plastic.,10q-calculator_material,What material is the calculator that is to the right of the charger made of?,plastic,n90294.jpg
+20385537,20385537,"Yes, both the remote and the calculator are made of plastic.",09verifyAttrAnd-calculator_remote control,Are both the device next to the book and the calculator made of plastic?,yes,n90294.jpg
+201303200,201303200,The cups are made of porcelain.,10c-cups_material,Are the cups made of plastic or porcelain?,porcelain,n518912.jpg
+201303202,201303202,The cups are on top of the table.,"14-table_on top of,s",What is located on top of the table?,cups,n518912.jpg
+20797648,20797648,The shoe is in front of the cat.,"14-cat_in front of,s",What's in front of the cat?,shoe,n16656.jpg
+201976886,201976886,The street sign is in front of the building.,"14-building_in front of,s",What is in front of the building the sky is above?,street sign,n279173.jpg
+201976887,201976887,The street sign is in front of the building.,"14-building_in front of,s",What is in front of the building?,street sign,n279173.jpg
+201497854,201497854,The device is a monitor.,12q-device_reflective,Which kind of device is reflective?,monitor,n315887.jpg
+202133541,202133541,The shirt is short sleeved.,10c-shirt_32,Is the shirt short sleeved or long sleeved?,short sleeved,n412144.jpg
+20171188,20171188,The cooking utensil is a baking pan.,"15-table_on top of,s",What kind of cooking utensil is on top of the table?,baking pan,n379991.jpg
+201902537,201902537,"No, the router is rectangular but white.",05-black_rectangular,Does the router that is to the left of the chair look rectangular and black?,no,n435808.jpg
+201738048,201738048,"Yes, the helmet is blue.",06-helmet_blue,Does the helmet have blue color?,yes,n531731.jpg
+201713385,201713385,"No, the mug is to the left of the mirror.",13-mug_plate,Is the mug to the left of a plate?,no,n455563.jpg
+202244247,202244247,The rice has triangular shape.,10q-rice_shape,What shape does the food the cupcakes are to the left of have?,triangular,n296467.jpg
+202158849,202158849,"No, the bus is black but large.",05-black_small,Is the bus near the people black and small?,no,n406334.jpg
+20818677,20818677,The shoes are black.,10c-shoes_color,Do the shoes look black or pink?,black,n279581.jpg
+201879394,201879394,The mirror is made of metal.,10q-mirror_material,What is the mirror made of?,metal,n290409.jpg
+201621693,201621693,The piece of furniture is a couch.,"15-television_to the right of,s",What type of furniture is to the right of the device that is on top of the TV stand?,couch,n275148.jpg

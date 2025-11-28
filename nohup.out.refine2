@@ -1,0 +1,1316 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Initializing model blip on GPU 0
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:06,  1.67s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:03<00:05,  1.68s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:05<00:03,  1.68s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:06<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:08<00:00,  1.61s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:08<00:00,  1.64s/it]
+Initializing model codex on GPU 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.32it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Loaded the model: meta-llama/Meta-Llama-3-8B-Instruct
+Initializing model glip on GPU 2
+VISION BACKBONE USE GRADIENT CHECKPOINTING:  False
+LANGUAGE BACKBONE USE GRADIENT CHECKPOINTING:  False
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+EARLY FUSION ON, USING MHA-B
+Initializing model llama2_qa on GPU 3
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.09s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.08s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+Loaded model:meta-llama/Meta-Llama-3-8B-Instruct
+Initializing model maskrcnn on GPU 4
+Initializing model xvlm on GPU 5
+  0%|          | 0/2 [00:00<?, ?it/s]/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a person?", long_answer=False) == 'yes', "Expected output to be a person"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert result in ['tall','short'], "Expected output to be tall or short"
+    # Test case 2:
+    assert not any(char.isdigit() for char in result), "Expected output to not have numbers"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} an airplane?", long_answer=False) == 'yes', "Expected output to be an airplane"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a color?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['blue', 'brown'], "Expected output to be blue or brown"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a person?", long_answer=False) == 'yes', "Expected output to be a person"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query("Is it overcast?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query("Who is wearing the dress?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    utensil_patches = image_patch.find("utensil")
+    # Question assumes only one utensil patch
+    if len(utensil_patches) == 0:
+        # If no utensil is found, query the image directly
+        return image_patch.simple_query("Does the utensil on top of the table look clean and black?")
+
+    table_patches = image_patch.find("table")
+    if len(table_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for utensil_patch in utensil_patches:
+        for table_patch in table_patches:
+            # "utensil on top of table" probability
+            score = image_patch.soft_above(utensil_patch, table_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    if avg_score > 0.5:
+        return image_patch.simple_query("Is the utensil on top of the table clean and black?")
+    else:
+        return "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    surfer_patches = image_patch.find("surfer")
+    # Question assumes only one surfer patch
+    if len(surfer_patches) == 0:
+        # If no surfer is found, query the image directly
+        return image_patch.simple_query("Is the surfer that looks wet wearing a wetsuit?")
+
+    for surfer_patch in surfer_patches:
+        is_wet = (surfer_patch.simple_query("Is the surfer wet?") == "yes")
+        if is_wet:
+            is_wearing_wetsuit = (surfer_patch.simple_query("Is the surfer wearing a wetsuit?") == "yes")
+            return "yes" if is_wearing_wetsuit else "no"
+    # If no surfer is wet, query the image directly
+    return image_patch.simple_query("Is the surfer that looks wet wearing a wetsuit?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    chair_patches = image_patch.find("chair")
+    # Question assumes only one chair patch
+    if len(chair_patches) == 0:
+        # If no chair is found, query the image directly
+        return image_patch.simple_query("How tall is the chair in the bottom of the photo?")
+    chair_patch = chair_patches[0]
+
+    # Use soft vertical reasoning: bottom if below the image center
+    score_bottom = image_patch.soft_above(image_patch, chair_patch)
+    return "bottom" if score_bottom > 0.5 else "top"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    device_patches = image_patch.find("device")
+    # Question assumes only one device patch
+    if len(device_patches) == 0:
+        # If no device is found, query the image directly
+        return image_patch.simple_query("What kind of device is on top of the desk?")
+    device_patch = device_patches[0]
+    desk_patches = image_patch.find("desk")
+    if len(desk_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for desk_patch in desk_patches:
+        # "device above desk" probability
+        score = image_patch.soft_above(device_patch, desk_patch)
+        scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    airplane_patches = image_patch.find("airplane")
+    # Question assumes only one airplane patch
+    if len(airplane_patches) == 0:
+        # If no airplane is found, query the image directly
+        return image_patch.simple_query("What is the airplane flying above?")
+    airplane_patch = airplane_patches[0]
+
+    # Use soft vertical reasoning: above if above the image center
+    score_above = image_patch.soft_above(image_patch, airplane_patch)
+    return "above" if score_above > 0.5 else "below"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    pants_patches = image_patch.find("pants")
+    # Question assumes only one pants patch
+    if len(pants_patches) == 0:
+        # If no pants are found, query the image directly
+        return image_patch.simple_query("What color are the pants?")
+    pants_patch = pants_patches[0]
+    color = pants_patch.simple_query("What color are the pants?")
+    return color
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    ground_patches = image_patch.find("ground")
+    # Question assumes only one ground patch
+    if len(ground_patches) == 0:
+        # If no ground is found, query the image directly
+        return image_patch.simple_query("Is the ground blue or brown?")
+    ground_patch = ground_patches[0]
+
+    # Use soft color reasoning: blue if color is similar to blue
+    blue_score = image_patch.sigmoid(ground_patch.simple_query("Is the ground blue?"))
+    brown_score = image_patch.sigmoid(ground_patch.simple_query("Is the ground brown?"))
+
+    return "blue" if blue_score > brown_score else "brown"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    window_patches = image_patch.find("window")
+    # Question assumes only one window patch
+    if len(window_patches) == 0:
+        # If no window is found, query the image directly
+        return image_patch.simple_query("What is around the open window?")
+    window_patch = window_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for object_patch in image_patch.find("object"):
+        # "object left of window" probability → reverse for "window left of object"
+        score = 1 - image_patch.soft_left_of(window_patch, object_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    window_patches = image_patch.find("window")
+    # Question assumes only one window patch
+    if len(window_patches) == 0:
+        # If no window is found, query the image directly
+        return image_patch.simple_query("What's around the window?")
+    window_patch = window_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for object_patch in image_patch.find("object"):
+        # "object left of window" probability → reverse for "window left of object"
+        score = 1 - image_patch.soft_left_of(window_patch, object_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find("person")
+    # Question assumes only one person patch
+    if len(person_patches) == 0:
+        # If no person is found, query the image directly
+        return image_patch.simple_query("Who is standing at the table?")
+    for person_patch in person_patches:
+        is_standing_at_table = (person_patch.simple_query("Is the person standing at the table?") == "yes")
+        if is_standing_at_table:
+            return person_patch.simple_query("Who is standing at the table?") # crop would include the table so keep it in the query
+    # If no person is standing at the table, pick the first person
+    return person_patches[0].simple_query("Who is standing at the table?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    bed_patches = image_patch.find("bed")
+    # Question assumes only one bed patch
+    if len(bed_patches) == 0:
+        # If no bed is found, query the image directly
+        return image_patch.simple_query("Are there drapes to the right of the bed?")
+
+    drapes_patches = image_patch.find("drapes")
+    if len(drapes_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for drapes_patch in drapes_patches:
+        for bed_patch in bed_patches:
+            # "bed left of drapes" probability
+            score = image_patch.soft_left_of(bed_patch, drapes_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    chalkboard_patches = image_patch.find("chalkboard")
+    # Question assumes only one chalkboard patch
+    if len(chalkboard_patches) == 0:
+        # If no chalkboard is found, query the image directly
+        return image_patch.simple_query("What is hanging above the chalkboard?")
+
+    hanging_patches = image_patch.find("hanging")
+    if len(hanging_patches) == 0:
+        return "nothing"
+
+    # Use soft vertical reasoning: above if above the chalkboard
+    score_above = image_patch.soft_above(chalkboard_patches[0], hanging_patches[0])
+    return "above" if score_above > 0.5 else "below"
+```
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/utils/checkpoint.py:464: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/modeling_utils.py:1141: FutureWarning: The `device` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/nn/functional.py:4185: UserWarning: nn.functional.upsample_bilinear is deprecated. Use nn.functional.interpolate instead.
+  warnings.warn("nn.functional.upsample_bilinear is deprecated. Use nn.functional.interpolate instead.")
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 18, in execute_command_201303229
+AssertionError: Expected output to be tall or short
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 22, in execute_command_20567512
+    cache = Memory('cache/' if config.use_cache else None, verbose=0)
+AssertionError: Expected output to be an airplane
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 18, in execute_command_20602803
+  File "Codex", line 12, in execute_command
+    from rich.console import Console
+  File "/home/xintong/PropTest/image_patch.py", line 346, in sigmoid
+    return 1 / (1 + math.exp(-x))
+TypeError: bad operand type for unary -: 'str'
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    cake_patches = image_patch.find("cake")
+    # Question assumes only one cake patch
+    if len(cake_patches) == 0:
+        # If no cake is found, query the image directly
+        return image_patch.simple_query("Is the cake on a platter?")
+    cake_patch = cake_patches[0]
+    platter_patches = image_patch.find("platter")
+    # Question assumes only one platter patch
+    if len(platter_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for platter_patch in platter_patches:
+        # "cake on platter" probability → reverse for "platter under cake"
+        score = 1 - image_patch.soft_left_of(cake_patch, platter_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find("person")
+    # Question assumes only one person patch
+    if len(person_patches) == 0:
+        # If no person is found, query the image directly
+        return image_patch.simple_query("Is the person to the right of the cup wearing jeans?")
+
+    cup_patches = image_patch.find("cup")
+    if len(cup_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for person_patch in person_patches:
+        for cup_patch in cup_patches:
+            # "cup left of person" probability
+            score = image_patch.soft_left_of(cup_patch, person_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    if avg_score > 0.5:
+        jeans_patches = image_patch.find("jeans")
+        if len(jeans_patches) > 0:
+            return "yes"
+        else:
+            return "no"
+    else:
+        return "no"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    mouse_pad_patches = image_patch.find("mouse pad")
+    # Question assumes only one mouse pad patch
+    if len(mouse_pad_patches) == 0:
+        # If no mouse pad is found, query the image directly
+        return image_patch.simple_query("What device is sitting next to the mouse pad?")
+
+    device_patches = image_patch.find("device")
+    if len(device_patches) == 0:
+        return "no device found"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for mouse_pad_patch in mouse_pad_patches:
+        for device_patch in device_patches:
+            # "device left of mouse pad" probability
+            score = image_patch.soft_left_of(device_patch, mouse_pad_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    sweater_patches = image_patch.find("sweater")
+    # Question assumes only one sweater patch
+    if len(sweater_patches) == 0:
+        # If no sweater is found, query the image directly
+        return image_patch.simple_query("Does the sweater look open and blue?")
+    sweater_patch = sweater_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for sweater_patch in sweater_patches:
+        # "sweater left of image center" probability → reverse for "image center left of sweater"
+        score = 1 - image_patch.soft_left_of(image_patch, sweater_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    jacket_patches = image_patch.find("jacket")
+    # Question assumes only one jacket patch
+    if len(jacket_patches) == 0:
+        # If no jacket is found, query the image directly
+        return image_patch.simple_query("Is the jacket long sleeved and black?")
+
+    for jacket_patch in jacket_patches:
+        is_long_sleeved = (jacket_patch.simple_query("Is the jacket long sleeved?") == "yes")
+        is_black = (jacket_patch.simple_query("Is the jacket black?") == "yes")
+        if is_long_sleeved and is_black:
+            return "yes"
+    # If no jacket is long sleeved and black, query the image directly
+    return image_patch.simple_query("Is the jacket long sleeved and black?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    bed_patches = image_patch.find("bed")
+    # Question assumes only one bed patch
+    if len(bed_patches) == 0:
+        # If no bed is found, query the image directly
+        return image_patch.simple_query("Are there beds next to the small outlet?")
+
+    outlet_patches = image_patch.find("small outlet")
+    if len(outlet_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for bed_patch in bed_patches:
+        for outlet_patch in outlet_patches:
+            # "outlet left of bed" probability
+            score = image_patch.soft_left_of(outlet_patch, bed_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Sample 201303229 failed with error: Expected output to be tall or short. Next you will see an "expected an indented block" error. 
+Sample 201303229 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201303229
+Sample 20567512 failed with error: Expected output to be an airplane. Next you will see an "expected an indented block" error. 
+Sample 20567512 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20567512
+Sample 20602803 failed with error: bad operand type for unary -: 'str'. Next you will see an "expected an indented block" error. 
+Sample 20602803 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20602803
+Accuracy at Batch 0/2: 0.5
+ 50%|█████     | 1/2 [02:47<02:47, 167.02s/it]/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Saving results to results_20.csv at epoch 0
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives options using "or", the return values will be one of the options
+    assert result in ['red', 'blue', 'green'], "Expected output to be one of the colors"
+    return result
+The required lines were not found in the input string.
+def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives options using "or", the return values will be one of the options
+    assert result in ['red', 'blue', 'green'], "Expected output to be one of the colors"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a cooking utensil?", long_answer=False) == 'yes', "Expected output to be a cooking utensil"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['small', 'large'], "Expected output to be small or large"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"Is {result} a type of food?", long_answer=False) == 'yes', "Expected output to be a type of food"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['cement', 'aluminum'], "Expected output to be cement or aluminum"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['orange', 'white'], "Expected output to be orange or white"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"What color is {result}?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    # Test case 3:
+    assert llm_query(f"What color is {result}?", long_answer=False) == 'yes', "Expected output to be a color"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], "Expected output to be yes or no"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], "Expected output to be left or right"
+    return result
+Originally gen_code: 
+ def execute_test(image):
+    result = solve_query(image)
+    # Test case 1:
+    assert isinstance(result, str), "Expected output to be string."
+    # Test case 2:
+    assert len(result.split()) in [1,2], "Expected output to be one or two words"
+    return result
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    leather_bag_patches = image_patch.find("leather bag")
+    # Question assumes only one leather bag patch
+    if len(leather_bag_patches) == 0:
+        # If no leather bag is found, query the image directly
+        return image_patch.simple_query("On which side of the picture is the leather bag?")
+    leather_bag_patch = leather_bag_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for _ in range(3):
+        ans = image_patch.simple_query("Is the leather bag on the left side of the picture?")
+        if isinstance(ans, str) and ans.strip().lower().startswith("y"):
+            scores.append(1)
+        else:
+            scores.append(0)
+
+    avg_score = sum(scores) / len(scores)
+    return "left" if avg_score > 0.5 else "right"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    pillow_patches = image_patch.find("pillow")
+    # Question assumes only one pillow patch
+    if len(pillow_patches) == 0:
+        # If no pillow is found, query the image directly
+        return image_patch.simple_query("Is the blue pillow square and large?")
+
+    pillow_patch = pillow_patches[0]
+    is_blue = pillow_patch.simple_query("Is the pillow blue?") == "yes"
+    is_square = pillow_patch.simple_query("Is the pillow square?") == "yes"
+    is_large = pillow_patch.simple_query("Is the pillow large?") == "yes"
+
+    return "yes" if is_blue and is_square and is_large else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    cake_patches = image_patch.find("cake")
+    # Question assumes only one cake patch
+    if len(cake_patches) == 0:
+        # If no cake is found, query the image directly
+        return image_patch.simple_query("Which color is the cake?")
+    cake_patch = cake_patches[0]
+    colors = ["red", "blue", "green", "yellow", "white", "black"]
+    scores = []
+    for color in colors:
+        score = image_patch.best_text_match([f"Is the cake {color}?"])
+        scores.append(score)
+    max_score = max(scores)
+    best_color = colors[scores.index(max_score)]
+    return best_color
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    cooking_utensil_patches = image_patch.find("cooking utensil")
+    # Question assumes only one cooking utensil patch
+    if len(cooking_utensil_patches) == 0:
+        # If no cooking utensil is found, query the image directly
+        return image_patch.simple_query("What is the name of the cooking utensil that is hang from the hook?")
+    cooking_utensil_patch = cooking_utensil_patches[0]
+    hook_patches = image_patch.find("hook")
+    if len(hook_patches) == 0:
+        return "no hook found"
+    hook_patch = hook_patches[0]
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for hook_patch in hook_patches:
+        # "cooking utensil left of hook" probability → reverse for "hook left of cooking utensil"
+        score = 1 - image_patch.soft_left_of(cooking_utensil_patch, hook_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no
+The required lines were not found in the input string.
+python
+def execute_command(image, my_fig, time_wait_between_lines, syntax)->str:
+    image_patch = ImagePatch(image)
+    cooking_utensil_patches = image_patch.find("cooking utensil")
+    # Question assumes only one cooking utensil patch
+    if len(cooking_utensil_patches) == 0:
+        # If no cooking utensil is found, query the image directly
+        return image_patch.simple_query("What is the name of the cooking utensil that is hang from the hook?")
+    cooking_utensil_patch = cooking_utensil_patches[0]
+    hook_patches = image_patch.find("hook")
+    if len(hook_patches) == 0:
+        return "no hook found"
+    hook_patch = hook_patches[0]
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for hook_patch in hook_patches:
+        # "cooking utensil left of hook" probability → reverse for "hook left of cooking utensil"
+        score = 1 - image_patch.soft_left_of(cooking_utensil_patch, hook_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find("person")
+    # Question assumes only one person patch
+    if len(person_patches) == 0:
+        # If no person is found, query the image directly
+        return image_patch.simple_query("Where is the skinny person standing?")
+    person_patch = person_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for other_patch in image_patch.find("other"):
+        # "person left of other" probability → reverse for "other right of person"
+        score = 1 - image_patch.soft_left_of(person_patch, other_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "left" if avg_score > 0.5 else "right"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    plates_patches = image_patch.find("plates")
+    # Question assumes only one plates patch
+    if len(plates_patches) == 0:
+        # If no plates are found, query the image directly
+        return image_patch.simple_query("Are the plates on top of an ottoman?")
+
+    ottoman_patches = image_patch.find("ottoman")
+    if len(ottoman_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for plates_patch in plates_patches:
+        for ottoman_patch in ottoman_patches:
+            # "ottoman left of plates" probability
+            score = image_patch.soft_left_of(ottoman_patch, plates_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    freezer_patches = image_patch.find("freezer")
+    # Question assumes only one freezer patch
+    if len(freezer_patches) == 0:
+        # If no freezer is found, query the image directly
+        return image_patch.simple_query("Is the freezer near the wall small or large?")
+
+    wall_patches = image_patch.find("wall")
+    if len(wall_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for freezer_patch in freezer_patches:
+        for wall_patch in wall_patches:
+            # "wall left of freezer" probability
+            score = image_patch.soft_left_of(wall_patch, freezer_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    if avg_score > 0.5:
+        return image_patch.simple_query("Is the freezer near the wall small?")
+    else:
+        return image_patch.simple_query("Is the freezer near the wall large?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    baby_patches = image_patch.find("baby")
+    # Question assumes only one baby patch
+    if len(baby_patches) == 0:
+        # If no baby is found, query the image directly
+        return image_patch.simple_query("What type of food is to the left of the baby that is sitting atop the woman?")
+    baby_patch = baby_patches[0]
+    woman_patches = image_patch.find("woman")
+    if len(woman_patches) == 0:
+        return "no"
+    woman_patch = woman_patches[0]
+    food_patches = image_patch.find("food")
+    if len(food_patches) == 0:
+        return "no"
+    food_patch = food_patches[0]
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for food_patch in food_patches:
+        for baby_patch in baby_patches:
+            for woman_patch in woman_patches:
+                # "woman above baby" probability
+                score = image_patch.soft_above(woman_patch, baby_patch)
+                # "baby left of food" probability
+                score_left = image_patch.soft_left_of(baby_patch, food_patch
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    fence_patches = image_patch.find("fence")
+    # Question assumes only one fence patch
+    if len(fence_patches) == 0:
+        # If no fence is found, query the image directly
+        return image_patch.simple_query("Is the fence made of cement or aluminum?")
+
+    cement_patches = image_patch.find("cement")
+    aluminum_patches = image_patch.find("aluminum")
+    if len(cement_patches) > 0 and len(aluminum_patches) > 0:
+        return "both"
+    elif len(cement_patches) > 0:
+        return "cement"
+    elif len(aluminum_patches) > 0:
+        return "aluminum"
+    else:
+        return "unknown"
+```
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/utils/checkpoint.py:464: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/transformers/modeling_utils.py:1141: FutureWarning: The `device` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+/home/xintong/miniconda3/envs/vipergpt/lib/python3.10/site-packages/torch/nn/functional.py:4185: UserWarning: nn.functional.upsample_bilinear is deprecated. Use nn.functional.interpolate instead.
+  warnings.warn("nn.functional.upsample_bilinear is deprecated. Use nn.functional.interpolate instead.")
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 23, in execute_command_201637161
+    runs_dict = {}
+AssertionError: Expected output to be one of the colors
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 22, in execute_command_20982539
+    cache = Memory('cache/' if config.use_cache else None, verbose=0)
+  File "Codex", line 17, in execute_command
+    from utils import seed_everything
+ZeroDivisionError: division by zero
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 32, in execute_command_20866248
+    return to_return
+AssertionError: Expected output to be small or large
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 21, in execute_command_201110523
+AssertionError: Expected output to be string.
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    white_houses_patches = image_patch.find("white house")
+    # Question assumes only one white house patch
+    if len(white_houses_patches) == 0:
+        # If no white house is found, query the image directly
+        return image_patch.simple_query("Which side are the white houses on?")
+    white_house_patch = white_houses_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for _ in range(4):
+        ans = image_patch.simple_query("Is the white house on the left?")
+        if isinstance(ans, str) and ans.strip().lower().startswith("y"):
+            scores.append(1)
+        else:
+            scores.append(0)
+
+    return "left" if sum(scores) > 2 else "right"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    phone_patches = image_patch.find("phone")
+    coffee_cup_patches = image_patch.find("coffee cup")
+    
+    if len(phone_patches) == 0 or len(coffee_cup_patches) == 0:
+        return image_patch.simple_query("Are both the phone and the coffee cup the same color?")
+    
+    phone_patch = phone_patches[0]
+    coffee_cup_patch = coffee_cup_patches[0]
+    
+    phone_color = phone_patch.simple_query("What is the color of the phone?")
+    coffee_cup_color = coffee_cup_patch.simple_query("What is the color of the coffee cup?")
+    
+    return "yes" if phone_color == coffee_cup_color else "no"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    is_small_refrigerator_prob = image_patch.exists_prob(image_patch, "small refrigerator", n=3)
+    is_microwave_prob = image_patch.exists_prob(image_patch, "microwave", n=3)
+
+    # Soft logical OR: high if either probability is high
+    prob_or = 1 - (1 - is_small_refrigerator_prob) * (1 - is_microwave_prob)
+    return "yes" if prob_or > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    car_patches = image_patch.find("car")
+    # Question assumes only one car patch
+    if len(car_patches) == 0:
+        # If no car is found, query the image directly
+        return image_patch.simple_query("How does that car look like, orange or maybe white?")
+    car_patch = car_patches[0]
+
+    # Use soft color reasoning: orange if color is similar to orange
+    orange_color = car_patch.simple_query("Is the car orange?")
+    white_color = car_patch.simple_query("Is the car white?")
+
+    # Soft logical OR: high if either color is high
+    prob_or = 1 - (1 - (1 if orange_color == "yes" else 0)) * (1 - (1 if white_color == "yes" else 0))
+    return "orange" if prob_or > 0.5 else "white"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    book_patches = image_patch.find("book")
+    # Question assumes only one book patch
+    if len(book_patches) == 0:
+        # If no book is found, query the image directly
+        return image_patch.simple_query("What color is the book?")
+    book_patch = book_patches[0]
+    color = book_patch.simple_query("What color is the book?")
+    return color
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query("What color is the dirt?")
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    bag_patches = image_patch.find("bag")
+    # Question assumes only one bag patch
+    if len(bag_patches) == 0:
+        # If no bag is found, query the image directly
+        return image_patch.simple_query("Is the bag made of leather lying on top of a sofa?")
+
+    sofa_patches = image_patch.find("sofa")
+    if len(sofa_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for bag_patch in bag_patches:
+        for sofa_patch in sofa_patches:
+            # "sofa left of bag" probability
+            score = image_patch.soft_left_of(sofa_patch, bag_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Originally gen_code: 
+ Here is the solution:
+
+```
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    drapes_patches = image_patch.find("drapes")
+    # Question assumes only one drapes patch
+    if len(drapes_patches) == 0:
+        # If no drapes are found, query the image directly
+        return image_patch.simple_query("What are the drapes around of?")
+    drapes_patch = drapes_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for object_patch in image_patch.find("object"):
+        # "object left of drapes" probability → reverse for "drapes right of object"
+        score = 1 - image_patch.soft_left_of(object_patch, drapes_patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "around" if avg_score > 0.5 else "not around"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    picture_patches = image_patch.find("picture")
+    # Question assumes only one picture patch
+    if len(picture_patches) == 0:
+        # If no picture is found, query the image directly
+        return image_patch.simple_query("On which side is the picture?")
+    picture_patch = picture_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for patch in image_patch.find("side"):
+        # "picture left of side" probability → reverse for "side right of picture"
+        score = 1 - image_patch.soft_left_of(picture_patch, patch)
+        scores.append(score)
+    avg_score = sum(scores) / len(scores)
+
+    return "left" if avg_score > 0.5 else "right"
+```
+Originally gen_code: 
+ Here is the solution to the problem:
+
+```python
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    crosswalk_patches = image_patch.find("crosswalk")
+    # Question assumes only one crosswalk patch
+    if len(crosswalk_patches) == 0:
+        # If no crosswalk is found, query the image directly
+        return image_patch.simple_query("What material is the crosswalk in front of the stores?")
+
+    store_patches = image_patch.find("store")
+    if len(store_patches) == 0:
+        return "no"
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for crosswalk_patch in crosswalk_patches:
+        for store_patch in store_patches:
+            # "store left of crosswalk" probability
+            score = image_patch.soft_left_of(store_patch, crosswalk_patch)
+            scores.append(score)
+
+    avg_score = sum(scores) / len(scores)
+    return "yes" if avg_score > 0.5 else "no"
+```
+Sample 201637161 failed with error: Expected output to be one of the colors. Next you will see an "expected an indented block" error. 
+Sample 201637161 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201637161
+Sample 202218836 failed at compilation time with error: unterminated string literal (detected at line 22) (Codex, line 22)
+Using BLIP2 for sample 202218836
+Sample 20982539 failed with error: division by zero. Next you will see an "expected an indented block" error. 
+Sample 20982539 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20982539
+Sample 20866248 failed with error: Expected output to be small or large. Next you will see an "expected an indented block" error. 
+Sample 20866248 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20866248
+Sample 201110523 failed with error: Expected output to be string.. Next you will see an "expected an indented block" error. 
+Traceback (most recent call last):
+  File "/home/xintong/PropTest/main_batch.py", line 196, in run_program
+    result = globals()[f'execute_command_{sample_id}'](
+  File "Codex", line 20, in execute_command_20856965
+    queue_results = None
+AssertionError: Expected output to be a color
+Sample 201110523 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 201110523
+Sample 20856965 failed with error: Expected output to be a color. Next you will see an "expected an indented block" error. 
+Sample 20856965 failed at compilation time with error: expected an indented block after function definition on line 1 (Codex, line 3)
+Using BLIP2 for sample 20856965
+Accuracy at Batch 1/2: 0.5128205128205128
+100%|██████████| 2/2 [05:33<00:00, 166.99s/it]100%|██████████| 2/2 [05:33<00:00, 166.99s/it]
+Saving results to results_20.csv at epoch 1
+Final accuracy: 0.5128205128205128
+Saving results to results_20.csv

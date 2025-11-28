@@ -31,7 +31,71 @@ def my_collate(batch):
     to_return = {k: [d[k] for d in batch] for k in batch[0].keys()}
     return to_return
 
+import ast
 
+def extract_predicates_from_code(code_str):
+    tree = ast.parse(code_str)
+    predicates = []
+
+    class ConditionVisitor(ast.NodeVisitor):
+        def visit_Compare(self, node):
+            # 提取所有比较操作
+            left = ast.unparse(node.left)
+            ops = [type(op).__name__ for op in node.ops]
+            rights = [ast.unparse(c) for c in node.comparators]
+            predicates.append(f"{left} {' '.join(ops)} {' '.join(rights)}")
+            self.generic_visit(node)
+
+        # def visit_Call(self, node):
+        #     # 检查 image_patch.find("object") 或 verify_property
+        #     if isinstance(node.func, ast.Attribute):
+        #         func_name = node.func.attr
+        #         if func_name in ["find", "exists", "verify_property", "simple_query"]:
+        #             args = [ast.literal_eval(a) for a in node.args if isinstance(a, ast.Constant)]
+        #             if args:
+        #                 predicates.append(f"{func_name}({args[0]})")
+        #     self.generic_visit(node)
+
+    ConditionVisitor().visit(tree)
+    return predicates
+
+def extract_keywords_from_query(query):
+     
+    from fp_distinguish import CodexModel
+    model = CodexModel()
+    result = model.forward(query)[0]
+ 
+    # print("Keyword extraction LLM output:", result)
+    objects = [token.lower() for token in result["objects"]]
+    attributes = [token.lower() for token in result["attributes"]]
+    return objects, attributes
+
+def analyze_alignment(predicates, objects, attributes):
+    predicates_str = " ".join(predicates).lower()
+    missing_objects = [o for o in objects if o not in predicates_str]
+    missing_attrs = [a for a in attributes if a not in predicates_str]
+
+    report = {}
+    if missing_objects or missing_attrs:
+        report["fault_type"] = "Semantic Omission Fault"
+        report["predicates"] = predicates
+        report["objects"] = objects
+        report["attributes"] = attributes
+    else:
+        report["fault_type"] = "Aligned"
+        report["predicates"] = predicates
+        report["objects"] = objects
+        report["attributes"] = attributes
+    return report
+
+
+def check_ast(query, program_code):
+    preds = extract_predicates_from_code(program_code)
+    objs, attrs = extract_keywords_from_query(query)
+    report = analyze_alignment(preds, objs, attrs)
+    return report["fault_type"] == "Aligned", report
+
+    
 def run_program_wo_VLM(parameters, queues_in_, input_type_):
     from image_patch import ImagePatch, llm_query, best_image_match, distance, bool_to_yesno, process_guesses
     from video_segment import VideoSegment
@@ -190,7 +254,14 @@ def run_program(parameters, queues_in_, input_type_, retrying=False, codes=None)
                 return None, generated_codes, test_code, eval_test_pass
             else:
                 return None, generated_codes
-
+    
+    # perform AST check
+    # result, report = check_ast(query, code)
+    # if query == "Does the utensil on top of the table look clean and black?":
+    #     print(f"AST check for sample {sample_id}: {report}")
+    # if not result:
+    #     print(f"Sample {sample_id} failed in AST stage. Regenerating code with BLIP2.")
+                        
     # Run the program
     try:
         result = globals()[f'execute_command_{sample_id}'](
@@ -266,7 +337,7 @@ def worker_init(queue_results_):
 
 def main():
     from datasets import get_dataset
-    if config.eval.eval_only:
+    if config.eval.eval_only: # not into here
         dataset = get_dataset(config.dataset)
         results = pd.read_csv(config.eval.eval_file)
         pred_all = [r for r in results['result']]
@@ -435,9 +506,11 @@ def main():
                                         "PYTHON", "").replace("[Instruction]", "")
                                     result = run_program([c, sample_id, img, possible_answers, query, tc, False], queues_in, input_type, codes=parallel_code)
                                     results.append(result)
-                            else:
+                            else: # go to this branch
                                 for c, sample_id, img, possible_answers, query, tc in \
                                         zip(codes, batch['sample_id'], batch['image'], batch['possible_answers'], batch['query'], test_code):
+                                    
+                                    print("run_program:", [c[0], sample_id, img, possible_answers, query, tc[0], False], queues_in, input_type)
                                     if config.codex.model in ['Llama-3-8B-Instruct'] and not config.use_cached_codex:
                                         result = run_program([c[0], sample_id, img, possible_answers, query, tc[0], False], queues_in, input_type)
                                     else:
@@ -496,6 +569,7 @@ def main():
                 # evaluate test case
                 # result_assert_result and result_t  => 0 : assertion error, 1: pass, 2: compilation error
                 if config.eval.test_eval: # result_assert_result and result_t :
+                    print('Evaluating test cases...')
                     if not config.execute_code:  # get the results from the file
                         results = results_cache[i * batch_size:(i + 1) * batch_size]
 
@@ -534,10 +608,16 @@ def main():
 
 
                         else:
+                            print('evaluating VQA')
                             if config.codex.model in ['Llama-3-8B-Instruct'] and not config.use_cached_codex:
+                                print('test cases here Llama-3-8B-Instruct:', [c, sample_id, answer, possible_answers, query, tc[0], True],
+                                                       queues_in, input_type)
+                                
                                 result_t = run_program([c, sample_id, answer, possible_answers, query, tc[0], True],
                                                        queues_in, input_type)
                             else:
+                                print('test cases or here:', [c, sample_id, answer, possible_answers, query, tc, True],
+                                                       queues_in, input_type)
                                 # evaluating test case using the file - only evaluating test case
                                 if answer == result_assert_result: # case where the answer is same as result
                                     corret_all += 1
@@ -626,14 +706,14 @@ def main():
             console.print(f'Correct ALL: {corret_all}, Wrong ALL: {wrong_all}')
 
     if config.save:
-        if not config.execute_code:
-            if not config.save_new_results:
-                filename = 'results.csv'
+        # if not config.execute_code:
+        if not config.save_new_results:
+            filename = 'results.csv'
+        else:
+            if len(existing_files) == 0:
+                filename = 'results_0.csv'
             else:
-                if len(existing_files) == 0:
-                    filename = 'results_0.csv'
-                else:
-                   filename = 'results_' + str(max([int(ef.stem.split('_')[-1]) for ef in existing_files if
+                filename = 'results_' + str(max([int(ef.stem.split('_')[-1]) for ef in existing_files if
                                                      str.isnumeric(ef.stem.split('_')[-1])]) + 1) + '.csv'
         print('Saving results to', filename)
         if not config.codex.testcase:

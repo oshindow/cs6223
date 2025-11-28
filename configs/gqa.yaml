@@ -24,7 +24,7 @@ load_models:                                        # Which pretrained models to
     blip: True
     saliency: False
     xvlm: True
-    codex: False
+    codex: True # False
     llama2_qa: True                             # True for Advanced Property Test Case
     llama2_general: False
     llama2_guess: False
@@ -65,7 +65,7 @@ codex:
     prompt: ./prompts/ViperGPT/gqa_baseline.prompt  # Code Generation Prompt file (This is for Generating Code only - Baseline)
     model: Llama-3-8B-Instruct                      # Code generation models to use
     testcase: True                                  # Generating Property test case before generating the code
-    testcase_prompt: ./prompts/GQA_TestCaseGen.prompt
+    testcase_prompt: ./prompts/GQA_TestCaseGen_refine_list.prompt
     testcaseGen: True                               # Use property test case when generating the code
     testcaseGen_prompt: ./prompts/GQA_CodeGen.prompt
 

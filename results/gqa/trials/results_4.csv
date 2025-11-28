@@ -1,0 +1,27 @@
+result,answer,code,test_code,id,query,img_path,possible_answers
+None,purple,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    viper_patches = image_patch.find(""viper"")
+    flower_patches = image_patch.find(""flower"")
+    if len(viper_patches) == 0 or len(flower_patches) == 0:
+        return image_patch.simple_query(""What color do you get if you combine the colors of the viper and the flower?"")
+    viper_patch = viper_patches[0]
+    flower_patch = flower_patches[0]
+    viper_color = viper_patch.simple_query(""What color is the viper?"")
+    flower_color = flower_patch.simple_query(""What color is the flower?"")
+    return f""{viper_color} and {flower_color}""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",0,What color do you get if you combine the colors of the viper and the flower?,data/images/2331963.jpg,purple
+None,,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""Tell me about the competition between the two skyscrapers in the image."")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",0,Tell me about the competition between the two skyscrapers in the image.,data/images/1339.jpg,

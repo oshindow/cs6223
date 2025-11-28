@@ -14,6 +14,9 @@ from word2number import w2n
 from utils import show_single_image, load_json
 from vision_processes import forward, config
 
+import numpy as np
+import math
+
 console = Console(highlight=False)
 
 
@@ -338,6 +341,32 @@ class ImagePatch:
 
     def __repr__(self):
         return "ImagePatch({}, {}, {}, {})".format(self.left, self.lower, self.right, self.upper)
+    
+    def sigmoid(self, x):
+        return 1 / (1 + math.exp(-x))
+
+    def exists_prob(self, image_patch, object_name: str, n=3) -> float:
+        """Simulate existence probability by multiple LLM queries."""
+        yes_count = 0
+        for _ in range(n):
+            ans = image_patch.simple_query(f"Is there a {object_name} in the image?")
+            if isinstance(ans, str) and ans.strip().lower().startswith("y"):
+                yes_count += 1
+        return yes_count / n
+
+    def soft_left_of(self, a, b, tolerance_ratio=0.05):
+        """Return probability that object a is left of object b."""
+        dx = b.horizontal_center - a.horizontal_center
+        sigma = tolerance_ratio * max(a.width, b.width)
+        return self.sigmoid(-dx / (sigma + 1e-8))
+    
+    def soft_above(self, a, b, tolerance_ratio=0.05):
+        """Return probability that object a is above object b."""
+        dy = a.vertical_center - b.vertical_center
+        sigma = tolerance_ratio * max(a.height, b.height)
+        return self.sigmoid(dy / (sigma + 1e-8))
+        
+
 
 
 def best_image_match(list_patches: list[ImagePatch], content: List[str], return_index: bool = False) -> \
@@ -482,3 +511,27 @@ def coerce_to_numeric(string, no_string=False):
         # No numeric values. Return input
         return string
     return numeric
+
+# def sigmoid(x):
+#     return 1 / (1 + math.exp(-x))
+
+# def exists_prob(image_patch, object_name: str, n=3) -> float:
+#     """Simulate existence probability by multiple LLM queries."""
+#     yes_count = 0
+#     for _ in range(n):
+#         ans = image_patch.simple_query(f"Is there a {object_name} in the image?")
+#         if isinstance(ans, str) and ans.strip().lower().startswith("y"):
+#             yes_count += 1
+#     return yes_count / n
+
+# def soft_left_of(a, b, tolerance_ratio=0.05):
+#     """Return probability that object a is left of object b."""
+#     dx = b.horizontal_center - a.horizontal_center
+#     sigma = tolerance_ratio * max(a.width, b.width)
+#     return sigmoid(-dx / (sigma + 1e-8))
+ 
+# def soft_above(a, b, tolerance_ratio=0.05):
+#     """Return probability that object a is above object b."""
+#     dy = a.vertical_center - b.vertical_center
+#     sigma = tolerance_ratio * max(a.height, b.height)
+#     return sigmoid(dy / (sigma + 1e-8))

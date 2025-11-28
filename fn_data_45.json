@@ -1,0 +1,632 @@
+{
+    "20567512": {
+        "result": "ocean",
+        "answer": "ocean",
+        "query": "What is the airplane flying above?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_aircraft = ['airplane', 'helicopter', 'plane', 'jet', 'glider']\n    if result not in valid_aircraft:\n        # Use llm_query to check if it's describing an aircraft\n        is_aircraft = llm_query(f\"Is '{result}' an aircraft name?\", long_answer=False)\n        assert is_aircraft == 'yes', f\"Expected an aircraft name, got {result}\"\n    return result"
+    },
+    "202244009": {
+        "result": "cookies",
+        "answer": "cookies",
+        "query": "What is inside the bowl to the right of the beans?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_items = ['beans', 'rice','meat','vegetables', 'fruits']\n    if result not in valid_items:\n        # Use llm_query to check if it's describing an item\n        is_item = llm_query(f\"Is '{result}' an item name?\", long_answer=False)\n        assert is_item == 'yes', f\"Expected an item name, got {result}\"\n    return result"
+    },
+    "201896034": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the item of furniture to the right of the lady that is looking down at the cake called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives a specific item, so the result should match the expected item\n    expected_item = 'chair'\n    assert result == expected_item, f\"Expected output to be '{expected_item}', got {result}\"\n    return result"
+    },
+    "202102931": {
+        "result": "dishwasher",
+        "answer": "dishwasher",
+        "query": "What is beneath the microwave?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['countertop','sink', 'oven','stove']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a location\n        is_location = llm_query(f\"Is '{result}' a location name?\", long_answer=False)\n        assert is_location == 'yes', f\"Expected a location name, got {result}\"\n    return result"
+    },
+    "20673100": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "What item of furniture is the toilet paper to the right of the toilet resting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options, so the result should be one of them\n    valid_items = ['shelf', 'table', 'chair','stool']\n    if result not in valid_items:\n        # Use llm_query to check if it's describing a furniture item\n        is_furniture = llm_query(f\"Is '{result}' a furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a furniture name, got {result}\"\n    return result"
+    },
+    "20673098": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "The toilet paper to the right of the toilet is resting on what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['shelf', 'table', 'floor', 'wall']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a surface\n        is_surface = llm_query(f\"Is '{result}' a surface name?\", long_answer=False)\n        assert is_surface == 'yes', f\"Expected a surface name, got {result}\"\n    return result"
+    },
+    "201593445": {
+        "result": "cow",
+        "answer": "cow",
+        "query": "What animal is standing against the grass?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'horse', 'cow','sheep', 'goat', 'pig', 'chicken', 'duck', 'rabbit', 'deer', 'fox', 'bear','monkey', 'elephant', 'lion', 'tiger', 'wolf', 'zebra', 'giraffe', 'horse', 'donkey','mule', 'llama', 'alpaca', 'kangaroo', 'koala', 'penguin', 'ostrich', 'turkey', 'chicken', 'duck', 'goose','swan', 'flamingo', 'parrot', 'peacock', 'pigeon', 'robin','sparrow', 'finch', 'blue jay', 'cardinal', 'hummingbird', 'butterfly', 'bee', 'ant', 'grasshopper', 'cricket', 'frog', 'toad','snake', 'lizard', 'turtle', 'fish', '"
+    },
+    "201879789": {
+        "result": "large",
+        "answer": "large",
+        "query": "How large is the bike below the sky?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['large','small'], \"Expected output to be large or small\"\n    # Test case 2:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "20349798": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is wearing the shirt?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20902848": {
+        "result": "dog",
+        "answer": "dog",
+        "query": "How is the animal that is in the backpack called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird','monkey']\n    if result not in valid_animals:\n        # Use llm_query to check if it's describing an animal\n        is_animal = llm_query(f\"Is '{result}' an animal name?\", long_answer=False)\n        assert is_animal == 'yes', f\"Expected an animal name, got {result}\"\n    return result"
+    },
+    "201462314": {
+        "result": "bat",
+        "answer": "bat",
+        "query": "What is the man holding?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_items = ['book', 'phone', 'key', 'pen', 'paper', 'notebook', 'folder', 'briefcase', 'bag', 'backpack', 'umbrella', 'hat', 'glasses', 'watch', 'jewelry', 'ring', 'earring', 'necklace', 'bracelet', 'belt', 'purse', 'wallet', 'keys','remote', 'camera', 'binoculars', 'glasses','mug', 'bottle', 'can', 'box', 'package', 'envelope', 'letter', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package', 'package"
+    },
+    "201438693": {
+        "result": "home plate",
+        "answer": "home plate",
+        "query": "What is the batter standing beside of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['batter', 'pitcher', 'umpire', 'coach']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20550578": {
+        "result": "grass",
+        "answer": "grass",
+        "query": "Where are the grouped people standing on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_locations = ['floor', 'table', 'chair', 'bed']\n    if result not in valid_locations:\n        # Use llm_query to check if it's describing a location\n        is_location = llm_query(f\"Is '{result}' a location name?\", long_answer=False)\n        assert is_location == 'yes', f\"Expected a location name, got {result}\"\n    return result"
+    },
+    "20856909": {
+        "result": "purse",
+        "answer": "purse",
+        "query": "Which kind of bag is green?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "201479185": {
+        "result": "unpeeled",
+        "answer": "unpeeled",
+        "query": "How does the fruit in front of the cup look, unpeeled or peeled?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['unpeeled', 'peeled'], \"Expected output to be unpeeled or peeled\"\n    return result"
+    },
+    "20631953": {
+        "result": "catcher",
+        "answer": "catcher",
+        "query": "Who is in front of the person that is crouching?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['man', 'woman', 'child', 'dog', 'cat']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "202053361": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is in front of the umpire that is staring?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['batsman', 'bowler', 'fielder', 'umpire']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201760719": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is wearing the shirt?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201760718": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is wearing a shirt?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person1', 'person2', 'person3']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "202041969": {
+        "result": "closed",
+        "answer": "closed",
+        "query": "Are the doors open or closed?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['open', 'closed'], \"Expected output to be open or closed\"\n    return result"
+    },
+    "201498047": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What kind of furniture is underneath the device that looks long?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['table', 'chair','shelf', 'desk']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a furniture\n        is_furniture = llm_query(f\"Is '{result}' a furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a furniture name, got {result}\"\n    return result"
+    },
+    "20542972": {
+        "result": "fence",
+        "answer": "fence",
+        "query": "The elephant is in front of what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_objects = ['tree', 'house', 'car', 'bus', 'building']\n    if result not in valid_objects:\n        # Use llm_query to check if it's describing an object\n        is_object = llm_query(f\"Is '{result}' an object name?\", long_answer=False)\n        assert is_object == 'yes', f\"Expected an object name, got {result}\"\n    return result"
+    },
+    "20724222": {
+        "result": "snowboarder",
+        "answer": "snowboarder",
+        "query": "Who is wearing a jacket?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20489464": {
+        "result": "sleeping",
+        "answer": "sleeping",
+        "query": "What is he doing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_actions = ['eating', 'drinking','sleeping','reading', 'watching', 'playing', 'working', 'talking', 'writing', 'dancing','singing', 'laughing', 'crying', 'thinking', 'looking', 'listening','smiling', 'frowning', 'winking', 'pointing', 'gesturing','moving','standing','sitting', 'lying', 'walking', 'running', 'jumping', 'dancing','swimming', 'cycling', 'driving', 'flying', 'riding', 'hiking', 'camping', 'fishing', 'hunting', 'gaming', 'playing', 'practicing', 'exercising','meditating', 'praying', 'worshipping', 'celebrating', 'partying', 'dining', 'cooking', 'cleaning', 'laundry', 'gardening', 'painting', 'drawing', 'writing', 'typing', 'coding', '"
+    },
+    "202012841": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is playing at the television?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person1', 'person2', 'person3']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201491071": {
+        "result": "goats",
+        "answer": "goats",
+        "query": "Are these goats or a sheep?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['goats','sheep'], \"Expected output to be goats or sheep\"\n    return result"
+    },
+    "20550407": {
+        "result": "horse",
+        "answer": "horse",
+        "query": "What kind of animal is standing on the grass?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'horse', 'cow','sheep', 'goat', 'pig', 'chicken', 'duck', 'rabbit','squirrel','mouse', 'deer', 'fox', 'bear','monkey', 'elephant', 'lion', 'tiger', 'wolf', 'zebra', 'giraffe', 'horse', 'donkey','mule', 'llama', 'alpaca', 'goat','sheep', 'cow', 'pig', 'chicken', 'duck', 'rabbit','squirrel','mouse', 'deer', 'fox', 'bear','monkey', 'elephant', 'lion', 'tiger', 'wolf', 'zebra', 'giraffe', 'horse', 'donkey','mule', 'llama', 'alpaca', 'goat','sheep', 'cow', 'pig', 'chicken', 'duck', 'rabbit','squirrel', '"
+    },
+    "20204532": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "What is the item of furniture that the rug is in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['table', 'chair','sofa', 'bed', 'desk']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a piece of furniture\n        is_furniture = llm_query(f\"Is '{result}' a piece of furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a piece of furniture name, got {result}\"\n    return result"
+    },
+    "202265747": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is wearing a shirt?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person1', 'person2', 'person3']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201593873": {
+        "result": "tennis ball",
+        "answer": "tennis ball",
+        "query": "What is she hitting?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_actions = ['ball', 'bat', 'paddle', 'racket']\n    if result not in valid_actions:\n        # Use llm_query to check if it's describing an action\n        is_action = llm_query(f\"Is '{result}' an action name?\", long_answer=False)\n        assert is_action == 'yes', f\"Expected an action name, got {result}\"\n    return result"
+    },
+    "20177899": {
+        "result": "small",
+        "answer": "small",
+        "query": "How big are the pickles that are on top of the cutting board?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['big','small'], \"Expected output to be big or small\"\n    # Test case 2:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "201795383": {
+        "result": "bench",
+        "answer": "bench",
+        "query": "The woman that to the right of the elephant sits on what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['chair', 'table', 'bed','sofa']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a furniture\n        is_furniture = llm_query(f\"Is '{result}' a furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a furniture name, got {result}\"\n    return result"
+    },
+    "201896318": {
+        "result": "cake",
+        "answer": "cake",
+        "query": "What is the knife slicing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_actions = ['cutting','slicing', 'dicing']\n    if result not in valid_actions:\n        # Use llm_query to check if it's describing an action\n        is_action = llm_query(f\"Is '{result}' an action?\", long_answer=False)\n        assert is_action == 'yes', f\"Expected an action name, got {result}\"\n    return result"
+    },
+    "201188320": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is wearing a jacket?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20462158": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is wearing a coat?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201735421": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "The black chicken is standing on top of what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_objects = ['table', 'chair','shelf', 'ground']\n    if result not in valid_objects:\n        # Use llm_query to check if it's describing an object\n        is_object = llm_query(f\"Is '{result}' an object name?\", long_answer=False)\n        assert is_object == 'yes', f\"Expected an object name, got {result}\"\n    return result"
+    },
+    "201982950": {
+        "result": "brown",
+        "answer": "brown",
+        "query": "Is the coffee table that looks little brown or white?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['little brown', 'white'], \"Expected output to be little brown or white\"\n    return result"
+    },
+    "201548698": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "What do you think is the alcohol in?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_alcohols = ['wine', 'beer','soda', 'juice']\n    if result not in valid_alcohols:\n        # Use llm_query to check if it's describing an alcohol\n        is_alcohol = llm_query(f\"Is '{result}' an alcohol name?\", long_answer=False)\n        assert is_alcohol == 'yes', f\"Expected an alcohol name, got {result}\"\n    return result"
+    },
+    "201430771": {
+        "result": "tie",
+        "answer": "tie",
+        "query": "What's the person getting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['bus', 'train', 'plane', 'car', 'bike']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a mode of transportation\n        is_transportation = llm_query(f\"Is '{result}' a mode of transportation?\", long_answer=False)\n        assert is_transportation == 'yes', f\"Expected a mode of transportation, got {result}\"\n    return result"
+    },
+    "202243895": {
+        "result": "beans",
+        "answer": "beans",
+        "query": "Which kind of vegetable is to the right of the carrots?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_vegetables = ['broccoli', 'cauliflower', 'peas', 'beans', 'potatoes']\n    if result not in valid_vegetables:\n        # Use llm_query to check if it's describing a vegetable\n        is_vegetable = llm_query(f\"Is '{result}' a vegetable name?\", long_answer=False)\n        assert is_vegetable == 'yes', f\"Expected a vegetable name, got {result}\"\n    return result"
+    },
+    "20542959": {
+        "result": "elephant",
+        "answer": "elephant",
+        "query": "What animal is inside the zoo?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['lion', 'elephant','monkey', 'giraffe', 'zebra', 'penguin', 'kangaroo', 'koala', 'panda', 'tiger', 'bear', 'wolf', 'dog', 'cat', 'bird', 'fish', 'frog','snake', 'turtle', 'horse', 'cow', 'pig','sheep', 'goat', 'chicken', 'duck', 'turkey', 'rabbit','squirrel','mouse', 'rat', 'hamster', 'parrot', 'parakeet', 'canary', 'finch', 'goldfish','shark', 'octopus','squid', 'crab', 'lobster','shrimp', 'oyster', 'clam','mussel','snail','slug', 'worm', 'bee', 'ant', 'butterfly','moth', 'grasshopper', 'cricket', 'frog', 'toad', 'lizard',"
+    },
+    "20811131": {
+        "result": "dog",
+        "answer": "dog",
+        "query": "Which kind of animal is playing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'fish', 'elephant', 'lion', 'tiger','monkey', 'bear', 'horse', 'cow', 'pig','sheep', 'goat', 'chicken', 'duck', 'turkey', 'rabbit','squirrel','mouse', 'hamster', 'parrot', 'penguin', 'kangaroo', 'koala', 'panda', 'giraffe', 'zebra', 'horse', 'donkey', 'llama', 'alpaca', 'deer', 'fox', 'wolf', 'bear','monkey', 'ape', 'giraffe', 'elephant', 'lion', 'tiger', 'leopard', 'cheetah', 'hyena', 'jackal', 'fox', 'wolf', 'bear','monkey', 'ape', 'giraffe', 'elephant', 'lion', 'tiger', 'leopard', 'cheetah', 'hyena', 'jack"
+    },
+    "202144681": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "What is the appliance to the right of the man that is in front of the bicycle?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','mouse', 'fridge', 'oven','microwave', 'washer', 'dryer', 'dishwasher','stove', 'toaster', 'kettle', 'coffee maker', 'blender','mixer','stand mixer','slow cooker', 'rice cooker', 'bread maker', 'juicer', 'grinder', 'food processor', 'hand blender', 'hand mixer', 'hand whisk','stand blender','stand mixer','stand whisk','stand food processor','stand hand blender','stand hand mixer','stand hand whisk','stand food processor','stand blender','stand mixer','stand whisk','stand food processor','stand blender','stand mixer','stand whisk','stand food processor','stand blender','stand mixer','stand whisk','stand food processor','stand blender','stand mixer','stand whisk','stand food processor','stand blender','stand mixer', '"
+    },
+    "20468680": {
+        "result": "horse",
+        "answer": "horse",
+        "query": "Which kind of animal is it?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'fish', 'horse', 'elephant', 'lion', 'tiger', 'bear','monkey', 'zebra', 'giraffe', 'elephant', 'penguin', 'kangaroo', 'koala', 'panda', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse',"
+    },
+    "202284962": {
+        "result": "banana",
+        "answer": "banana",
+        "query": "What fruit is it?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_fruits = ['apple', 'banana', 'orange', 'grape','strawberry','mango', 'pineapple', 'watermelon', 'peach', 'kiwi', 'lemon', 'cherry', 'blueberry', 'raspberry', 'blackberry', 'apricot', 'plum', 'pear', 'nectarine', 'peach', 'pomegranate', 'avocado', 'fig', 'date', 'olive', 'pomegranate', 'grapes', 'kiwi','strawberry', 'blueberry', 'raspberry', 'blackberry', 'apricot', 'plum', 'pear', 'nectarine', 'peach', 'pomegranate', 'avocado', 'fig', 'date', 'olive', 'pomegranate', 'grapes', 'kiwi','strawberry', 'blueberry', 'raspberry', 'blackberry', 'apricot', 'plum', '"
+    },
+    "201047376": {
+        "result": "left",
+        "answer": "left",
+        "query": "On which side is the black device?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_sides = ['left', 'right']\n    if result not in valid_sides:\n        # Use llm_query to check if it's describing a side\n        is_side = llm_query(f\"Is '{result}' a side name?\", long_answer=False)\n        assert is_side == 'yes', f\"Expected a side name, got {result}\"\n    return result"
+    },
+    "201624170": {
+        "result": "pizza",
+        "answer": "pizza",
+        "query": "Which kind of fast food is delicious?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_fast_foods = ['pizza', 'burger', 'taco','sandwich', 'fries', 'chicken', 'noodle','salad','sushi','steak', 'wings','meatball', 'hotdog', 'chili', 'fajita', 'curry','samosa', 'kebab', 'kabab', 'tortilla', 'wrap', 'biryani', 'rice', 'noodle', 'pasta','soup','salad','smoothie','milkshake', 'icecream', 'cake', 'cookie', 'pie', 'brownie','muffin', 'donut', 'bagel', 'croissant', 'pancake', 'waffle', 'omelette','scrambled', 'fried', 'poached', 'boiled','steamed', 'grilled', 'roasted', 'baked', 'fried', 'deepfried', 'panfried', 'poached', '"
+    },
+    "201908832": {
+        "result": "sandwiches",
+        "answer": "sandwiches",
+        "query": "What is the food called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_foods = ['pizza','sandwich','salad', 'burger', 'fries', 'chicken', 'tacos','sushi','steak', 'ice cream', 'cake', 'donut','muffin', 'bagel', 'pancake', 'waffle', 'omelette','scrambled eggs', 'fried eggs', 'toast', 'biscuit', 'croissant', 'baguette', 'bread', 'rolls','muffin', 'buns', 'cookies', 'brownies', 'cupcakes', 'cake pops', 'candy', 'chocolate', 'caramel', 'honey','syrup','sauce', 'dressing','marinade','seasoning','spice', 'herb','salt', 'pepper', 'garlic', 'onion', 'ginger', 'lemon', 'lime', 'orange', 'grapefruit', 'apple', 'banana','mango',"
+    },
+    "201984153": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is wearing the jacket?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201738889": {
+        "result": "spectators",
+        "answer": "spectators",
+        "query": "Who is sitting?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201983628": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is the man following?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Michael', 'David', 'Robert']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a name\n        is_name = llm_query(f\"Is '{result}' a name?\", long_answer=False)\n        assert is_name == 'yes', f\"Expected a name, got {result}\"\n    return result"
+    },
+    "202156672": {
+        "result": "elephants",
+        "answer": "elephants",
+        "query": "What are the animals that the trees are behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['cat', 'dog', 'bird', 'horse', 'cow', 'pig','sheep', 'goat','monkey', 'elephant', 'lion', 'tiger', 'bear', 'zebra', 'giraffe', 'deer', 'rabbit', 'fox', 'wolf', 'bear', 'penguin', 'kangaroo', 'koala','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'fish', 'bird', 'insect', 'ant', 'bee', 'butterfly', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm', 'worm"
+    },
+    "201504984": {
+        "result": "surfboard",
+        "answer": "surfboard",
+        "query": "What is that sign in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['house','street', 'park','store']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a location\n        is_location = llm_query(f\"Is '{result}' a location name?\", long_answer=False)\n        assert is_location == 'yes', f\"Expected a location name, got {result}\"\n    return result"
+    },
+    "201704677": {
+        "result": "cows",
+        "answer": "cows",
+        "query": "What animals are in front of the green trees?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'elephant', 'lion', 'tiger','monkey', 'zebra', 'horse', 'cow', 'pig','sheep', 'goat', 'chicken', 'duck', 'fish', 'frog', 'toad','snake', 'lizard', 'turtle', 'rabbit','mouse', 'hamster','squirrel', 'bear', 'wolf', 'deer', 'fox', 'rabbit', 'horse', 'donkey','mule', 'pig', 'goat','sheep', 'cow', 'chicken', 'duck', 'turkey', 'pigeon', 'parrot', 'peacock', 'penguin','seal','sea lion', 'whale', 'dolphin','shark', 'octopus','squid', 'crab', 'lobster','shrimp', 'oyster', 'clam','mussel','snail','slug',"
+    },
+    "20716956": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What is the item of furniture that the cord is on called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives a specific item of furniture, so the result should match\n    assert result in ['table', 'desk','shelf', 'chair'], \"Expected output to be a type of furniture\"\n    return result"
+    },
+    "20349903": {
+        "result": "white",
+        "answer": "white",
+        "query": "What color do you think the cellphones to the right of the cell phone have?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green', 'black', 'grey', 'orange', 'pink']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "201153298": {
+        "result": "giraffe",
+        "answer": "giraffe",
+        "query": "What is the woman staring at, a giraffe or a rhino?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['giraffe', 'rhino'], \"Expected output to be giraffe or rhino\"\n    return result"
+    },
+    "201590123": {
+        "result": "frisbee",
+        "answer": "frisbee",
+        "query": "What is the player throwing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_items = ['ball', 'frisbee', 'football', 'baseball', 'basketball']\n    if result not in valid_items:\n        # Use llm_query to check if it's describing an item\n        is_item = llm_query(f\"Is '{result}' an item name?\", long_answer=False)\n        assert is_item == 'yes', f\"Expected an item name, got {result}\"\n    return result"
+    },
+    "201346735": {
+        "result": "motorcycle",
+        "answer": "motorcycle",
+        "query": "What is the seat on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['chair', 'table', 'bed', 'car']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a seat\n        is_seat = llm_query(f\"Is '{result}' a seat name?\", long_answer=False)\n        assert is_seat == 'yes', f\"Expected a seat name, got {result}\"\n    return result"
+    },
+    "20622048": {
+        "result": "horses",
+        "answer": "horses",
+        "query": "Which kind of animal is pretty?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['cat', 'dog', 'bird', 'horse', 'elephant', 'lion', 'tiger', 'bear','monkey', 'giraffe', 'zebra', 'penguin', 'kangaroo', 'koala', 'panda', 'rabbit','squirrel', 'fox', 'wolf', 'bear', 'deer','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'fish','shark', 'octopus','squid', 'crab', 'lobster', 'ostrich', 'chicken', 'duck', 'goose', 'turkey', 'pigeon', 'parrot', 'peacock', 'flamingo', 'penguin','seagull','swan', 'duck', 'goose', 'turkey', 'chicken', 'rooster', 'hen', 'duck', 'goose', 'turkey', 'chicken', 'rooster', 'hen', 'duck"
+    },
+    "20622045": {
+        "result": "horses",
+        "answer": "horses",
+        "query": "What animals are brown?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bear', 'horse', 'cow', 'pig','sheep', 'goat','monkey', 'lion', 'tiger', 'elephant', 'zebra', 'giraffe', 'kangaroo', 'penguin', 'rabbit','squirrel','mouse', 'rat', 'bird', 'fish', 'frog', 'toad','snake', 'lizard', 'turtle', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse', 'rat', 'bird', 'fish', 'frog', 'toad','snake', 'lizard', 'turtle', 'crocodile', 'alligator']\n    if result not in valid_animals:\n        # Use llm_query to check if it's describing an animal\n        is_animal = llm_query(f\"Is '{result}' an animal name?\", long_answer=False)\n        assert is_animal == 'yes', f\"Expected"
+    },
+    "202100840": {
+        "result": "stove",
+        "answer": "stove",
+        "query": "What is this appliance called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['oven','microwave', 'dishwasher', 'washer', 'dryer', 'fridge','stove', 'toaster', 'coffee maker', 'blender', 'kettle', 'vacuum', 'iron', 'hair dryer', 'curling iron','straightening iron', 'hair straightener', 'hair curler', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer"
+    },
+    "202144666": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "What kind of appliance is it?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','refrigerator', 'oven','microwave', 'washer', 'dryer', 'dishwasher', 'coffee maker', 'toaster', 'blender', 'kettle', 'air conditioner', 'heater', 'fan', 'vacuum cleaner', 'iron', 'hair dryer', 'curling iron','straightening iron', 'hair straightener', 'hair curler', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler"
+    },
+    "202144664": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "How is the appliance in this scene called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','microwave', 'oven','refrigerator', 'washer', 'dryer', 'dishwasher', 'air conditioner', 'heater', 'fan', 'vacuum', 'coffee maker', 'toaster', 'blender', 'kettle', 'iron', 'hair dryer', 'curling iron','straightening iron', 'hair straightener', 'hair curler', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler',"
+    },
+    "201738987": {
+        "result": "baseball",
+        "answer": "baseball",
+        "query": "What's the pitcher throwing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['fastball', 'curveball', 'changeup']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a type of pitch\n        is_pitch = llm_query(f\"Is '{result}' a type of pitch?\", long_answer=False)\n        assert is_pitch == 'yes', f\"Expected a type of pitch, got {result}\"\n    return result"
+    },
+    "201143248": {
+        "result": "chairs",
+        "answer": "chairs",
+        "query": "What are the pieces of furniture underneath the table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['chair','sofa', 'bed', 'desk', 'bookshelf']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a piece of furniture\n        is_furniture = llm_query(f\"Is '{result}' a piece of furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a piece of furniture name, got {result}\"\n    return result"
+    },
+    "201143246": {
+        "result": "chairs",
+        "answer": "chairs",
+        "query": "What is underneath the table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['chair', 'tablecloth', 'legs', 'floor']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing something underneath the table\n        is_option = llm_query(f\"Is '{result}' something underneath the table?\", long_answer=False)\n        assert is_option == 'yes', f\"Expected something underneath the table, got {result}\"\n    return result"
+    },
+    "201143245": {
+        "result": "chairs",
+        "answer": "chairs",
+        "query": "What is underneath the covered table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['legs', 'chair', 'tablecloth', 'nothing']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing something underneath the table\n        is_option = llm_query(f\"Is '{result}' something underneath the table?\", long_answer=False)\n        assert is_option == 'yes', f\"Expected something underneath the table, got {result}\"\n    return result"
+    },
+    "2062411": {
+        "result": "people",
+        "answer": "people",
+        "query": "Who is standing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "2012681": {
+        "result": "donut",
+        "answer": "donut",
+        "query": "What is the person next to the sign eating?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options, so the result should be one of them\n    assert result in ['apple', 'banana', 'orange'], \"Expected output to be a type of fruit\"\n    return result"
+    },
+    "201557047": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What is the item of furniture that the window is behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['table', 'chair','sofa', 'bed', 'desk']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a piece of furniture\n        is_furniture = llm_query(f\"Is '{result}' a piece of furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a piece of furniture name, got {result}\"\n    return result"
+    },
+    "201079862": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "Which kind of furniture is sturdy, the desk or the couch?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['desk', 'couch'], \"Expected output to be desk or couch\"\n    return result"
+    },
+    "20452173": {
+        "result": "flowers",
+        "answer": "flowers",
+        "query": "What is sitting next to the chair?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options, so the result should be one of them\n    assert result in ['table', 'bookshelf', 'lamp', 'TV', 'book', 'person', 'dog', 'cat', 'plant'], \"Expected output to be one of the options\"\n    return result"
+    },
+    "20452172": {
+        "result": "flowers",
+        "answer": "flowers",
+        "query": "What is sitting next to the comfortable chair?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_items = ['table', 'bookshelf', 'coffee table', 'lamp', 'plant', 'dog', 'cat', 'person']\n    if result not in valid_items:\n        # Use llm_query to check if it's describing an item\n        is_item = llm_query(f\"Is '{result}' an item name?\", long_answer=False)\n        assert is_item == 'yes', f\"Expected an item name, got {result}\"\n    return result"
+    },
+    "2044518": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is wearing shoes?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person1', 'person2', 'person3']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201623611": {
+        "result": "refrigerator",
+        "answer": "refrigerator",
+        "query": "What is the appliance on the floor?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','mouse', 'oven','microwave','refrigerator', 'washer', 'dryer', 'dishwasher', 'vacuum', 'iron', 'toaster', 'coffee maker', 'blender', 'kettle', 'hair dryer', 'curling iron','straightening iron', 'hair straightener', 'hair curler', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener"
+    },
+    "20786157": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is standing beside the dirt the water is touching?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person', 'animal', 'tree', 'rock']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "2044572": {
+        "result": "umbrella",
+        "answer": "umbrella",
+        "query": "What is the man covered by?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_answers = ['coat', 'jacket','shirt', 'dress', 'blanket']\n    if result not in valid_answers:\n        # Use llm_query to check if it's describing a clothing item\n        is_clothing = llm_query(f\"Is '{result}' a clothing item?\", long_answer=False)\n        assert is_clothing == 'yes', f\"Expected a clothing item, got {result}\"\n    return result"
+    },
+    "2044580": {
+        "result": "steps",
+        "answer": "steps",
+        "query": "What is the man on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['shirt', 'pants', 'coat', 'hat']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a clothing item\n        is_clothing = llm_query(f\"Is '{result}' a clothing item name?\", long_answer=False)\n        assert is_clothing == 'yes', f\"Expected a clothing item name, got {result}\"\n    return result"
+    },
+    "201047296": {
+        "result": "man",
+        "answer": "man",
+        "query": "Who is in front of the frame made of wood?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person', 'animal', 'object']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20622061": {
+        "result": "large",
+        "answer": "large",
+        "query": "How big are the horses?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['big','small'], \"Expected output to be big or small\"\n    # Test case 2:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "202258092": {
+        "result": "large",
+        "answer": "large",
+        "query": "How big is the bag?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['big','small'], \"Expected output to be big or small\"\n    return result"
+    },
+    "202053393": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is looking at the baseball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person', 'player', 'fan']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20482456": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is standing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201879336": {
+        "result": "truck",
+        "answer": "truck",
+        "query": "What is the logo in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['building','store','restaurant', 'office']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a location\n        is_location = llm_query(f\"Is '{result}' a location name?\", long_answer=False)\n        assert is_location == 'yes', f\"Expected a location name, got {result}\"\n    return result"
+    },
+    "20734137": {
+        "result": "buildings",
+        "answer": "buildings",
+        "query": "What is in front of the sky?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_objects = ['mountain', 'tree', 'house', 'cloud','sea', 'land', 'building', 'road', 'water', 'city', 'park', 'garden', 'beach', 'forest', 'desert', 'river', 'lake', 'ocean', 'island', 'hill', 'valley', 'plain', 'canyon', 'bridge', 'road', 'path', 'trail','street', 'highway', 'freeway', 'expressway','motorway', 'autobahn', 'turnpike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike', 'pike',"
+    },
+    "201412272": {
+        "result": "skier",
+        "answer": "skier",
+        "query": "Who wears a cap?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['man', 'woman', 'child', 'police', 'policewoman']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201412273": {
+        "result": "skier",
+        "answer": "skier",
+        "query": "Who wears the cap?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['man', 'woman', 'child']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20151608": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is the coffee in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person1', 'person2', 'person3']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "202003761": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What is the name of the black item of furniture?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives a specific name, so the result should be that name\n    assert result == 'black item of furniture', \"Expected output to be the name of the black item of furniture\"\n    return result"
+    },
+    "20295532": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is sleeping?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "20753268": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What kind of furniture is short?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['table', 'chair', 'bed','sofa']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a furniture\n        is_furniture = llm_query(f\"Is '{result}' a furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a furniture name, got {result}\"\n    return result"
+    },
+    "20923140": {
+        "result": "fire truck",
+        "answer": "fire truck",
+        "query": "What is in front of the brown trees?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_objects = ['house', 'car', 'road', 'building', 'path', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway', 'pathway"
+    },
+    "201462495": {
+        "result": "catcher",
+        "answer": "catcher",
+        "query": "Who is catching the ball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person', 'player', 'athlete', 'child']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201462494": {
+        "result": "catcher",
+        "answer": "catcher",
+        "query": "Who is catching the round ball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_people = ['person', 'player','man', 'woman', 'child']\n    if result not in valid_people:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "201832430": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "The pillows are lying on what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['bed', 'couch', 'chair', 'table']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a surface\n        is_surface = llm_query(f\"Is '{result}' a surface name?\", long_answer=False)\n        assert is_surface == 'yes', f\"Expected a surface name, got {result}\"\n    return result"
+    },
+    "2098247": {
+        "result": "narrow",
+        "answer": "narrow",
+        "query": "Is the speaker wide or narrow?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['wide', 'narrow'], \"Expected output to be wide or narrow\"\n    return result"
+    },
+    "201826689": {
+        "result": "elephant",
+        "answer": "elephant",
+        "query": "Which kind of animal is it?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_animals = ['dog', 'cat', 'bird', 'fish', 'horse', 'elephant', 'lion', 'tiger', 'bear','monkey', 'zebra', 'giraffe', 'elephant', 'penguin', 'kangaroo', 'koala', 'panda', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse', 'rat','snake', 'frog', 'toad', 'turtle', 'lizard', 'crocodile', 'alligator', 'bear', 'wolf', 'fox', 'rabbit','squirrel','mouse',"
+    },
+    "20866185": {
+        "result": "refrigerator",
+        "answer": "refrigerator",
+        "query": "What appliance is in the picture?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','microwave', 'oven', 'fridge', 'washer', 'dryer', 'dishwasher', 'coffee maker', 'toaster', 'kettle', 'blender','mixer','stand mixer','slow cooker', 'rice cooker', 'bread maker', 'juicer', 'grinder', 'food processor', 'hand blender', 'hand mixer','stand blender','stand mixer','stand food processor','stand hand blender','stand hand mixer','stand stand blender','stand stand mixer','stand stand food processor','stand stand hand blender','stand stand hand mixer','stand stand stand blender','stand stand stand mixer','stand stand stand food processor','stand stand stand hand blender','stand stand stand hand mixer','stand stand stand stand blender','stand stand stand stand mixer','stand stand stand stand food processor','stand stand stand stand hand blender','stand stand stand stand hand mixer','stand stand"
+    },
+    "20754593": {
+        "result": "skateboard",
+        "answer": "skateboard",
+        "query": "What do you think does the professional person play with?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_options = ['guitar', 'piano', 'drums']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a musical instrument\n        is_instrument = llm_query(f\"Is '{result}' a musical instrument name?\", long_answer=False)\n        assert is_instrument == 'yes', f\"Expected a musical instrument name, got {result}\"\n    return result"
+    },
+    "202081031": {
+        "result": "house",
+        "answer": "house",
+        "query": "What is sitting beside the appliance that is beside the knives?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_objects = ['table', 'chair','shelf', 'oven', 'dishwasher', 'toaster','microwave','refrigerator','stove', 'coffee maker', 'kettle', 'blender','mixer','stand mixer', 'food processor','slow cooker', 'rice cooker', 'bread maker', 'toaster oven', 'electric kettle', 'hand blender', 'hand mixer','stand blender','stand food processor','stand slow cooker','stand rice cooker','stand bread maker','stand toaster oven','stand electric kettle','stand hand blender','stand hand mixer','stand stand blender','stand stand food processor','stand stand slow cooker','stand stand rice cooker','stand stand bread maker','stand stand toaster oven','stand stand electric kettle','stand stand hand blender','stand stand hand mixer','stand stand stand blender','stand stand stand food processor','stand stand stand slow cooker','stand stand stand rice cooker','stand stand stand"
+    },
+    "201056134": {
+        "result": "ball",
+        "answer": "ball",
+        "query": "What is the soccer player in front of the goal watching?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options, so the result should be one of them\n    assert result in ['the ball', 'the referee', 'the coach', 'the teammate'], \"Expected output to be one of the options\"\n    return result"
+    },
+    "201235880": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is wearing the earring?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_names = ['John', 'Mary', 'Alice', 'Bob']\n    if result not in valid_names:\n        # Use llm_query to check if it's describing a person\n        is_person = llm_query(f\"Is '{result}' a person name?\", long_answer=False)\n        assert is_person == 'yes', f\"Expected a person name, got {result}\"\n    return result"
+    },
+    "202119824": {
+        "result": "refrigerator",
+        "answer": "refrigerator",
+        "query": "Which kind of appliance is this?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['oven','microwave','refrigerator', 'dishwasher', 'washer', 'dryer', 'air conditioner', 'heater', 'fan', 'coffee maker', 'toaster', 'blender', 'kettle', 'iron', 'vacuum cleaner', 'hair dryer', 'curling iron','straightening iron', 'electric toothbrush', 'electric shaver', 'electric razor', 'electric hair clipper', 'electric trimmer', 'electric epilator', 'electric massager', 'electric foot massager', 'electric back massager', 'electric hand massager', 'electric face massager', 'electric neck massager', 'electric shoulder massager', 'electric arm massager', 'electric leg massager', 'electric foot massager', 'electric back massager', 'electric hand massager', 'electric face massager', 'electric neck massager', 'electric shoulder massager', 'electric arm massager', 'electric leg massager', 'electric foot massager', 'electric"
+    },
+    "202119823": {
+        "result": "refrigerator",
+        "answer": "refrigerator",
+        "query": "What kind of appliance is it?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_appliances = ['TV', 'computer', 'phone','refrigerator', 'oven','microwave', 'washer', 'dryer', 'dishwasher', 'coffee maker', 'toaster', 'blender', 'kettle', 'air conditioner', 'heater', 'fan', 'vacuum cleaner', 'iron', 'hair dryer', 'curling iron','straightening iron', 'hair straightener', 'hair curler', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler', 'hair dryer', 'hair straightener', 'hair curler"
+    }
+}

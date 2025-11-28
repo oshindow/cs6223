@@ -1,0 +1,40 @@
+index,sample_id,possible_answers,query_type,query,answer,image_name
+201307251,201307251,"No, it is clear.",01-weather_overcast,Is it overcast?,no,n161313.jpg
+201640614,201640614,The women are wearing a dress.,"14-dress_wearing,s",Who is wearing the dress?,women,n235859.jpg
+202225914,202225914,"No, the fork is clean but silver.",05-black_clean,Does the utensil on top of the table look clean and black?,no,n336443.jpg
+2062325,2062325,"Yes, the surfer is wearing a wetsuit.",13-surfer_wetsuit,Is the surfer that looks wet wearing a wetsuit?,yes,n179136.jpg
+201303229,201303229,The chair is short.,10q-chair_height,How tall is the chair in the bottom of the photo?,short,n518912.jpg
+201902997,201902997,The device is a keyboard.,"15-desk_on top of,s",What kind of device is on top of the desk?,keyboard,n435808.jpg
+20567512,20567512,The plane is flying above the ocean.,"14-airplane_flying above,o",What is the airplane flying above?,ocean,n414992.jpg
+20136592,20136592,The pants are red.,10q-pants_color,What color are the pants?,red,n446242.jpg
+20602803,20602803,The ground is brown.,10c-ground_color,Is the ground blue or brown?,brown,n168412.jpg
+201079951,201079951,The draperies are around the window.,"14-window_around,s",What is around the open window?,drapes,n23181.jpg
+201079952,201079952,The draperies are around the window.,"14-window_around,s",What's around the window?,drapes,n23181.jpg
+20982537,20982537,The woman is standing at the table.,"14-table_standing at,s",Who is standing at the table?,woman,n52544.jpg
+201079958,201079958,"Yes, there are drapes to the right of the bed.",13-bed_drapes,Are there drapes to the right of the bed?,yes,n23181.jpg
+202218649,202218649,The picture is hanging above the chalkboard.,"14-chalkboard_hanging above,s",What is hanging above the chalkboard?,picture,n578564.jpg
+20609782,20609782,"No, the cake is on a plate.",13-cake_platter,Is the cake on a platter?,no,n437064.jpg
+201757757,201757757,"Yes, the person is wearing jeans.",13-person_jeans,Is the person to the right of the cup wearing jeans?,yes,n4777.jpg
+201902993,201902993,The device is a keyboard.,"15-mouse pad_sitting next to,s",What device is sitting next to the mouse pad?,keyboard,n435808.jpg
+20306193,20306193,"Yes, the sweater is open and blue.",05-blue_open,Does the sweater look open and blue?,yes,n554880.jpg
+20183468,20183468,"Yes, the jacket is long sleeved and black.",05-black_long sleeved,Is the jacket long sleeved and black?,yes,n151768.jpg
+20753401,20753401,"Yes, there is a bed next to the outlet.",13-outlet_bed,Are there beds next to the small outlet?,yes,n49438.jpg
+20151723,20151723,The purse is on the right of the image.,10q-purse_hposition,On which side of the picture is the leather bag?,right,n313060.jpg
+201030735,201030735,"No, the pillow is square but small.",05-large_square,Is the blue pillow square and large?,no,n54424.jpg
+201637161,201637161,The cake is white.,10q-cake_color,Which color is the cake?,white,n200692.jpg
+202218836,202218836,The cooking utensil is a pan.,"15-hook_hang from,s",What is the name of the cooking utensil that is hang from the hook?,pan,n578564.jpg
+20982539,20982539,The woman is standing at the table.,"14-woman_standing at,o",Where is the skinny person standing?,table,n52544.jpg
+201110833,201110833,"No, the plates are on top of the table.",13-plates_ottoman,Are the plates on top of an ottoman?,no,n546616.jpg
+20866248,20866248,The fridge is large.,10c-refrigerator_size,Is the freezer near the wall small or large?,large,n579256.jpg
+201110523,201110523,The food is a marshmallow.,"15-baby_to the left of,s",What type of food is to the left of the baby that is sitting atop the woman?,marshmallow,n546616.jpg
+20120533,20120533,The fence is made of aluminum.,10c-fence_material,Is the fence made of cement or aluminum?,aluminum,n117888.jpg
+201952977,201952977,The houses are on the left of the image.,10q-houses_hposition,Which side are the white houses on?,left,n525029.jpg
+201497576,201497576,"Yes, both the phone and the coffee cup are black.",09same-coffee cup_phone,Are both the phone and the coffee cup the same color?,yes,n315887.jpg
+20866244,20866244,"No, there is a refrigerator but it is large.",04-refrigerator_small,Are there either any small refrigerators or microwaves in the picture?,no,n579256.jpg
+201455911,201455911,The car is white.,10c-car_color,"How does that car look like, orange or maybe white?",white,n413761.jpg
+20856965,20856965,The book is white.,10q-book_color,What color is the book?,white,n293477.jpg
+2059565,2059565,The dirt is red.,10q-dirt_color,What color is the dirt?,red,n130638.jpg
+20856960,20856960,"No, the purse is lying on top of a bed.",13-purse_sofa,Is the bag made of leather lying on top of a sofa?,no,n293477.jpg
+201079954,201079954,The draperies are around the window.,"14-drapes_around,o",What are the drapes around of?,window,n23181.jpg
+201548894,201548894,The picture is on the left of the image.,10q-picture_hposition,On which side is the picture?,left,n314171.jpg
+201573912,201573912,The crosswalk is made of cement.,10q-crosswalk_material,What material is the crosswalk in front of the stores?,concrete,n115614.jpg

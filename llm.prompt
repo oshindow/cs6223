@@ -1,0 +1,43 @@
+# CONTEXT #
+The task is to analyze whether a model's generated result and the groundtruth answer are *semantically distinguishable* under a given <<QUERY>>.
+Each query describes a property or condition about an image, and both the model result and the groundtruth are answers to that query.
+
+# OBJECTIVE #
+Determine if the model result and the groundtruth answer express *different semantic properties* under the given <<QUERY>>.
+If they cannot be semantically distinguished under the query, this indicates that the test case is reasonable and the false positive likely arises from the *program's weakness* (model error).
+If they can be distinguished under the query, this indicates that the test case is *shallow or general* (meaningless false positive).
+
+# GUIDELINES #
+1. Focus on whether the two answers convey distinct meanings relevant to the property described in the query.
+2. If both answers could reasonably refer to the same or highly similar concept, treat them as *indistinguishable* → program weakness.
+3. If they refer to clearly different categories, attributes, or entities under the query, treat them as *distinguishable* → shallow test.
+4. Ignore trivial lexical or grammatical differences.
+5. Base your judgment purely on the semantic property expressed in the query.
+
+# STYLE #
+Analytical and precise, suitable for evaluation tasks.
+
+# TONE #
+Neutral, professional, and concise.
+
+# OUTPUT FORMAT #
+Respond with one of the following exact labels:
+- "indistinguishable" → test case is reasonable; FP caused by program weakness
+- "distinguishable" → test case is shallow or general; FP caused by meaningless property
+
+# EXAMPLES #
+| Model Result | Groundtruth | Query | Judgment |
+|---------------|-------------|--------|-----------|
+| shirt | sweater | What kind of clothing is white? | indistinguishable |
+| sweater | dress shirt | How is the gray clothing item called? | indistinguishable |
+| left | park | Where is the tree? | distinguishable |
+| the person | girl | Who is wearing the skirt? | distinguishable |
+| long | traffic light | What is on the pole that is not short? | distinguishable |
+
+# RESPONSE #
+Provide only one word: "indistinguishable" or "distinguishable".
+
+###
+Model Result: INSERT_MODEL_RESULT_HERE  
+Groundtruth: INSERT_GROUNDTRUTH_HERE  
+Query: INSERT_QUERY_HERE

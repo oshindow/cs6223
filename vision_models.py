@@ -1524,9 +1524,9 @@ class CodexModel(BaseModel):
         if config.use_fixed_code:
             with open(config.fixed_code_file) as f:
                 self.fixed_code = f.read()
-        if config.codex.ambiguous_holder:
-            with open(config.codex.ambiguous_prompt) as f:
-                self.ambiguous_prompt = f.read().strip()
+        # if config.codex.ambiguous_holder:
+        #     with open(config.codex.ambiguous_prompt) as f:
+        #         self.ambiguous_prompt = f.read().strip()
 
         if config.codex.model in ("CodeLlama-13b-Instruct", "CodeLlama-34b-Instruct", "CodeLlama-7b-Instruct"):
             from transformers import CodeLlamaTokenizer
@@ -1865,8 +1865,8 @@ class CodexModel(BaseModel):
         if not isinstance(prompt, list):
             result = result[0]
 
-        if config.codex.ambiguous_holder:
-            return prompt, result
+        # if config.codex.ambiguous_holder:
+        #     return prompt, result
 
         return result
 

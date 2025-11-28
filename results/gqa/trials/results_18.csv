@@ -1,0 +1,888 @@
+result,answer,code,test_code,id,query,img_path,possible_answers
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""Is it overcast?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201307251,Is it overcast?,data/images/n161313.jpg,"No, it is clear."
+woman,women,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""Who is wearing the dress?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a person?"", long_answer=False) == 'yes', ""Expected output to be a person""
+    return result",201640614,Who is wearing the dress?,data/images/n235859.jpg,The women are wearing a dress.
+yes,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    utensil_patches = image_patch.find(""utensil"")
+    # Question assumes only one utensil patch
+    if len(utensil_patches) == 0:
+        # If no utensil is found, query the image directly
+        return image_patch.simple_query(""Does the utensil on top of the table look clean and black?"")
+
+    table_patches = image_patch.find(""table"")
+    if len(table_patches) == 0:
+        return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",202225914,Does the utensil on top of the table look clean and black?,data/images/n336443.jpg,"No, the fork is clean but silver."
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    surfer_patches = image_patch.find(""surfer"")
+    # Question assumes only one surfer patch
+    if len(surfer_patches) == 0:
+        # If no surfer is found, query the image directly
+        return image_patch.simple_query(""Is the surfer that looks wet wearing a wetsuit?"")
+
+    for surfer_patch in surfer_patches:
+        is_wet = (surfer_patch.simple_query(""Is the surfer wet?"") == ""yes"")
+        if is_wet:
+            is_wearing_wetsuit = (surfer_patch.simple_query(""Is the surfer wearing a wetsuit?"") == ""yes"")
+            return ""yes"" if is_wearing_wetsuit else ""no""
+    # If no surfer is wet, query the image directly
+    return image_patch.simple_query(""Is the surfer that looks wet wearing a wetsuit?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",2062325,Is the surfer that looks wet wearing a wetsuit?,data/images/n179136.jpg,"Yes, the surfer is wearing a wetsuit."
+5 feet,short,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    chair_patches = image_patch.find(""chair"")
+    # Question assumes only one chair patch
+    if len(chair_patches) == 0:
+        # If no chair is found, query the image directly
+        return image_patch.simple_query(""How tall is the chair in the bottom of the photo?"")
+    chair_patch = chair_patches[0]
+
+    # Use soft vertical reasoning: bottom if below the image center
+    score_bottom = soft_above(image_patch, chair_patch)
+    return ""bottom"" if score_bottom > 0.5 else ""top""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert result in ['tall','short'], ""Expected output to be tall or short""
+    # Test case 2:
+    assert not any(char.isdigit() for char in result), ""Expected output to not have numbers""
+    return result",201303229,How tall is the chair in the bottom of the photo?,data/images/n518912.jpg,The chair is short.
+computer,keyboard,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    device_patches = image_patch.find(""device"")
+    # Question assumes only one device patch
+    if len(device_patches) == 0:
+        # If no device is found, query the image directly
+        return image_patch.simple_query(""What kind of device is on top of the desk?"")
+    device_patch = device_patches[0]
+    desk_patches = image_patch.find(""desk"")
+    if len(desk_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for desk_patch in desk_patches:
+        # ""device above desk"" probability
+        score = soft_above(device_patch, desk_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201902997,What kind of device is on top of the desk?,data/images/n435808.jpg,The device is a keyboard.
+ocean,ocean,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    airplane_patches = image_patch.find(""airplane"")
+    # Question assumes only one airplane patch
+    if len(airplane_patches) == 0:
+        # If no airplane is found, query the image directly
+        return image_patch.simple_query(""What is the airplane flying above?"")
+    airplane_patch = airplane_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for other_patch in image_patch.find(""other""):
+        # ""airplane above other"" probability
+        score = soft_above(airplane_patch, other_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+    return ""above"" if avg_score > 0.5 else ""below""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} an airplane?"", long_answer=False) == 'yes', ""Expected output to be an airplane""
+    return result",20567512,What is the airplane flying above?,data/images/n414992.jpg,The plane is flying above the ocean.
+red,red,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    pants_patches = image_patch.find(""pants"")
+    # Question assumes only one pants patch
+    if len(pants_patches) == 0:
+        # If no pants are found, query the image directly
+        return image_patch.simple_query(""What color are the pants?"")
+    pants_patch = pants_patches[0]
+
+    # Use soft color reasoning: top if above the image center
+    score_red = sigmoid(pants_patch.simple_query(""Are the pants red?""))
+    score_blue = sigmoid(pants_patch.simple_query(""Are the pants blue?""))
+    score_green = sigmoid(pants_patch.simple_query(""Are the pants green?""))
+
+    if score_red > score_blue and score_red > score_green:
+        return ""red""
+    elif score_blue > score_red and score_blue > score_green:
+        return ""blue""
+    else:
+        return ""green""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a color?"", long_answer=False) == 'yes', ""Expected output to be a color""
+    return result",20136592,What color are the pants?,data/images/n446242.jpg,The pants are red.
+brown,brown,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    ground_patches = image_patch.find(""ground"")
+    # Question assumes only one ground patch
+    if len(ground_patches) == 0:
+        # If no ground is found, query the image directly
+        return image_patch.simple_query(""Is the ground blue or brown?"")
+    ground_patch = ground_patches[0]
+
+    # Use soft color reasoning: blue if color is similar to blue
+    score_blue = sigmoid(ground_patch.simple_query(""Is the ground similar to blue?""))
+    score_brown = sigmoid(ground_patch.simple_query(""Is the ground similar to brown?""))
+
+    return ""blue"" if score_blue > score_brown else ""brown""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['blue', 'brown'], ""Expected output to be blue or brown""
+    return result",20602803,Is the ground blue or brown?,data/images/n168412.jpg,The ground is brown.
+curtains,drapes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    window_patches = image_patch.find(""window"")
+    # Question assumes only one window patch
+    if len(window_patches) == 0:
+        # If no window is found, query the image directly
+        return image_patch.simple_query(""What is around the open window?"")
+
+    window_patch = window_patches[0]
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for patch in image_patch.find(""""):
+        # ""patch around window"" probability
+        score = soft_around(window_patch, patch)
+        scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""around the window"" if avg_score > 0.5 else ""not around the window""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201079951,What is around the open window?,data/images/n23181.jpg,The draperies are around the window.
+curtains,drapes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    window_patches = image_patch.find(""window"")
+    # Question assumes only one window patch
+    if len(window_patches) == 0:
+        # If no window is found, query the image directly
+        return image_patch.simple_query(""What's around the window?"")
+    window_patch = window_patches[0]
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for patch in image_patch.find(""""):
+        # ""patch left of window"" probability
+        score = soft_left_of(patch, window_patch)
+        scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201079952,What's around the window?,data/images/n23181.jpg,The draperies are around the window.
+people,woman,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    return image_patch.simple_query(""Who is standing at the table?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a person?"", long_answer=False) == 'yes', ""Expected output to be a person""
+    return result",20982537,Who is standing at the table?,data/images/n52544.jpg,The woman is standing at the table.
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    bed_patches = image_patch.find(""bed"")
+    # Question assumes only one bed patch
+    if len(bed_patches) == 0:
+        # If no bed is found, query the image directly
+        return image_patch.simple_query(""Are there drapes to the right of the bed?"")
+
+    drapes_patches = image_patch.find(""drapes"")
+    if len(drapes_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for drapes_patch in drapes_patches:
+        for bed_patch in bed_patches:
+            # ""bed left of drapes"" probability
+            score = soft_left_of(bed_patch, drapes_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201079958,Are there drapes to the right of the bed?,data/images/n23181.jpg,"Yes, there are drapes to the right of the bed."
+picture,picture,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    chalkboard_patches = image_patch.find(""chalkboard"")
+    # Question assumes only one chalkboard patch
+    if len(chalkboard_patches) == 0:
+        # If no chalkboard is found, query the image directly
+        return image_patch.simple_query(""What is hanging above the chalkboard?"")
+
+    chalkboard_patch = chalkboard_patches[0]
+
+    # Use soft vertical reasoning: above if above the chalkboard
+    score_above = soft_above(image_patch, chalkboard_patch)
+    return ""above"" if score_above > 0.5 else ""not above""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",202218649,What is hanging above the chalkboard?,data/images/n578564.jpg,The picture is hanging above the chalkboard.
+yes,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    cake_patches = image_patch.find(""cake"")
+    # Question assumes only one cake patch
+    if len(cake_patches) == 0:
+        # If no cake is found, query the image directly
+        return image_patch.simple_query(""Is the cake on a platter?"")
+    cake_patch = cake_patches[0]
+    platter_patches = image_patch.find(""platter"")
+    # Question assumes only one platter patch
+    if len(platter_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for platter_patch in platter_patches:
+        # ""cake on platter"" probability → reverse for ""platter under cake""
+        score = 1 - soft_above(platter_patch, cake_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20609782,Is the cake on a platter?,data/images/n437064.jpg,"No, the cake is on a plate."
+yes,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find(""person"")
+    # Question assumes only one person patch
+    if len(person_patches) == 0:
+        # If no person is found, query the image directly
+        return image_patch.simple_query(""Is the person to the right of the cup wearing jeans?"")
+
+    cup_patches = image_patch.find(""cup"")
+    if len(cup_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for person_patch in person_patches:
+        for cup_patch in cup_patches:
+            # ""cup left of person"" probability
+            score = soft_left_of(cup_patch, person_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201757757,Is the person to the right of the cup wearing jeans?,data/images/n4777.jpg,"Yes, the person is wearing jeans."
+laptop,keyboard,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    mouse_pad_patches = image_patch.find(""mouse pad"")
+    # Question assumes only one mouse pad patch
+    if len(mouse_pad_patches) == 0:
+        # If no mouse pad is found, query the image directly
+        return image_patch.simple_query(""What device is sitting next to the mouse pad?"")
+
+    device_patches = image_patch.find(""device"")
+    if len(device_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for mouse_pad_patch in mouse_pad_patches:
+        for device_patch in device_patches:
+            # ""device left of mouse pad"" probability
+            score = soft_left_of(device_patch, mouse_pad_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201902993,What device is sitting next to the mouse pad?,data/images/n435808.jpg,The device is a keyboard.
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    sweater_patches = image_patch.find(""sweater"")
+    # Question assumes only one sweater patch
+    if len(sweater_patches) == 0:
+        # If no sweater is found, query the image directly
+        return image_patch.simple_query(""Does the sweater look open and blue?"")
+
+    sweater_patch = sweater_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for sweater_patch in sweater_patches:
+        # ""sweater left of image center"" probability → reverse for ""image center left of sweater""
+        score = 1 - soft_left_of(sweater_patch, image_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20306193,Does the sweater look open and blue?,data/images/n554880.jpg,"Yes, the sweater is open and blue."
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    jacket_patches = image_patch.find(""jacket"")
+    # Question assumes only one jacket patch
+    if len(jacket_patches) == 0:
+        # If no jacket is found, query the image directly
+        return image_patch.simple_query(""Is the jacket long sleeved and black?"")
+
+    jacket_patch = jacket_patches[0]
+
+    # Check if the jacket is long sleeved
+    is_long_sleeved = jacket_patch.simple_query(""Is the jacket long sleeved?"") == ""yes""
+
+    # Check if the jacket is black
+    is_black = jacket_patch.simple_query(""Is the jacket black?"") == ""yes""
+
+    return ""yes"" if is_long_sleeved and is_black else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20183468,Is the jacket long sleeved and black?,data/images/n151768.jpg,"Yes, the jacket is long sleeved and black."
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    beds_patches = image_patch.find(""bed"")
+    # Question assumes only one bed patch
+    if len(beds_patches) == 0:
+        # If no bed is found, query the image directly
+        return image_patch.simple_query(""Are there beds next to the small outlet?"")
+
+    small_outlet_patches = image_patch.find(""small outlet"")
+    if len(small_outlet_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for bed_patch in beds_patches:
+        for small_outlet_patch in small_outlet_patches:
+            # ""small outlet left of bed"" probability
+            score = soft_left_of(small_outlet_patch, bed_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20753401,Are there beds next to the small outlet?,data/images/n49438.jpg,"Yes, there is a bed next to the outlet."
+left,right,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    leather_bag_patches = image_patch.find(""leather bag"")
+    # Question assumes only one leather bag patch
+    if len(leather_bag_patches) == 0:
+        # If no leather bag is found, query the image directly
+        return image_patch.simple_query(""On which side of the picture is the leather bag?"")
+
+    leather_bag_patch = leather_bag_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for _ in range(4):
+        ans = image_patch.simple_query(""Is the leather bag on the left?"")
+        if isinstance(ans, str) and ans.strip().lower().startswith(""y""):
+            scores.append(1)
+        else:
+            scores.append(0)
+
+    return ""left"" if np.mean(scores) > 0.5 else ""right""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], ""Expected output to be left or right""
+    return result",20151723,On which side of the picture is the leather bag?,data/images/n313060.jpg,The purse is on the right of the image.
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    pillow_patches = image_patch.find(""pillow"")
+    # Question assumes only one pillow patch
+    if len(pillow_patches) == 0:
+        # If no pillow is found, query the image directly
+        return image_patch.simple_query(""Is the blue pillow square and large?"")
+
+    for pillow_patch in pillow_patches:
+        is_blue = pillow_patch.simple_query(""Is the pillow blue?"") == ""yes""
+        is_square = pillow_patch.simple_query(""Is the pillow square?"") == ""yes""
+        is_large = pillow_patch.simple_query(""Is the pillow large?"") == ""yes""
+
+        if is_blue and is_square and is_large:
+            return ""yes""
+    return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201030735,Is the blue pillow square and large?,data/images/n54424.jpg,"No, the pillow is square but small."
+white,white,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    cake_patches = image_patch.find(""cake"")
+    # Question assumes only one cake patch
+    if len(cake_patches) == 0:
+        # If no cake is found, query the image directly
+        return image_patch.simple_query(""Which color is the cake?"")
+    cake_patch = cake_patches[0]
+
+    # Use soft color reasoning: top if above the image center
+    color_patches = image_patch.find(""color"")
+    if len(color_patches) == 0:
+        return ""unknown""
+
+    color_patch = color_patches[0]
+    score_red = soft_above(cake_patch, color_patch)
+    score_blue = soft_above(color_patch, cake_patch)
+    score_green = soft_above(cake_patch, color_patch)
+
+    if score_red > score_blue and score_red > score_green:
+        return ""red""
+    elif score_blue > score_green:
+        return ""blue""
+    else:
+        return ""green""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives options using ""or"", the return values will be one of the options
+    assert result in ['red', 'blue', 'green'], ""Expected output to be one of the colors""
+    return result",201637161,Which color is the cake?,data/images/n200692.jpg,The cake is white.
+pan,pan,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    cooking_utensil_patches = image_patch.find(""cooking utensil"")
+    # Question assumes only one cooking utensil patch
+    if len(cooking_utensil_patches) == 0:
+        # If no cooking utensil is found, query the image directly
+        return image_patch.simple_query(""What is the name of the cooking utensil that is hang from the hook?"")
+
+    hook_patches = image_patch.find(""hook"")
+    if len(hook_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for cooking_utensil_patch in cooking_utensil_patches:
+        for hook_patch in hook_patches:
+            # ""hook left of cooking utensil"" probability
+            score = soft_left_of(hook_patch, cooking_utensil_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a cooking utensil?"", long_answer=False) == 'yes', ""Expected output to be a cooking utensil""
+    return result",202218836,What is the name of the cooking utensil that is hang from the hook?,data/images/n578564.jpg,The cooking utensil is a pan.
+in middle,table,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find(""person"")
+    # Question assumes only one person patch
+    if len(person_patches) == 0:
+        # If no person is found, query the image directly
+        return image_patch.simple_query(""Where is the skinny person standing?"")
+    person_patch = person_patches[0]
+
+    # Use soft spatial reasoning to determine the position
+    scores = []
+    for patch in image_patch.find(""skinny""):
+        # ""skinny left of person"" probability
+        score = soft_left_of(patch, person_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+    return ""left"" if avg_score > 0.5 else ""right""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",20982539,Where is the skinny person standing?,data/images/n52544.jpg,The woman is standing at the table.
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    plates_patches = image_patch.find(""plates"")
+    # Question assumes only one plates patch
+    if len(plates_patches) == 0:
+        # If no plates are found, query the image directly
+        return image_patch.simple_query(""Are the plates on top of an ottoman?"")
+
+    ottoman_patches = image_patch.find(""ottoman"")
+    if len(ottoman_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for plates_patch in plates_patches:
+        for ottoman_patch in ottoman_patches:
+            # ""ottoman left of plates"" probability → reverse for ""plates on top of ottoman""
+            score = 1 - soft_left_of(ottoman_patch, plates_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201110833,Are the plates on top of an ottoman?,data/images/n546616.jpg,"No, the plates are on top of the table."
+small,large,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    freezer_patches = image_patch.find(""freezer"")
+    # Question assumes only one freezer patch
+    if len(freezer_patches) == 0:
+        # If no freezer is found, query the image directly
+        return image_patch.simple_query(""Is the freezer near the wall small or large?"")
+
+    wall_patches = image_patch.find(""wall"")
+    if len(wall_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for freezer_patch in freezer_patches:
+        for wall_patch in wall_patches:
+            # ""wall left of freezer"" probability
+            score = soft_left_of(wall_patch, freezer_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""small"" if avg_score > 0.5 else ""large""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['small', 'large'], ""Expected output to be small or large""
+    return result",20866248,Is the freezer near the wall small or large?,data/images/n579256.jpg,The fridge is large.
+cake,marshmallow,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    baby_patches = image_patch.find(""baby"")
+    # Question assumes only one baby patch
+    if len(baby_patches) == 0:
+        # If no baby is found, query the image directly
+        return image_patch.simple_query(""What type of food is to the left of the baby that is sitting atop the woman?"")
+
+    woman_patches = image_patch.find(""woman"")
+    if len(woman_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for baby_patch in baby_patches:
+        for woman_patch in woman_patches:
+            # ""woman above baby"" probability
+            score = soft_above(woman_patch, baby_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    if avg_score > 0.5:
+        food_patches = image_patch.find(""food"")
+        if len(food_patches) == 0:
+            return ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""Is {result} a type of food?"", long_answer=False) == 'yes', ""Expected output to be a type of food""
+    return result",201110523,What type of food is to the left of the baby that is sitting atop the woman?,data/images/n546616.jpg,The food is a marshmallow.
+aluminum,aluminum,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    fence_patches = image_patch.find(""fence"")
+    # Question assumes only one fence patch
+    if len(fence_patches) == 0:
+        # If no fence is found, query the image directly
+        return image_patch.simple_query(""Is the fence made of cement or aluminum?"")
+
+    cement_patches = image_patch.find(""cement"")
+    aluminum_patches = image_patch.find(""aluminum"")
+    # Question assumes only one cement and one aluminum patch
+    if len(cement_patches) == 0 or len(aluminum_patches) == 0:
+        return ""no""
+
+    # Use soft logical OR: high if either probability is high
+    prob_cement = exists_prob(image_patch, ""cement"", n=3)
+    prob_aluminum = exists_prob(image_patch, ""aluminum"", n=3)
+    prob_or = 1 - (1 - prob_cement) * (1 - prob_aluminum)
+    return ""cement"" if prob_or > 0.5 else ""aluminum""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['cement', 'aluminum'], ""Expected output to be cement or aluminum""
+    return result",20120533,Is the fence made of cement or aluminum?,data/images/n117888.jpg,The fence is made of aluminum.
+left,left,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    white_houses_patches = image_patch.find(""white house"")
+    # Question assumes only one white house patch
+    if len(white_houses_patches) == 0:
+        # If no white house is found, query the image directly
+        return image_patch.simple_query(""Which side are the white houses on?"")
+
+    white_house_patch = white_houses_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for side_patch in image_patch.find(""side""):
+        # ""white house left of side"" probability → reverse for ""side right of white house""
+        score = 1 - soft_left_of(white_house_patch, side_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+
+    return ""left"" if avg_score > 0.5 else ""right""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], ""Expected output to be left or right""
+    return result",201952977,Which side are the white houses on?,data/images/n525029.jpg,The houses are on the left of the image.
+no,yes,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    phone_patches = image_patch.find(""phone"")
+    coffee_cup_patches = image_patch.find(""coffee cup"")
+    if len(phone_patches) == 0 or len(coffee_cup_patches) == 0:
+        return image_patch.simple_query(""Are both the phone and the coffee cup the same color?"")
+
+    phone_patch = phone_patches[0]
+    coffee_cup_patch = coffee_cup_patches[0]
+
+    # Use soft color reasoning: same color if color similarity is high
+    color_similarity = sigmoid(np.mean((phone_patch.cropped_image - coffee_cup_patch.cropped_image) ** 2))
+    return ""yes"" if color_similarity > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",201497576,Are both the phone and the coffee cup the same color?,data/images/n315887.jpg,"Yes, both the phone and the coffee cup are black."
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    # Estimate existence probability by repeated semantic queries
+    is_small_refrigerator_prob = exists_prob(image_patch, ""small refrigerator"", n=3)
+    is_microwave_prob = exists_prob(image_patch, ""microwave"", n=3)
+
+    # Soft logical OR: high if either probability is high
+    prob_or = 1 - (1 - is_small_refrigerator_prob) * (1 - is_microwave_prob)
+    return ""yes"" if prob_or > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20866244,Are there either any small refrigerators or microwaves in the picture?,data/images/n579256.jpg,"No, there is a refrigerator but it is large."
+white,white,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    car_patches = image_patch.find(""car"")
+    # Question assumes only one car patch
+    if len(car_patches) == 0:
+        # If no car is found, query the image directly
+        return image_patch.simple_query(""How does that car look like, orange or maybe white?"")
+
+    car_patch = car_patches[0]
+
+    # Use soft color reasoning: orange if color is similar to orange
+    score_orange = sigmoid(car_patch.simple_query(""Is the car orange?"") == ""yes"")
+    score_white = sigmoid(car_patch.simple_query(""Is the car white?"") == ""yes"")
+
+    return ""orange"" if score_orange > score_white else ""white""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['orange', 'white'], ""Expected output to be orange or white""
+    return result",201455911,"How does that car look like, orange or maybe white?",data/images/n413761.jpg,The car is white.
+white,white,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    book_patches = image_patch.find(""book"")
+    # Question assumes only one book patch
+    if len(book_patches) == 0:
+        # If no book is found, query the image directly
+        return image_patch.simple_query(""What color is the book?"")
+    book_patch = book_patches[0]
+
+    # Use soft color reasoning: top if above the image center
+    color = book_patch.simple_query(""What color is the book?"")
+    return color","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""What color is {result}?"", long_answer=False) == 'yes', ""Expected output to be a color""
+    return result",20856965,What color is the book?,data/images/n293477.jpg,The book is white.
+brown,red,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    dirt_patches = image_patch.find(""dirt"")
+    # Question assumes only one dirt patch
+    if len(dirt_patches) == 0:
+        # If no dirt is found, query the image directly
+        return image_patch.simple_query(""What color is the dirt?"")
+    dirt_patch = dirt_patches[0]
+    return dirt_patch.simple_query(""What color is the dirt?"")","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    # Test case 3:
+    assert llm_query(f""What color is {result}?"", long_answer=False) == 'yes', ""Expected output to be a color""
+    return result",2059565,What color is the dirt?,data/images/n130638.jpg,The dirt is red.
+no,no,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    bag_patches = image_patch.find(""bag"")
+    # Question assumes only one bag patch
+    if len(bag_patches) == 0:
+        # If no bag is found, query the image directly
+        return image_patch.simple_query(""Is the bag made of leather lying on top of a sofa?"")
+
+    sofa_patches = image_patch.find(""sofa"")
+    if len(sofa_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for bag_patch in bag_patches:
+        for sofa_patch in sofa_patches:
+            # ""sofa left of bag"" probability
+            score = soft_left_of(sofa_patch, bag_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['yes', 'no'], ""Expected output to be yes or no""
+    return result",20856960,Is the bag made of leather lying on top of a sofa?,data/images/n293477.jpg,"No, the purse is lying on top of a bed."
+windows,window,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    drapes_patches = image_patch.find(""drapes"")
+    # Question assumes only one drapes patch
+    if len(drapes_patches) == 0:
+        # If no drapes are found, query the image directly
+        return image_patch.simple_query(""What are the drapes around of?"")
+    drapes_patch = drapes_patches[0]
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for drapes_patch in drapes_patches:
+        # ""object left of drapes"" probability
+        score = soft_left_of(drapes_patch, image_patch)
+        scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201079954,What are the drapes around of?,data/images/n23181.jpg,The draperies are around the window.
+left,left,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    picture_patches = image_patch.find(""picture"")
+    # Question assumes only one picture patch
+    if len(picture_patches) == 0:
+        # If no picture is found, query the image directly
+        return image_patch.simple_query(""On which side is the picture?"")
+    picture_patch = picture_patches[0]
+
+    # Use soft spatial reasoning to determine the relation
+    scores = []
+    for side_patch in image_patch.find(""side""):
+        # ""picture left of side"" probability → reverse for ""side right of picture""
+        score = 1 - soft_left_of(picture_patch, side_patch)
+        scores.append(score)
+    avg_score = np.mean(scores)
+
+    return ""left"" if avg_score > 0.5 else ""right""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    # Query gives two options, so the result should be one of them
+    assert result in ['left', 'right'], ""Expected output to be left or right""
+    return result",201548894,On which side is the picture?,data/images/n314171.jpg,The picture is on the left of the image.
+concrete,concrete,"def execute_command(image, my_fig, time_wait_between_lines, syntax):
+    image_patch = ImagePatch(image)
+    crosswalk_patches = image_patch.find(""crosswalk"")
+    # Question assumes only one crosswalk patch
+    if len(crosswalk_patches) == 0:
+        # If no crosswalk is found, query the image directly
+        return image_patch.simple_query(""What material is the crosswalk in front of the stores?"")
+
+    store_patches = image_patch.find(""store"")
+    if len(store_patches) == 0:
+        return ""no""
+
+    # Use soft spatial reasoning for all pairs of patches
+    scores = []
+    for crosswalk_patch in crosswalk_patches:
+        for store_patch in store_patches:
+            # ""store left of crosswalk"" probability
+            score = soft_left_of(store_patch, crosswalk_patch)
+            scores.append(score)
+
+    avg_score = np.mean(scores)
+    return ""yes"" if avg_score > 0.5 else ""no""","def execute_test(image):
+    result = execute_command(image, my_fig, time_wait_between_lines, syntax)
+    # Test case 1:
+    assert isinstance(result, str), ""Expected output to be string.""
+    # Test case 2:
+    assert len(result.split()) in [1,2], ""Expected output to be one or two words""
+    return result",201573912,What material is the crosswalk in front of the stores?,data/images/n115614.jpg,The crosswalk is made of cement.

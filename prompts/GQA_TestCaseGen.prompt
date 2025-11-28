@@ -127,6 +127,7 @@ def execute_test(image):
     assert result in ['yes', 'no'], "Expected output to be yes or no."
     return result
 ###
+
 # Instruction #
 Generate the the function execute_test for the following query:
 <<Query>>: INSERT_QUERY_HERE

@@ -1,0 +1,824 @@
+{
+    "202243820": {
+        "result": "small",
+        "answer": "small",
+        "query": "How large are the sprinkles that are sprinkled on the cupcakes?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert result in ['large','small'], \"Expected output to be large or small\"\n    # Test case 2:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "201896034": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the item of furniture to the right of the lady that is looking down at the cake called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20673100": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "What item of furniture is the toilet paper to the right of the toilet resting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201438693": {
+        "result": "home plate",
+        "answer": "home plate",
+        "query": "What is the batter standing beside of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a sign?\", long_answer=False) == 'yes', \"Expected output to be a sign\"\n    return result"
+    },
+    "20550578": {
+        "result": "grass",
+        "answer": "grass",
+        "query": "Where are the grouped people standing on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a location?\", long_answer=False) == 'yes', \"Expected output to be a location\"\n    return result"
+    },
+    "20856909": {
+        "result": "purse",
+        "answer": "purse",
+        "query": "Which kind of bag is green?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "201479185": {
+        "result": "unpeeled",
+        "answer": "unpeeled",
+        "query": "How does the fruit in front of the cup look, unpeeled or peeled?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['unpeeled', 'peeled'], \"Expected output to be unpeeled or peeled\"\n    return result"
+    },
+    "202053361": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is in front of the umpire that is staring?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20551476": {
+        "result": "train",
+        "answer": "train",
+        "query": "Which kind of vehicle are the buildings behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of vehicle?\", long_answer=False) == 'yes', \"Expected output to be a type of vehicle\"\n    return result"
+    },
+    "201247296": {
+        "result": "plant",
+        "answer": "plant",
+        "query": "What's inside the flower pot?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be inside a flower pot?\", long_answer=False) == 'yes', \"Expected output to describe something that can be inside a flower pot\"\n    return result"
+    },
+    "202041969": {
+        "result": "closed",
+        "answer": "closed",
+        "query": "Are the doors open or closed?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['open', 'closed'], \"Expected output to be open or closed\"\n    return result"
+    },
+    "201498047": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What kind of furniture is underneath the device that looks long?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20836778": {
+        "result": "table",
+        "answer": "table",
+        "query": "What's the purse hanging from?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be hung?\", long_answer=False) == 'yes', \"Expected output to describe something that can be hung\"\n    return result"
+    },
+    "20542972": {
+        "result": "fence",
+        "answer": "fence",
+        "query": "The elephant is in front of what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a location?\", long_answer=False) == 'yes', \"Expected output to be a location\"\n    return result"
+    },
+    "20954191": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is in front of the man?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20320230": {
+        "result": "dirty",
+        "answer": "dirty",
+        "query": "How clean is the sidewalk that the sign is in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a description of cleanliness?\", long_answer=False) == 'yes', \"Expected output to describe a level of cleanliness\"\n    return result"
+    },
+    "201491071": {
+        "result": "goats",
+        "answer": "goats",
+        "query": "Are these goats or a sheep?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['goats','sheep'], \"Expected output to be goats or sheep\"\n    return result"
+    },
+    "201654426": {
+        "result": "horses",
+        "answer": "horses",
+        "query": "What are the animals to the left of the jockey that is sitting in the cart?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} animals?\", long_answer=False) == 'yes', \"Expected output to be animals\"\n    return result"
+    },
+    "20177899": {
+        "result": "small",
+        "answer": "small",
+        "query": "How big are the pickles that are on top of the cutting board?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert result in ['big','small'], \"Expected output to be big or small\"\n    # Test case 2:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "201879568": {
+        "result": "truck",
+        "answer": "truck",
+        "query": "What is the vehicle that is in front of the basket?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of vehicle?\", long_answer=False) == 'yes', \"Expected output to be a type of vehicle\"\n    return result"
+    },
+    "201735421": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "The black chicken is standing on top of what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201982950": {
+        "result": "brown",
+        "answer": "brown",
+        "query": "Is the coffee table that looks little brown or white?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['little brown', 'white'], \"Expected output to be little brown or white\"\n    return result"
+    },
+    "201804660": {
+        "result": "television",
+        "answer": "television",
+        "query": "What is the device below the white artwork called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a device name?\", long_answer=False) == 'yes', \"Expected output to be a device name\"\n    return result"
+    },
+    "20511439": {
+        "result": "helicopter",
+        "answer": "helicopter",
+        "query": "What is carrying the ship?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can carry a ship?\", long_answer=False) == 'yes', \"Expected output to describe something that can carry a ship\"\n    return result"
+    },
+    "201430771": {
+        "result": "tie",
+        "answer": "tie",
+        "query": "What's the person getting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "202243895": {
+        "result": "beans",
+        "answer": "beans",
+        "query": "Which kind of vegetable is to the right of the carrots?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of vegetable?\", long_answer=False) == 'yes', \"Expected output to be a type of vegetable\"\n    return result"
+    },
+    "202144681": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "What is the appliance to the right of the man that is in front of the bicycle?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} an appliance?\", long_answer=False) == 'yes', \"Expected output to be an appliance\"\n    return result"
+    },
+    "202120103": {
+        "result": "glasses",
+        "answer": "glasses",
+        "query": "What is inside the fridge that is in front of the wall?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be inside a fridge?\", long_answer=False) == 'yes', \"Expected output to describe something that can be inside a fridge\"\n    return result"
+    },
+    "202162622": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "Which kind of furniture is not black?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a kind of furniture?\", long_answer=False) == 'yes', \"Expected output to be a kind of furniture\"\n    return result"
+    },
+    "20836453": {
+        "result": "table",
+        "answer": "table",
+        "query": "What kind of furniture is the cabinet sitting behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "202042070": {
+        "result": "motorcycle",
+        "answer": "motorcycle",
+        "query": "What is the policeman to the left of the truck riding?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "201504984": {
+        "result": "surfboard",
+        "answer": "surfboard",
+        "query": "What is that sign in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a sign?\", long_answer=False) == 'yes', \"Expected output to be a sign\"\n    return result"
+    },
+    "201704677": {
+        "result": "cows",
+        "answer": "cows",
+        "query": "What animals are in front of the green trees?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} animals?\", long_answer=False) == 'yes', \"Expected output to be animals\"\n    return result"
+    },
+    "20716956": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What is the item of furniture that the cord is on called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20349903": {
+        "result": "white",
+        "answer": "white",
+        "query": "What color do you think the cellphones to the right of the cell phone have?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "201153298": {
+        "result": "giraffe",
+        "answer": "giraffe",
+        "query": "What is the woman staring at, a giraffe or a rhino?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['giraffe', 'rhino'], \"Expected output to be giraffe or rhino\"\n    return result"
+    },
+    "201590123": {
+        "result": "frisbee",
+        "answer": "frisbee",
+        "query": "What is the player throwing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be thrown?\", long_answer=False) == 'yes', \"Expected output to describe something that can be thrown\"\n    return result"
+    },
+    "201346735": {
+        "result": "motorcycle",
+        "answer": "motorcycle",
+        "query": "What is the seat on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20622042": {
+        "result": "horses",
+        "answer": "horses",
+        "query": "What animals are large?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} large?\", long_answer=False) == 'yes', \"Expected output to describe large animals\"\n    return result"
+    },
+    "201770974": {
+        "result": "toothpaste",
+        "answer": "toothpaste",
+        "query": "What do you think is inside the mug?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be inside a mug?\", long_answer=False) == 'yes', \"Expected output to describe something that can be inside a mug\"\n    return result"
+    },
+    "201738987": {
+        "result": "baseball",
+        "answer": "baseball",
+        "query": "What's the pitcher throwing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of object?\", long_answer=False) == 'yes', \"Expected output to be a type of object\"\n    return result"
+    },
+    "201143248": {
+        "result": "chairs",
+        "answer": "chairs",
+        "query": "What are the pieces of furniture underneath the table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} pieces of furniture?\", long_answer=False) == 'yes', \"Expected output to be pieces of furniture\"\n    return result"
+    },
+    "201557047": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What is the item of furniture that the window is behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201079862": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "Which kind of furniture is sturdy, the desk or the couch?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['desk', 'couch'], \"Expected output to be desk or couch\"\n    return result"
+    },
+    "20456580": {
+        "result": "carpet",
+        "answer": "carpet",
+        "query": "The furry animal near the window is lying on what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20452173": {
+        "result": "flowers",
+        "answer": "flowers",
+        "query": "What is sitting next to the chair?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can sit?\", long_answer=False) == 'yes', \"Expected output to describe something that can sit\"\n    return result"
+    },
+    "20452172": {
+        "result": "flowers",
+        "answer": "flowers",
+        "query": "What is sitting next to the comfortable chair?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can sit?\", long_answer=False) == 'yes', \"Expected output to describe something that can sit\"\n    return result"
+    },
+    "20340640": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the bird standing on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that a bird can stand on?\", long_answer=False) == 'yes', \"Expected output to describe something that a bird can stand on\"\n    return result"
+    },
+    "202060210": {
+        "result": "tree",
+        "answer": "tree",
+        "query": "What are the ornaments made of glass hanging from?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can hang?\", long_answer=False) == 'yes', \"Expected output to describe something that can hang\"\n    return result"
+    },
+    "20516144": {
+        "result": "train",
+        "answer": "train",
+        "query": "What do you think are the busy people watching?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} people?\", long_answer=False) == 'yes', \"Expected output to describe people\"\n    return result"
+    },
+    "202053393": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is looking at the baseball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20342389": {
+        "result": "blue",
+        "answer": "blue",
+        "query": "Which color is the bus to the right of the other bus?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "202100785": {
+        "result": "stove",
+        "answer": "stove",
+        "query": "Which kind of appliance are the jars sitting on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a kind of appliance?\", long_answer=False) == 'yes', \"Expected output to be a kind of appliance\"\n    return result"
+    },
+    "20381239": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What kind of furniture is under the keyboard?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201879336": {
+        "result": "truck",
+        "answer": "truck",
+        "query": "What is the logo in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a logo?\", long_answer=False) == 'yes', \"Expected output to be a logo\"\n    return result"
+    },
+    "20836676": {
+        "result": "table",
+        "answer": "table",
+        "query": "Which kind of furniture do the dolls sit on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20753268": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What kind of furniture is short?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a kind of furniture?\", long_answer=False) == 'yes', \"Expected output to be a kind of furniture\"\n    return result"
+    },
+    "201462494": {
+        "result": "catcher",
+        "answer": "catcher",
+        "query": "Who is catching the round ball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "2098247": {
+        "result": "narrow",
+        "answer": "narrow",
+        "query": "Is the speaker wide or narrow?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['wide', 'narrow'], \"Expected output to be wide or narrow\"\n    return result"
+    },
+    "201832439": {
+        "result": "pillows",
+        "answer": "pillows",
+        "query": "What is located on top of the blanket?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be located on top of a blanket?\", long_answer=False) == 'yes', \"Expected output to describe something that can be located on top of a blanket\"\n    return result"
+    },
+    "201428826": {
+        "result": "round",
+        "answer": "round",
+        "query": "What is the shape of the appliance the box is smaller than?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"or\", the return values will be one of the options\n    valid_shapes = ['round','square','rectangle']\n    if result not in valid_shapes:\n        # Use llm_query to check if it's describing a shape\n        is_shape = llm_query(f\"Is '{result}' a shape name?\", long_answer=False)\n        assert is_shape == 'yes', f\"Expected a shape name, got {result}\"\n    return result"
+    },
+    "201056134": {
+        "result": "ball",
+        "answer": "ball",
+        "query": "What is the soccer player in front of the goal watching?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "201873150": {
+        "result": "fire truck",
+        "answer": "fire truck",
+        "query": "What is the bridge behind of, a fire truck or an ambulance?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"or\", the return values will be one of the options\n    valid_options = ['fire truck', 'ambulance']\n    if result not in valid_options:\n        # Use llm_query to check if it's describing a vehicle\n        is_vehicle = llm_query(f\"Is '{result}' a vehicle name?\", long_answer=False)\n        assert is_vehicle == 'yes', f\"Expected a vehicle name, got {result}\"\n    return result"
+    },
+    "2090973": {
+        "result": "dark",
+        "answer": "dark",
+        "query": "Are the windows dark or white?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['dark', 'white'], \"Expected output to be dark or white\"\n    return result"
+    },
+    "201735403": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What piece of furniture is the laptop sitting on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201676306": {
+        "result": "left",
+        "answer": "left",
+        "query": "Is she to the left or to the right of the pillow that looks soft?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['left', 'right'], \"Expected output to be left or right\"\n    return result"
+    },
+    "20827394": {
+        "result": "sofa",
+        "answer": "sofa",
+        "query": "Behind what is the window, a sofa or a bed?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['sofa', 'bed'], \"Expected output to be sofa or bed\"\n    return result"
+    },
+    "20978740": {
+        "result": "motorcycle",
+        "answer": "motorcycle",
+        "query": "What is the person to the right of the girl sitting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "2097644": {
+        "result": "keyboard",
+        "answer": "keyboard",
+        "query": "What kind of device is not electronic, the monitor or the keyboard?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['monitor', 'keyboard'], \"Expected output to be monitor or keyboard\"\n    return result"
+    },
+    "20652443": {
+        "result": "cars",
+        "answer": "cars",
+        "query": "What are the vehicles that the woman is behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} vehicles?\", long_answer=False) == 'yes', \"Expected output to be vehicles\"\n    return result"
+    },
+    "20652444": {
+        "result": "cars",
+        "answer": "cars",
+        "query": "What vehicles is the woman behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of vehicle?\", long_answer=False) == 'yes', \"Expected output to be a type of vehicle\"\n    return result"
+    },
+    "201207201": {
+        "result": "apples",
+        "answer": "apples",
+        "query": "What fruits are sitting on the leafy vegetables?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} fruits?\", long_answer=False) == 'yes', \"Expected output to be a type of fruit\"\n    return result"
+    },
+    "202156894": {
+        "result": "rocks",
+        "answer": "rocks",
+        "query": "What are the large animals standing behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Are {result} large animals?\", long_answer=False) == 'yes', \"Expected output to be large animals\"\n    return result"
+    },
+    "2044506": {
+        "result": "reading",
+        "answer": "reading",
+        "query": "What's the man doing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} an action?\", long_answer=False) == 'yes', \"Expected output to be an action\"\n    return result"
+    },
+    "201504740": {
+        "result": "surfboard",
+        "answer": "surfboard",
+        "query": "What is the flower on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201411026": {
+        "result": "caucasian",
+        "answer": "caucasian",
+        "query": "Is the male person Asian or Caucasian?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['Asian', 'Caucasian'], \"Expected output to be Asian or Caucasian\"\n    return result"
+    },
+    "20287585": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is standing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "202265646": {
+        "result": "eating",
+        "answer": "eating",
+        "query": "What is the woman doing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} an action?\", long_answer=False) == 'yes', \"Expected output to be an action\"\n    return result"
+    },
+    "201207375": {
+        "result": "broccoli",
+        "answer": "broccoli",
+        "query": "What vegetable is the fork sitting under?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of vegetable?\", long_answer=False) == 'yes', \"Expected output to be a type of vegetable\"\n    return result"
+    },
+    "20754682": {
+        "result": "tall",
+        "answer": "tall",
+        "query": "What is the height of the person that is standing by the other person?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert not any(char.isdigit() for char in result), \"Expected output to not have numbers\"\n    return result"
+    },
+    "20836777": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the bag that is not large hanging from?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of bag?\", long_answer=False) == 'yes', \"Expected output to be a type of bag\"\n    return result"
+    },
+    "20752459": {
+        "result": "rectangular",
+        "answer": "rectangular",
+        "query": "What is the shape of the counter the bottles are on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['round','square','rectangle'], \"Expected output to be round, square or rectangle\"\n    return result"
+    },
+    "20645648": {
+        "result": "white",
+        "answer": "white",
+        "query": "Which color is the toilet paper on the right?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "201982425": {
+        "result": "mirror",
+        "answer": "mirror",
+        "query": "What is the couch in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201156262": {
+        "result": "boy",
+        "answer": "boy",
+        "query": "Who is playing with the ball?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "202180335": {
+        "result": "field",
+        "answer": "field",
+        "query": "Where is the soccer player that is bending standing on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a location?\", long_answer=False) == 'yes', \"Expected output to be a location\"\n    return result"
+    },
+    "201481567": {
+        "result": "umbrella",
+        "answer": "umbrella",
+        "query": "What is covering the woman that is wearing pants?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be worn?\", long_answer=False) == 'yes', \"Expected output to describe something that can be worn\"\n    return result"
+    },
+    "20637064": {
+        "result": "stove",
+        "answer": "stove",
+        "query": "What is the appliance that the utensil made of stainless steel is sitting atop?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "2066187": {
+        "result": "baseball mitt",
+        "answer": "baseball mitt",
+        "query": "Which kind of clothing is not white, the baseball mitt or the sweater?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a kind of clothing?\", long_answer=False) == 'yes', \"Expected output to be a kind of clothing\"\n    return result"
+    },
+    "20468936": {
+        "result": "fence",
+        "answer": "fence",
+        "query": "What is the sign on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a sign?\", long_answer=False) == 'yes', \"Expected output to be a sign\"\n    return result"
+    },
+    "20631593": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is standing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20169793": {
+        "result": "left",
+        "answer": "left",
+        "query": "On which side is the flag?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['left', 'right'], \"Expected output to be left or right\"\n    return result"
+    },
+    "202156871": {
+        "result": "dry",
+        "answer": "dry",
+        "query": "Are the elephants wet or dry?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['wet', 'dry'], \"Expected output to be wet or dry\"\n    return result"
+    },
+    "201498771": {
+        "result": "computer",
+        "answer": "computer",
+        "query": "What is the phone in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "202023478": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What kind of furniture is behind the shoes?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20631672": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is wearing the shoes?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20631671": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is wearing shoes?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20865546": {
+        "result": "brown",
+        "answer": "brown",
+        "query": "What color is the cow on the left side?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_colors = ['red', 'blue', 'green']\n    if result not in valid_colors:\n        # Use llm_query to check if it's describing a color\n        is_color = llm_query(f\"Is '{result}' a color name?\", long_answer=False)\n        assert is_color == 'yes', f\"Expected a color name, got {result}\"\n    return result"
+    },
+    "20899103": {
+        "result": "right",
+        "answer": "right",
+        "query": "Is the young person to the right or to the left of the bag the man is to the left of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['to the right', 'to the left'], \"Expected output to be to the right or to the left\"\n    return result"
+    },
+    "201079929": {
+        "result": "open",
+        "answer": "open",
+        "query": "Are the drapes closed or open?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['closed', 'open'], \"Expected output to be closed or open\"\n    return result"
+    },
+    "20827485": {
+        "result": "sofa",
+        "answer": "sofa",
+        "query": "What item of furniture is behind the coffee table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20240934": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the item of furniture underneath the water bottle?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20381231": {
+        "result": "rectangular",
+        "answer": "rectangular",
+        "query": "What is the shape of the desk that is below the keyboard?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['round','square','rectangle'], \"Expected output to be round, square or rectangle\"\n    return result"
+    },
+    "20856728": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "Which kind of furniture is the wallet lying on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20631651": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is wearing the helmet?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20631650": {
+        "result": "batter",
+        "answer": "batter",
+        "query": "Who is wearing a helmet?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20248000": {
+        "result": "bench",
+        "answer": "bench",
+        "query": "What is the old woman sitting on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20204893": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "What is the piece of furniture that the rectangular device is sitting atop?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201751826": {
+        "result": "adidas",
+        "answer": "adidas",
+        "query": "Which company made the bat, Adidas or Nike?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['Adidas', 'Nike'], \"Expected output to be Adidas or Nike\"\n    return result"
+    },
+    "20307329": {
+        "result": "left",
+        "answer": "left",
+        "query": "Is the couch to the left or to the right of the man?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['left', 'right'], \"Expected output to be left or right\"\n    return result"
+    },
+    "201068383": {
+        "result": "asian",
+        "answer": "asian",
+        "query": "Is this girl Caucasian or Asian?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['Caucasian', 'Asian'], \"Expected output to be Caucasian or Asian\"\n    return result"
+    },
+    "201030469": {
+        "result": "couch",
+        "answer": "couch",
+        "query": "Which kind of furniture is the wall behind of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201207362": {
+        "result": "plate",
+        "answer": "plate",
+        "query": "What does the fork sit on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201175526": {
+        "result": "woman",
+        "answer": "woman",
+        "query": "Who is holding onto the device that looks black?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "20508729": {
+        "result": "wii controller",
+        "answer": "wii controller",
+        "query": "What device is the blonde woman in front of the table holding, a Wii controller or a phone?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['Wii controller', 'phone'], \"Expected output to be Wii controller or phone\"\n    return result"
+    },
+    "201319584": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the piece of furniture that the soup is on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "202060018": {
+        "result": "hat",
+        "answer": "hat",
+        "query": "What is the furry animal wearing?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} an animal?\", long_answer=False) == 'yes', \"Expected output to be an animal\"\n    return result"
+    },
+    "20783013": {
+        "result": "table",
+        "answer": "table",
+        "query": "What do the people that are talking sit around?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20668061": {
+        "result": "couch",
+        "answer": "couch",
+        "query": "Which kind of furniture is brown?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_furniture = ['chair', 'table', 'bed']\n    if result not in valid_furniture:\n        # Use llm_query to check if it's describing a furniture\n        is_furniture = llm_query(f\"Is '{result}' a furniture name?\", long_answer=False)\n        assert is_furniture == 'yes', f\"Expected a furniture name, got {result}\"\n    return result"
+    },
+    "20618756": {
+        "result": "people",
+        "answer": "people",
+        "query": "Who are the rackets in front of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a person?\", long_answer=False) == 'yes', \"Expected output to be a person\"\n    return result"
+    },
+    "201998397": {
+        "result": "large",
+        "answer": "large",
+        "query": "How big is the rug that is under the table?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a size?\", long_answer=False) == 'yes', \"Expected output to be a size\"\n    return result"
+    },
+    "20856953": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What item of furniture is the purse lying on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "202156976": {
+        "result": "soft",
+        "answer": "soft",
+        "query": "How hard is the dirt that the elephants are on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a description of the dirt's hardness?\", long_answer=False) == 'yes', \"Expected output to describe the dirt's hardness\"\n    return result"
+    },
+    "20308195": {
+        "result": "cabinets",
+        "answer": "cabinets",
+        "query": "The microwave oven made of stainless steel is hanging from what?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a location?\", long_answer=False) == 'yes', \"Expected output to be a location\"\n    return result"
+    },
+    "20673080": {
+        "result": "chair",
+        "answer": "chair",
+        "query": "What is the piece of furniture that the empty bag is resting on called?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201188314": {
+        "result": "caucasian",
+        "answer": "caucasian",
+        "query": "Is the man Asian or Caucasian?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['Asian', 'Caucasian'], \"Expected output to be Asian or Caucasian\"\n    return result"
+    },
+    "20857168": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What type of furniture is the cellphone lying on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "20349785": {
+        "result": "cell phone",
+        "answer": "cell phone",
+        "query": "What's the woman holding?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that can be held?\", long_answer=False) == 'yes', \"Expected output to describe something that can be held\"\n    return result"
+    },
+    "202100721": {
+        "result": "stove",
+        "answer": "stove",
+        "query": "What is the ceramic pot sitting on top of?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    return result"
+    },
+    "20489478": {
+        "result": "bed",
+        "answer": "bed",
+        "query": "What is the person sleeping on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} something that a person can sleep on?\", long_answer=False) == 'yes', \"Expected output to describe something that a person can sleep on\"\n    return result"
+    },
+    "201509729": {
+        "result": "motorcycle",
+        "answer": "motorcycle",
+        "query": "What is the seat on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "202006976": {
+        "result": "clean",
+        "answer": "clean",
+        "query": "Are the utensils inside the utensil holder clean or dirty?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['clean', 'dirty'], \"Expected output to be clean or dirty\"\n    return result"
+    },
+    "201616020": {
+        "result": "indoors",
+        "answer": "indoors",
+        "query": "Is it an indoors or outdoors scene?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives two options, so the result should be one of them\n    assert result in ['indoor', 'outdoor'], \"Expected output to be indoor or outdoor\"\n    return result"
+    },
+    "201669557": {
+        "result": "table",
+        "answer": "table",
+        "query": "What is the item of furniture that the cookies are on?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    },
+    "201047425": {
+        "result": "suit",
+        "answer": "suit",
+        "query": "Which type of clothing is not ugly, the suit or the dress shirt?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    # Query gives options using \"\"or\"\", the return values will be one of the options\n    valid_clothing = ['suit', 'dress shirt']\n    if result not in valid_clothing:\n        # Use llm_query to check if it's describing a type of clothing\n        is_clothing = llm_query(f\"Is '{result}' a type of clothing?\", long_answer=False)\n        assert is_clothing == 'yes', f\"Expected a type of clothing, got {result}\"\n    return result"
+    },
+    "202144694": {
+        "result": "blender",
+        "answer": "blender",
+        "query": "What type of appliance is in front of the man that is in front of the bicycle?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a type of appliance?\", long_answer=False) == 'yes', \"Expected output to be a type of appliance\"\n    return result"
+    },
+    "202003814": {
+        "result": "desk",
+        "answer": "desk",
+        "query": "What piece of furniture is on top of the floor?",
+        "test_code": "def execute_test(image):\n    result = execute_command(image, my_fig, time_wait_between_lines, syntax)\n    # Test case 1:\n    assert isinstance(result, str), \"Expected output to be string.\"\n    # Test case 2:\n    assert len(result.split()) in [1,2], \"Expected output to be one or two words\"\n    # Test case 3:\n    assert llm_query(f\"Is {result} a piece of furniture?\", long_answer=False) == 'yes', \"Expected output to be a piece of furniture\"\n    return result"
+    }
+}

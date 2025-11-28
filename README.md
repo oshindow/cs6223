@@ -1,6 +1,8 @@
-# PropTest: Automatic Property Testing for Improved Visual Programming
+# CS6223 software testing
 
-This is the code for the paper [PropTest: Automatic Property Testing for Improved Visual Programming](https://jaywonkoo17.github.io/PropTest/) 
+This is a repo for the codebase of NUS CS6223 course project: On Re-ranking Strategy for In-Context Learning in LLM Property-based Test Cases Generation. 
+
+This Project is movitived by PropTest: Automatic Property Testing for Improved Visual Programming. This is the code for the paper [PropTest: Automatic Property Testing for Improved Visual Programming](https://jaywonkoo17.github.io/PropTest/) 
 
 ### [Paper (EMNLP 2024 Findings)](https://arxiv.org/pdf/2403.16921) | [Project Page](https://jaywonkoo17.github.io/PropTest/)
 
@@ -35,7 +37,33 @@ CONFIG_NAMES=your_config_name python main_batch.py
 ```
 ```CONFIG_NAMES``` is an environment variable that specifies the configuration files to use.
 
-# Citation
+# Experiment results
+
+nohup.out for the proposed model
+
+``````bash
+tail nohup.out
+
+Accuracy at Batch 628/629: 0.4697090157417714
+100%|██████████| 629/629 [32:43:04<00:00, 187.26s/it]
+Saving results to results_46.csv at epoch 628
+Final accuracy: 0.4697090157417714
+Saving results to results_46.csv
+```
+
+nohup.out.last_all for the baseline
+
+```bash
+tail nohup.out.last_all
+
+Accuracy at Batch 628/629: 0.4587374781364287
+100%|██████████| 629/629 [30:27:25<00:00, 174.32s/it]
+Saving results to results_42.csv at epoch 628
+Final accuracy: 0.4587374781364287
+Saving results to results_42.csv
+```
+
+
 
 Please cite our paper if you find our method or code useful:
 ```
