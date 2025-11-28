@@ -6,6 +6,41 @@ This Project is movitived by PropTest: Automatic Property Testing for Improved V
 
 ### [Paper (EMNLP 2024 Findings)](https://arxiv.org/pdf/2403.16921) | [Project Page](https://jaywonkoo17.github.io/PropTest/)
 
+
+# Experimental results
+
+### nohup.out for the proposed model
+
+```bash
+tail nohup.out
+
+Accuracy at Batch 628/629: 0.4697090157417714
+100%|██████████| 629/629 [32:43:04<00:00, 187.26s/it]
+Saving results to results_46.csv at epoch 628
+Final accuracy: 0.4697090157417714
+Saving results to results_46.csv
+```
+
+### nohup.out.last_all for the baseline (advanced PropTest)
+
+```bash
+tail nohup.out.last_all
+
+Accuracy at Batch 628/629: 0.4587374781364287
+100%|██████████| 629/629 [30:27:25<00:00, 174.32s/it]
+Saving results to results_42.csv at epoch 628
+Final accuracy: 0.4587374781364287
+Saving results to results_42.csv
+```
+
+- `result_soundness.json`: baseline results used for computing soundness
+- `compute_soundness.py`: script for computing soundness
+- `count_failed.py`: script for counting classification outcomes
+- `draw.py`: script for plotting the confusion matrix
+- `k-means.py`: script for obtaining the k-means clustering results
+- `llm_mutant.py`: script for building the LLM used to generate mutants
+
+
 # Environmnet
 
 Clone recursively:
@@ -37,40 +72,3 @@ CONFIG_NAMES=your_config_name python main_batch.py
 ```
 ```CONFIG_NAMES``` is an environment variable that specifies the configuration files to use.
 
-# Experiment results
-
-nohup.out for the proposed model
-
-``````bash
-tail nohup.out
-
-Accuracy at Batch 628/629: 0.4697090157417714
-100%|██████████| 629/629 [32:43:04<00:00, 187.26s/it]
-Saving results to results_46.csv at epoch 628
-Final accuracy: 0.4697090157417714
-Saving results to results_46.csv
-```
-
-nohup.out.last_all for the baseline
-
-```bash
-tail nohup.out.last_all
-
-Accuracy at Batch 628/629: 0.4587374781364287
-100%|██████████| 629/629 [30:27:25<00:00, 174.32s/it]
-Saving results to results_42.csv at epoch 628
-Final accuracy: 0.4587374781364287
-Saving results to results_42.csv
-```
-
-
-
-Please cite our paper if you find our method or code useful:
-```
-@article{koo2024proptest,
-      title={PropTest: Automatic Property Testing for Improved Visual Programming}, 
-      author={Jaywon Koo and Ziyan Yang and Paola Cascante-Bonilla and Baishakhi Ray and Vicente Ordonez},
-      journal={arXiv preprint arXiv:2403.16921},
-      year={2024}
-}
-```
